@@ -1,1 +1,1 @@
-worker: python script.py --log-file
+web: bundle exec thin start -p $PORT
