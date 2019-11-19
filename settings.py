@@ -17,7 +17,7 @@ SESSION_CONFIGS = [
     ),
 ]
 
-
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
 LANGUAGE_CODE = 'en'
@@ -27,16 +27,16 @@ REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
 ROOMS = [
-    # dict(
-    #     name='roybal',
-    #     display_name='Research Study',
-    #     participant_label_file='survey\participantList.txt',
-    #     use_secure_urls=True
-    # ),
-    # dict(
-    #     name='study',
-    #     display_name='Roybal'
-    # ),
+    dict(
+        name='roybal',
+        display_name='Research Study',
+        participant_label_file='survey\participantList.txt',
+        use_secure_urls=True
+    ),
+    dict(
+        name='study',
+        display_name='Roybal'
+    ),
 ]
 
 ADMIN_USERNAME = 'admin'
