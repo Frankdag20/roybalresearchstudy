@@ -30,7 +30,7 @@ ROOMS = [
     dict(
         name='roybal',
         display_name='Research Study',
-        participant_label_file='survey\participantList.txt',
+        participant_label_file='participantList.txt',
         use_secure_urls=True
     ),
     dict(
