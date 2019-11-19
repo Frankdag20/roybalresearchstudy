@@ -27,16 +27,16 @@ REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
 ROOMS = [
-    dict(
-        name='Roybal Study',
-        display_name='Research Study',
-        participant_label_file='C:\Users\frank\OneDrive\Desktop\Research Survey\Questionnaire\survey\participantList.txt',
-        use_secure_urls=True
-    ),
-    dict(
-        name='stydy',
-        display_name='Roybal'
-    ),
+    # dict(
+    #     name='Roybal Study',
+    #     display_name='Research Study',
+    #     participant_label_file='survey\participantList.txt',
+    #     use_secure_urls=True
+    # ),
+    # dict(
+    #     name='study',
+    #     display_name='Roybal'
+    # ),
 ]
 
 ADMIN_USERNAME = 'admin'
