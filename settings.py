@@ -26,7 +26,18 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'USD'
 USE_POINTS = True
 
-ROOMS = []
+ROOMS = [
+    dict(
+        name='Roybal Study',
+        display_name='Research Study',
+        participant_label_file='C:\Users\frank\OneDrive\Desktop\Research Survey\Questionnaire\survey\participantList.txt',
+        use_secure_urls=True
+    ),
+    dict(
+        name='stydy',
+        display_name='Roybal'
+    ),
+]
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
