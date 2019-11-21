@@ -19,6 +19,7 @@ class Start(Page):
 
 class Wait(Page):
     form_model = 'player'
+    timer_text = "Time until tomorrow's survey"
     timeout_seconds = 10
 
 class MyPage(Page):
