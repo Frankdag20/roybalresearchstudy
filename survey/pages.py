@@ -2,6 +2,10 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+import datetime
+
+currentDT = datetime.datetime.now()
+
 
 class Start(Page):
     form_model = 'player'
@@ -15,7 +19,7 @@ class Start(Page):
 
 class Wait(Page):
     form_model = 'player'
-    timeout_seconds = 30
+    timeout_seconds = 10
 
 class MyPage(Page):
     form_model = 'player'
