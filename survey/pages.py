@@ -15,61 +15,37 @@ class Start(Page):
 
 class Wait(WaitPage):
     template_name = 'your_app_name/MyWaitPage.html'
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+    timeout_seconds = 30
 
 class MyPage(Page):
     form_model = 'player'
     form_fields = ['info1', 'info2']
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
+#    def get_timeout_seconds(self):
+#        return self.participant.vars['expiry'] - time.time()
 
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+#    def is_displayed(self):
+#        return self.get_timeout_seconds() > 3
 
 class MyPage2(Page):
     form_model = 'player'
     form_fields = ['info3', 'info2']
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
 
 class MyPage3(Page):
     form_model = 'player'
     form_fields = ['info1', 'info4']
     #timeout_seconds = 60
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
 
 class MyPage4(Page):
     form_model = 'player'
     form_fields = ['info1', 'info2']
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
 
 class MyPage5(Page):
     form_model = 'player'
     form_fields = ['info1', 'info2']
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
 
 
 class Results(Page):
     pass
 
 
-page_sequence = [Start, MyPage, Wait, MyPage2, Wait, MyPage3, Wait, MyPage4, Wait, MyPage5, Wait]
+page_sequence = [MyPage, Wait, MyPage2, Wait, MyPage3, Wait, MyPage4, Wait, MyPage5, Wait]
