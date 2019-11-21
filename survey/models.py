@@ -40,3 +40,11 @@ class Player(BasePlayer):
         choices=[['Choice1', 'Choice1'], ['Choice2', 'Choice2']],
         label='Second question?',
         widget=widgets.RadioSelect)
+    info3 = models.StringField(
+        choices=[['Choice1', 'Choice1'], ['Choice2', 'Choice2']],
+        label='Another question?',
+        widget=widgets.RadioSelect)
+    info4 = models.StringField(
+        choices=[['Choice1', 'Choice1'], ['Choice2', 'Choice2']],
+        label='More information',
+        widget=widgets.RadioSelect)
