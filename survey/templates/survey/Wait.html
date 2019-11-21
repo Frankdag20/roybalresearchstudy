@@ -1,9 +1,6 @@
-{% extends 'otree/WaitPage.html' %}
+{% extends "global/Page.html" %}
 {% load otree %}
-{% block title %}{{ title_text }}{% endblock %}
-{% block content %}
-    {{ body_text }}
-    <p>
-        Thank you for filling out the survey!
-    </p>
+
+{% block title %}
+    Thank you for filling out the survey for today!
 {% endblock %}

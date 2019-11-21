@@ -13,8 +13,8 @@ class Start(Page):
         # user has 5 minutes to complete as many pages as possible
         self.participant.vars['expiry'] = time.time() + 1 * 60
 
-class Wait(WaitPage):
-    template_name = 'survey/Wait.html'
+class Wait(Page):
+    form_model = 'player'
     timeout_seconds = 30
 
 class MyPage(Page):
