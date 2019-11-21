@@ -45,6 +45,6 @@ class Player(BasePlayer):
         label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life? (1 unlikely - 5 very likely)',
         widget=widgets.RadioSelect)
     info4 = models.StringField(
-        choices=[['😄', '😄'], ['🙂', '🙂'], ['😐', '😐'], ['🙁', '🙁'], ['☹', '☹']],
+        choices=[['😄', '😄'], ['🙂', '🙂'], ['😐', '😐'], ['🙁', '🙁'], ['😧', '😧']],
         label='Mood?',
         widget=widgets.RadioSelect)
