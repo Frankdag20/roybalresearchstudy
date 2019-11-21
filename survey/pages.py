@@ -14,7 +14,7 @@ class Start(Page):
         self.participant.vars['expiry'] = time.time() + 1 * 60
 
 class Wait(WaitPage):
-    template_name = 'your_app_name/MyWaitPage.html'
+    template_name = 'survey/Wait.html'
     timeout_seconds = 30
 
 class MyPage(Page):
