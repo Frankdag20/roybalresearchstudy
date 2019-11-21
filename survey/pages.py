@@ -15,6 +15,11 @@ class Start(Page):
 
 class Wait(WaitPage):
     template_name = 'your_app_name/MyWaitPage.html'
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
 
 class MyPage(Page):
     form_model = 'player'
@@ -67,4 +72,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [MyPage, Wait, MyPage2, Wait, MyPage3, Wait, MyPage4, Wait, MyPage5, Wait]
+page_sequence = [Start, MyPage, Wait, MyPage2, Wait, MyPage3, Wait, MyPage4, Wait, MyPage5, Wait]
