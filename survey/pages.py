@@ -24,7 +24,7 @@ class Wait(Page):
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['info1', 'info2']
+    form_fields = ['info1', 'info2', 'info3', 'info4']
 #    def get_timeout_seconds(self):
 #        return self.participant.vars['expiry'] - time.time()
 
