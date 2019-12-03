@@ -21,10 +21,12 @@ class Wait(Page):
     form_model = 'player'
     timer_text = "Time until tomorrow's survey"
     timeout_seconds = 10
+    time = datetime.now()
+    form_fields = [time]
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['info1', 'info2', 'info3', 'info4']
+    form_fields = ['info1']
 #    def get_timeout_seconds(self):
 #        return self.participant.vars['expiry'] - time.time()
 
@@ -33,24 +35,27 @@ class MyPage(Page):
 
 class MyPage2(Page):
     form_model = 'player'
-    form_fields = ['info3', 'info2']
+    form_fields = ['info2']
 
 class MyPage3(Page):
     form_model = 'player'
-    form_fields = ['info1', 'info4']
+    form_fields = ['info3']
     #timeout_seconds = 60
 
 class MyPage4(Page):
     form_model = 'player'
-    form_fields = ['info1', 'info2']
+    form_fields = ['info4']
 
 class MyPage5(Page):
     form_model = 'player'
-    form_fields = ['info1', 'info2']
+    form_fields = ['info5', 'info6', 'info7', 'info8', 'info9']
 
 
 class Results(Page):
     pass
 
 
-page_sequence = [MyPage, Wait, MyPage2, Wait, MyPage3, Wait, MyPage4, Wait, MyPage5, Wait]
+page_sequence = [MyPage, MyPage2, MyPage3, MyPage4, MyPage5, Wait,
+                 MyPage, MyPage2, MyPage3, MyPage4, MyPage5, Wait,
+                 MyPage, MyPage2, MyPage3, MyPage4, MyPage5, Wait,
+                 MyPage, MyPage2, MyPage3, MyPage4, MyPage5, Wait]
