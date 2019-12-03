@@ -45,7 +45,7 @@ class Player(BasePlayer):
     #     label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life? (1 unlikely - 5 very likely)',
     #     widget=widgets.RadioSelectHorizontal)
     info3 = models.IntegerField(
-        label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life? (1 unlikely - 5 very likely)',
+        label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life?',
         widget=widgets.RadioSelectHorizontal, choices=[[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]])
     info4 = models.StringField(
         choices=[['1', '😄'], ['2', '🙂'], ['3', '😐'], ['4', '🙁'], ['5', '😧']],
