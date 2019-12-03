@@ -49,13 +49,13 @@ class Player(BasePlayer):
         label='Mood?',
         widget=widgets.RadioSelectHorizontal)
     info5 = models.TimeField(
-        label='What time did you get into bed last night?'
+        label='What time did you get into bed last night?')
     info6 = models.TimeField(
-        label='What time did you go to sleep last night?'
+        label='What time did you go to sleep last night?')
     info7 = models.TimeField(
-        label='What time did you wake up?'
+        label='What time did you wake up?')
     info8 = models.TimeField(
-        label='What time did you get out of bed?'
+        label='What time did you get out of bed?')
     info9 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Did you remove any of the monitors for >10 minutes today?',
