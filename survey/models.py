@@ -44,18 +44,20 @@ class Player(BasePlayer):
     #     choices=[[1, 'Unlikely \n 1'], ['2', '2'], ['3', 'Neutral \n 3'], ['4', '4'], ['5', 'Very Likely \n 5']],
     #     label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life? (1 unlikely - 5 very likely)',
     #     widget=widgets.RadioSelectHorizontal)
-    info3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1, 'Unlikely \n 1'], [2, 2], [3, 'Neutral \n 3'], [4, 4], [5, 'Very Likely \n 5']])
+    info3 = models.IntegerField(
+        label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life? (1 unlikely - 5 very likely)',
+        widget=widgets.RadioSelectHorizontal, choices=[[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]])
     info4 = models.StringField(
         choices=[['1', '😄'], ['2', '🙂'], ['3', '😐'], ['4', '🙁'], ['5', '😧']],
         label='Mood?',
         widget=widgets.RadioSelectHorizontal)
-    info5 = models.IntegerField(
+    info5 = models.StringField(
         label='What time did you get into bed last night?')
-    info6 = models.IntegerField(
+    info6 = models.StringField(
         label='What time did you go to sleep last night?')
-    info7 = models.IntegerField(
+    info7 = models.StringField(
         label='What time did you wake up?')
-    info8 = models.IntegerField(
+    info8 = models.StringField(
         label='What time did you get out of bed?')
     info9 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
