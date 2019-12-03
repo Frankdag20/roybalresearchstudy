@@ -11,20 +11,20 @@
       <thead>
          <tr>
              <th scope="col"></th>
-            <th scope="col">Unlikely</th>
-            <th scope="col">Not Likely</th>
-            <th scope="col">Neutral</th>
+             <th scope="col">Unlikely</th>
+             <th scope="col">Not Likely</th>
+             <th scope="col">Neutral</th>
              <th scope="col">Likely</th>
-            <th scope="col">Very Likely</th>
+             <th scope="col">Very Likely</th>
          </tr>
       </thead>
       <tbody>
           <tr>
             <td>{{ form.info3.label }}</td>
                 {% for choice in form.info3 %}
-                <td>{{ choice }}</td>
+                <td>{{  choice  }}</td>
                 {% endfor %}
-</tr>
+          </tr>
       </tbody>
 
    </table>
