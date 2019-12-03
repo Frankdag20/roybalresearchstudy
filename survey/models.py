@@ -48,13 +48,13 @@ class Player(BasePlayer):
         choices=[['1', '😄'], ['2', '🙂'], ['3', '😐'], ['4', '🙁'], ['5', '😧']],
         label='Mood?',
         widget=widgets.RadioSelectHorizontal)
-    info5 = models.TimeField(
+    info5 = models.IntegerField(
         label='What time did you get into bed last night?')
-    info6 = models.TimeField(
+    info6 = models.IntegerField(
         label='What time did you go to sleep last night?')
-    info7 = models.TimeField(
+    info7 = models.IntegerField(
         label='What time did you wake up?')
-    info8 = models.TimeField(
+    info8 = models.IntegerField(
         label='What time did you get out of bed?')
     info9 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
