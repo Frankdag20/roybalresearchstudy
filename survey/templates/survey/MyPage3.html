@@ -2,18 +2,18 @@
 {% load otree %}
 
 {% block title %}
-    Page 3
 {% endblock %}
 
 {% block content %}
 
     <tr>
-        <td>{{ form.offer_1.label }}</td>
-        {% for choice in form.offer_1 %}
+        <td>{{ form.info3.label }}</td>
+        {% for choice in form.info3 %}
             <td>{{ choice }}</td>
         {% endfor %}
     </tr>
 
     {% next_button %}
 
+    Page 3/5
 {% endblock %}
