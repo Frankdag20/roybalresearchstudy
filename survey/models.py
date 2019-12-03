@@ -44,7 +44,7 @@ class Player(BasePlayer):
     #     choices=[[1, 'Unlikely \n 1'], ['2', '2'], ['3', 'Neutral \n 3'], ['4', '4'], ['5', 'Very Likely \n 5']],
     #     label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life? (1 unlikely - 5 very likely)',
     #     widget=widgets.RadioSelectHorizontal)
-    info3 = models.IntegerField(widget=widgets.RadioSelect, choices=[[1, 'Unlikely \n 1'], [2, 2], [3, 'Neutral \n 3'], [4, 4], [5, 'Very Likely \n 5']])
+    info3 = models.IntegerField(widget=widgets.RadioSelectHorizontal, choices=[[1, 'Unlikely \n 1'], [2, 2], [3, 'Neutral \n 3'], [4, 4], [5, 'Very Likely \n 5']])
     info4 = models.StringField(
         choices=[['1', '😄'], ['2', '🙂'], ['3', '😐'], ['4', '🙁'], ['5', '😧']],
         label='Mood?',
