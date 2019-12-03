@@ -21,8 +21,8 @@ class Wait(Page):
     form_model = 'player'
     timer_text = "Time until tomorrow's survey"
     timeout_seconds = 10
-    time = datetime.now()
-    form_fields = [time]
+    # time = datetime.now()
+    # form_fields = [time]
 
 class MyPage(Page):
     form_model = 'player'
