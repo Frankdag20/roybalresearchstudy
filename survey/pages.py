@@ -4,7 +4,7 @@ from .models import Constants
 
 import datetime
 
-currentDT = datetime.datetime.now()
+# currentDT = datetime.datetime.now()
 
 
 class Start(Page):
