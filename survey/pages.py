@@ -19,10 +19,13 @@ class Start(Page):
 
 class Wait(Page):
     form_model = 'player'
-    timer_text = "Time until tomorrow's survey"
+    timer_text = "See you tomorrow!"
     timeout_seconds = 10
     # time = datetime.now()
     # form_fields = [time]
+
+class Intro(Page):
+    form_model = 'player'
 
 class MyPage(Page):
     form_model = 'player'
@@ -55,7 +58,7 @@ class Results(Page):
     pass
 
 
-page_sequence = [MyPage, MyPage2, MyPage3, MyPage4, Wait,
-                 MyPage, MyPage2, MyPage3, MyPage4, Wait,
-                 MyPage, MyPage2, MyPage3, MyPage4, Wait,
-                 MyPage, MyPage2, MyPage3, MyPage4, Wait]
+page_sequence = [Intro, MyPage, MyPage2, MyPage3, MyPage4, Wait,
+                 Intro, MyPage, MyPage2, MyPage3, MyPage4, Wait,
+                 Intro, MyPage, MyPage2, MyPage3, MyPage4, Wait,
+                 Intro, MyPage, MyPage2, MyPage3, MyPage4, Wait]
