@@ -6,6 +6,15 @@
 
 {% block content %}
 
+    {% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin:10px;
+      }
+   </style>
+    {% endblock %}
+
     {% formfields %}
 
     {% next_button %}
