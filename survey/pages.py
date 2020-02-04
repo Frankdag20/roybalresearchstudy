@@ -29,7 +29,7 @@ class Intro(Page):
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['affirm1, affirm2, affirm3']
+    form_fields = ['affirm1', 'affirm2', 'affirm3']
 #    def get_timeout_seconds(self):
 #        return self.participant.vars['expiry'] - time.time()
 
@@ -38,7 +38,7 @@ class MyPage(Page):
 
 class MyPage2(Page):
     form_model = 'player'
-    form_fields = ['healthP1, healthP2, healthP3']
+    form_fields = ['healthP1', 'healthP2', 'healthP3']
 
 class MyPage3(Page):
     form_model = 'player'
