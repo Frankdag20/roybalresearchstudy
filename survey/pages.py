@@ -19,7 +19,7 @@ class Start(Page):
 
 class Wait(Page):
     form_model = 'player'
-    timer_text = "See you tomorrow!"
+    #timer_text = "See you tomorrow!"
     timeout_seconds = 10
     # time = datetime.now()
     # form_fields = [time]
