@@ -61,4 +61,4 @@ class Results(Page):
 page_sequence = [Intro, MyPage, MyPage2, Wait,
                  Intro, MyPage, MyPage2, Wait,
                  Intro, MyPage, MyPage2, Wait,
-                 Intro, MyPage, MyPage2, Wait]
+                 Intro, MyPage, MyPage2]
