@@ -12,7 +12,7 @@ SESSION_CONFIG_DEFAULTS = dict(
 SESSION_CONFIGS = [
     dict(
         name='survey',
-        num_demo_participants=5,
+        num_demo_participants=70,
         app_sequence=['survey']
     ),
 ]
