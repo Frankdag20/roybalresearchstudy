@@ -1,14 +1,17 @@
 {% extends "global/Page.html" %}
 {% load otree %}
-
+<html>
 {% block content %}
 
-div.zoomed {
+<style>
+zoomed {
     zoom: 3;
     -moz-transform: scale(3);
     -moz-transform-origin: 0 0;
 }
-<div.zoomed>
+</style>
+
+<zoomed>
 <div class="card">
   <div class="card-header">
     Question
@@ -48,4 +51,6 @@ div.zoomed {
 <!--</div>-->
 
 {% endblock %}
-</div.zoomed>
+</zoomed>
+
+</html>
