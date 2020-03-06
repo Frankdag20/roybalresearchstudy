@@ -18,12 +18,6 @@ SESSION_CONFIGS = [
     ),
 ]
 
-STATICFILES_DIR = [
-
-    os.path.join(BASE_DIR, 'boot')
-
-]
-
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
