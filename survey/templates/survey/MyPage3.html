@@ -20,33 +20,35 @@ zoomed {
     <blockquote class="blockquote mb-0">
 <!--      <big><big><big><big>-->
 
-    <table class="table table-light">
-      <!--Create table for activities-->
-      <thead>
-         <tr>
-             <th scope="col"></th>
-             <th scope="col">Unlikely</th>
-             <th scope="col">Not Likely</th>
-             <th scope="col">Neutral</th>
-             <th scope="col">Likely</th>
-             <th scope="col">Very Likely</th>
-         </tr>
-      </thead>
-      <tbody>
-          <tr>
-            <td>{{ form.Page3healthT.label }}</td>
-                {% for choice in form.Page3healthT %}
-                <td>{{  choice  }}</td>
-                {% endfor %}
-          </tr>
-      </tbody>
+<!--    <table class="table table-light">-->
+<!--      &lt;!&ndash;Create table for activities&ndash;&gt;-->
+<!--      <thead>-->
+<!--         <tr>-->
+<!--             <th scope="col"></th>-->
+<!--             <th scope="col">Unlikely</th>-->
+<!--             <th scope="col">Not Likely</th>-->
+<!--             <th scope="col">Neutral</th>-->
+<!--             <th scope="col">Likely</th>-->
+<!--             <th scope="col">Very Likely</th>-->
+<!--         </tr>-->
+<!--      </thead>-->
+<!--      <tbody>-->
+<!--          <tr>-->
+<!--            <td>{{ form.Page3healthT.label }}</td>-->
+<!--                {% for choice in form.Page3healthT %}-->
+<!--                <td>{{  choice  }}</td>-->
+<!--                {% endfor %}-->
+<!--          </tr>-->
+<!--      </tbody>-->
 
-   </table>
+<!--   </table>-->
 
-    {% next_button %}
+        {% form_fields %}
+
+    <center>{% next_button %}</center>
 
 <!--    </big></big></big></big>-->
-      <footer class="blockquote-footer">Question 4/4</footer>
+      <footer class="blockquote-footer">Question 3/4</footer>
     </blockquote>
   </div>
 </div>

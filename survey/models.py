@@ -41,7 +41,7 @@ class Player(BasePlayer):
         label='As you move around more, your body can use blood sugar. This can keep your arteries healthy.',
         widget=widgets.RadioSelect)
     Page3healthT = models.BooleanField(
-        choices=[['1', '1'], [True, '2'], [True, '3'], [True, '4'], [True, '5'], [True, '6']],
+        choices=[['1', '1'], ['2', '2'], ['3', '3'], ['4', '4'], ['5', '5'], ['6', '6']],
         label='How likely are you to try this health tip?',
         widget=widgets.RadioSelect)
     Page5mood = models.StringField(
