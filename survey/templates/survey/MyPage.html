@@ -3,6 +3,12 @@
 
 {% block content %}
 
+div.zoomed {
+    zoom: 3;
+    -moz-transform: scale(3);
+    -moz-transform-origin: 0 0;
+}
+<div.zoomed>
 <div class="card">
   <div class="card-header">
     Question
@@ -25,8 +31,8 @@
 <center>
 <div class="card text-center" style="width: 18rem;">
   <div class="card-body">
-    <h7 class="card-title">Help</h7>
-    <p class="card-text">Contact Cora Orway at 123-456-7890 if having any issues.</p>
+    <h7 class="card-title"><b>Help</b></h7>
+    <p class="card-text">Contact <i>Cora Orway</i> at 123-456-7890 if having any issues.</p>
     <a href="tel:732-675-1910" class="btn btn-primary">Call Cora</a>
   </div>
 </div>
@@ -42,3 +48,4 @@
 <!--</div>-->
 
 {% endblock %}
+</div.zoomed>
