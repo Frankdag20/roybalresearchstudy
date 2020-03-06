@@ -58,7 +58,7 @@ class Results(Page):
     pass
 
 
-page_sequence = [Intro, MyPage, MyPage2, MyPage3, MyPage4, Wait,
+page_sequence = [Intro, MyPage, MyPage2, MyPage4, Wait,
                  Intro, MyPage, MyPage2, Wait,
                  Intro, MyPage, MyPage2, Wait,
                  Intro, MyPage, MyPage2]
