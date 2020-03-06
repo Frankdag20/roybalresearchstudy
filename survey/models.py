@@ -32,6 +32,23 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    Page1affirm = models.BooleanField(
+        choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label='Think of a time when you would be inspired by friends and family.',
+        widget=widgets.RadioSelect)
+    Page2healthM = models.BooleanField(
+        choices=[[True,'Please press this button when finished reading.']],
+        label='As you move around more, your body can use blood sugar. This can keep your arteries healthy.',
+        widget=widgets.RadioSelect)
+    Page3healthT = models.BooleanField(
+        choices=[['1', '1'], [True, '2'], [True, '3'], [True, '4'], [True, '5'], [True, '6']],
+        label='How likely are you to try this health tip?',
+        widget=widgets.RadioSelect)
+    Page5mood = models.StringField(
+        choices=[['1', '😄'], ['2', '🙂'], ['3', '😐'], ['4', '🙁'], ['5', '😧']],
+        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        widget=widgets.RadioSelectHorizontal)
+
     affirm1 = models.BooleanField(
         choices=[[True, 'Press when you have thought of the situation.']],
         label='Imagine a time when you would have fun with your family and friends.',
@@ -79,6 +96,10 @@ class Player(BasePlayer):
     healthT3 = models.BooleanField(
         choices=[[True, 'Press when you have read the following statement.']],
         label='Make a habit of walking up and down the stairs whenever you can. Avoid taking the elevator as often as possible.',
+        widget=widgets.RadioSelect)
+    healthtip = models.BooleanField(
+        choices=[[True, 'How likely are you to try this health tip?']],
+        label='How likely are you to try this health tip?',
         widget=widgets.RadioSelect)
     #info2 = models.BooleanField(
     #    choices=[[True, 'New Statement'], [False, 'Old Statement']],
