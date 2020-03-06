@@ -1,22 +1,58 @@
 {% extends "global/Page.html" %}
 {% load otree %}
-
+<html>
 {% block content %}
 
-<big><big><big><big>
+<style>
+zoomed {
+    zoom: 1.2;
+    -moz-transform: scale(1.2);
+    -moz-transform-origin: 0 0;
+}
+</style>
 
-Good morning! Please be sure to fill out the entire survey!
+<zoomed>
+<div class="card">
+  <div class="card-header">
+    Question
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+<!--      <big><big><big><big>-->
 
-    Also, make sure to fill out the accelerometry diary for today and also wear the accelerometer throughout the entire day!
-
-    Please be sure to call Cora if there are any issues or questions at ###-###-####.
+    Good morning! Please be sure to fill out the entire survey!
 
     Press "Next" to begin today's survey!
 
     {% next_button %}
 
-</big></big></big></big>
+<!--    </big></big></big></big>-->
+      <footer class="blockquote-footer">Question 0/4</footer>
+    </blockquote>
+  </div>
+</div>
 
-    Page 0/4
+
+<center>
+<div class="card text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h7 class="card-title"><b>Help</b></h7>
+    <p class="card-text">Contact <i>Cora Orway</i> at 123-456-7890 if having any issues.</p>
+    <a href="tel:732-675-1910" class="btn btn-primary">Call Cora</a>
+  </div>
+</div>
+</center>
+
+<!--<div class="footer">-->
+<!--    <div class="container">-->
+<!--        <big><big><big><big>-->
+<!--        <p>Contact Cora Orway at 123-456-7890 if having any issues.</p>-->
+<!--        </big></big></big></big>-->
+
+<!--    </div>-->
+<!--</div>-->
 
 {% endblock %}
+</zoomed>
+
+</html>
