@@ -4,6 +4,11 @@
 
 {% block global_styles  %}
 
+<div class="footer">
+        <div class="container">
+            <p>Contact Cora Orway at 123-456-7890 if having any issues.</p>
+        </div>
+</div>
 
 {% endblock %}
 
@@ -23,53 +28,6 @@
   </head>
   <body>
 
-    <!-- This is where the footer begins -->
-
-<footer>
-
-<div class= "navbar navbar-inverse navbar-static-bottom" role="navigation">
-
-    <div class="navbar-text pull-left">
-
-    </div>
-
-    <div class= "navbar-text pull-right">
-
-<!-- Add in your social media / github links here -->
-
-        <a href="https://github.com/clarkdatalabs">
-
-            <i class="fa fa-github-square fa-2x"></i></a>
-
-    </div>
-
-    <!--Below is the copyright information for the site. You can fill in your own here.-->
-
-    <div class="navbar-text pull-left">
-
-    &copy; Digital Projects Studio, 2015
-
-    </div>
-
-</div>
-
-</footer>
-
-<!--This is my javascript block. If you've included the javascript files you need in the 'static' folder then there's no need to
-
-put this here and you can delete the block below.-->
-
-{% block head-javascript %}
-
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-
-    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-{% endblock %}
 
 
     <!-- Optional JavaScript -->
