@@ -31,6 +31,29 @@ zoomed {
 </div>
 
 
+<script type="text/javascript">
+var thedate   = new Date();
+var dayofweek = thedate.getUTCDay();
+var hourofday = thedate.getUTCHours();
+function onAir()
+{
+// return TRUE if it's Mon through Sat, 3a-6a UTC
+if (dayofweek != 0 &&
+((hourofday == 3))) {
+return true;
+}
+return false;
+}
+</script>
+
+    <script type="text/javascript">
+if (onAir()) {
+document.write("<h2>ON THE AIR</h2>");
+} else {
+document.write("<h2>OFF THE AIR</h2>");
+}
+</script>
+
 <center>
 <div class="card text-center" style="width: 18rem;">
   <div class="card-body">

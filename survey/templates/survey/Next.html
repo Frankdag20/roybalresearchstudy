@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+<script type="text/javascript">
+var thedate   = new Date();
+var dayofweek = thedate.getUTCDay();
+var hourofday = thedate.getUTCHours();
+function onAir()
+{
+// return TRUE if it's Sun through Sat, 3a-6a UTC
+if ((hourofday > 2 && hourofday < 4)) {
+return true;
+}
+return false;
+}
+</script>
+</head><body>
+
+<script type="text/javascript">
+if (onAir()) {
+document.write("<h2><center>Welcome to today's survey! Press the Next button to begin.</center></h2><center>{% next_button %}</center>");
+} else {
+document.write("<h2><center>Come back tomorrow to fill out the survey!</center></h2>");
+}
+</script>
+
+{% endblock %}
