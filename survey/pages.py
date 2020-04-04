@@ -15,7 +15,7 @@ class Start(Page):
     def before_next_page(self):
         import time
         # user has 5 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 1 * 60
+        self.participant.vars['expiry'] = time.time() + 3 * 60
 
 class Wait(Page):
     form_model = 'player'
@@ -32,17 +32,6 @@ class Next(Page):
 
 class Idle(Page):
     form_model = 'player'
-
-class Start(Page):
-    form_model='player'
-
-    def is_displayed(self):
-        return self.round_number == 1
-
-    def before_next_page(self):
-        import time
-
-        self.participant.vars['expiry'] = time.time() + 3 * 60
 
 class Intro(Page):
     form_model = 'player'
