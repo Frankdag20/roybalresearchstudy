@@ -20,6 +20,8 @@ class Start(Page):
 class Wait(Page):
     form_model = 'player'
 
+    timeout_seconds = 10
+
     #timer_text = "See you tomorrow!"
     #timeout_seconds = 10
     # time = datetime.now()
@@ -27,7 +29,6 @@ class Wait(Page):
 
 class Next(Page):
     form_model = 'player'
-    timeout_seconds = 600
 
 class Idle(Page):
     form_model = 'player'
