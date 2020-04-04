@@ -14,13 +14,14 @@ class Start(Page):
 
     def before_next_page(self):
         import time
-        # user has 5 minutes to complete as many pages as possible
         self.participant.vars['expiry'] = time.time() + 3 * 60
 
 class Wait(Page):
     form_model = 'player'
 
     timeout_seconds = 10
+    time = datetime.now()
+    form_fields = [time]
 
     #timer_text = "See you tomorrow!"
     #timeout_seconds = 10
@@ -35,6 +36,12 @@ class Idle(Page):
 
 class Intro(Page):
     form_model = 'player'
+
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
 
 class MyPage(Page):
     form_model = 'player'
