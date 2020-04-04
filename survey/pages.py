@@ -20,8 +20,6 @@ class Wait(Page):
     form_model = 'player'
 
     timeout_seconds = 10
-    time = datetime.now()
-    form_fields = [time]
 
     #timer_text = "See you tomorrow!"
     #timeout_seconds = 10
