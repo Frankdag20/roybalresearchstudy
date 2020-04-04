@@ -35,15 +35,13 @@ class Idle(Page):
 class Start(Page):
     form_model='player'
 
-    timeout_seconds = 10
-
     def is_displayed(self):
         return self.round_number == 1
 
     def before_next_page(self):
         import time
 
-        self.participant.vars['expiry'] = time.time() + 1440 * 60
+        self.participant.vars['expiry'] = time.time() + 3 * 60
 
 class Intro(Page):
     form_model = 'player'
