@@ -3,7 +3,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 import datetime
-import time
+# import time
 
 # currentDT = datetime.datetime.now()
 
@@ -32,6 +32,7 @@ class Next(Page):
 class Idle(Page):
     form_model = 'player'
 
+    timer_text = "Time until tomorrow's survey"
     timeout_seconds = 5
 
 class Intro(Page):
