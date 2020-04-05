@@ -32,6 +32,8 @@ class Next(Page):
 class Idle(Page):
     form_model = 'player'
 
+    timeout_seconds = 5
+
 class Intro(Page):
     form_model = 'player'
 
