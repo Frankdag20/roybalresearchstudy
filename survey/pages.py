@@ -9,12 +9,12 @@ import time
 
 class Start(Page):
     form_model = 'player'
-    def is_displayed(self):
-        return self.round_number == 1
-
-    def before_next_page(self):
-        import time
-        self.participant.vars['expiry'] = time.time() + 3 * 60
+    # def is_displayed(self):
+    #     return self.round_number == 1
+    #
+    # def before_next_page(self):
+    #     import time
+    #     self.participant.vars['expiry'] = time.time() + 3 * 60
 
 class Wait(Page):
     form_model = 'player'
