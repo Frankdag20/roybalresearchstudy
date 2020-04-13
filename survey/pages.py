@@ -9,12 +9,12 @@ import datetime
 
 class Start(Page):
     form_model = 'player'
-    # def is_displayed(self):
-    #     return self.round_number == 1
-    #
-    # def before_next_page(self):
-    #     import time
-    #     self.participant.vars['expiry'] = time.time() + 3 * 60
+    def is_displayed(self):
+        return self.round_number == 1
+
+    def before_next_page(self):
+        import time
+        self.participant.vars['expiry'] = time.time() + 3 * 60
 
 class Wait(Page):
     form_model = 'player'
@@ -32,7 +32,6 @@ class Next(Page):
 class Idle(Page):
     form_model = 'player'
 
-    timer_text = "Time until tomorrow's survey"
     timeout_seconds = 5
 
 class Intro(Page):
@@ -99,7 +98,8 @@ class Results(Page):
     pass
 
 
-page_sequence = [Idle, Start, Intro, MyPage, MyPage2, MyPage4, Wait, Next,
-                 Intro, MyPage, MyPage2, Wait, Next,
-                 Intro, MyPage, MyPage2, Wait, Next,
-                 Intro, MyPage, MyPage2]
+page_sequence = [Idle]
+# , Start, Intro, MyPage, MyPage2, MyPage4, Wait, Next,
+#                  Intro, MyPage, MyPage2, Wait, Next,
+#                  Intro, MyPage, MyPage2, Wait, Next,
+#                  Intro, MyPage, MyPage2]
