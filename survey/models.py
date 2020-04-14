@@ -40,7 +40,7 @@ class Player(BasePlayer):
 
     Page1affirm = models.BooleanField(
         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label='Think of a time when you would be inspired by {}'.format(self.value),
+        label='Think of a time when you would be inspired by {}'.format(Player.value),
         widget=widgets.RadioSelect)
     Page2healthM = models.BooleanField(
         choices=[[True,'Please press this button when finished reading.']],
