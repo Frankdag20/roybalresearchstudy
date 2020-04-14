@@ -45,8 +45,8 @@ class Player(BasePlayer):
         label="Please select the designated value of importance for the participant.",
         widget=widgets.RadioSelect)
     valueP2 = models.StringField(
-        choices=[["As you move around more, your body can use blood sugar. This can keep your arteries healthy.", "positive"],
-                 ["As you don't move around, your body does not use blood sugar. This can make your arteries unhealthy.","negative"]],
+        choices=[["As you move around more in your day-to-day life, your body can use blood sugar. This can keep your arteries healthy.", "positive"],
+                 ["If you do not move around more in your day-to-day life, your body does not use blood sugar. This can make your arteries unhealthy.","negative"]],
         label="Please select whether the participant should have a positive or negative health tip.",
         widget=widgets.RadioSelect)
 
@@ -59,7 +59,7 @@ class Player(BasePlayer):
         choices=[[True,'Please press this button when finished reading.']],
         label="----",
         widget=widgets.RadioSelect)
-    Page3healthT = models.BooleanField(
+    Page3healthT = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
         label='How confident are you in carrying out the previous health tip?',
         widget=widgets.RadioSelectHorizontal)
