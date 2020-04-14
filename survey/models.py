@@ -30,11 +30,11 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
-def insert_val(val):
-    return models.BooleanField(
-        choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label= val,
-        widget=widgets.RadioSelect)
+# def insert_val(val):
+#     return models.BooleanField(
+#         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+#         label= val,
+#         widget=widgets.RadioSelect)
 
 class Player(BasePlayer):
 
@@ -43,7 +43,9 @@ class Player(BasePlayer):
         label="Please select the designated value of importance for the participant.",
         widget=widgets.RadioSelect)
 
-    Page1affirm = insert_val(player.value)
+    Page1affirm = models.BooleanField(
+         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+         widget=widgets.RadioSelect)
 
     Page2healthM = models.BooleanField(
         choices=[[True,'Please press this button when finished reading.']],
