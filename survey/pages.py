@@ -76,7 +76,7 @@ class MyPage3(Page):
 
 class MyPage4(Page):
     form_model = 'player'
-    form_fields = ['Page5mood']
+    form_fields = ['Page4mood']
 
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
@@ -86,19 +86,17 @@ class MyPage4(Page):
 
 class MyPage5(Page):
     form_model = 'player'
-    form_fields = ['info5', 'info6', 'info7', 'info8', 'info9']
+    form_fields = ['accel']
 
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+class MyPage6(Page):
+    form_model = 'player'
+    form_fields = ['help']
 
 class Results(Page):
     pass
 
 
-page_sequence = [PreTrial, Start, MyPage]
+page_sequence = [PreTrial, Start, Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6]
 # , Start, Intro, MyPage, MyPage2, MyPage4, Wait, Next,
 #                  Intro, MyPage, MyPage2, Wait, Next,
 #                  Intro, MyPage, MyPage2, Wait, Next,

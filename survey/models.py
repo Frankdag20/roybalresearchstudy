@@ -38,36 +38,44 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    value = models.StringField(
-        choices=[["Think of a time when you would be inspired by family", "family"],["Think of a time when you would be inspired by money","money"],["Think of a time when you would be inspired by religion","religion"]],
+    valueP1 = models.StringField(
+        choices=[["Think of a time when you would be inspired by family, and focus on the thoughts and emotions associated with the experience.", "family"],
+                 ["Think of a time when you would be inspired by money, and focus on the thoughts and emotions associated with the experience.","money"],
+                 ["Think of a time when you would be inspired by religion, and focus on the thoughts and emotions associated with the experience.","religion"]],
         label="Please select the designated value of importance for the participant.",
+        widget=widgets.RadioSelect)
+    valueP2 = models.StringField(
+        choices=[["As you move around more, your body can use blood sugar. This can keep your arteries healthy.", "positive"],
+                 ["As you don't move around, your body does not use blood sugar. This can make your arteries unhealthy.","negative"]],
+        label="Please select whether the participant should have a positive or negative health tip.",
         widget=widgets.RadioSelect)
 
     Page1affirm = models.BooleanField(
          choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-         label=" ",
+         label="----",
          widget=widgets.RadioSelect)
 
     Page2healthM = models.BooleanField(
         choices=[[True,'Please press this button when finished reading.']],
-        label='As you move around more, your body can use blood sugar. This can keep your arteries healthy.',
+        label="----",
         widget=widgets.RadioSelect)
     Page3healthT = models.BooleanField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How likely are you to try this health tip?',
+        label='How confident are you in carrying out the previous health tip?',
         widget=widgets.RadioSelectHorizontal)
-    Page5mood = models.StringField(
+    Page4mood = models.StringField(
         choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
         label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
         widget=widgets.RadioSelectHorizontal)
-    affirm1 = models.BooleanField(
-        choices=[[True, 'Press when you have thought of the situation.']],
-        label='Imagine a time when you would have fun with your family and friends.',
+    accel = models.BooleanField(
+        choices=[[True, 'Press the button if you have been wearing your accelerometer.']],
+        label='Make sure you are wearing your accelerometer as often as possible this week!',
         widget=widgets.RadioSelect)
-    affirm2 = models.BooleanField(
-        choices=[[True, 'Press when you have thought of the situation.']],
-        label='Imagine a time when you would be inspired by creativity.',
+    help = models.BooleanField(
+        choices=[[True, 'Would you want a research coordinator to reach out to you?']],
+        label='Please feel welcome to reach out with any questions or concerns you may have.',
         widget=widgets.RadioSelect)
+
     affirm3 = models.BooleanField(
         choices=[[True, 'Press when you have thought of the situation.']],
         label='Imagine a time when you would feel grateful for your independence.',
