@@ -38,6 +38,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
+    daysurv = models.IntegerField(initial=0)
+
     valueP1 = models.StringField(
         choices=[["Think of a time when you would be inspired by family, and focus on the thoughts and emotions associated with the experience.", "family"],
                  ["Think of a time when you would be inspired by money, and focus on the thoughts and emotions associated with the experience.","money"],
@@ -50,31 +52,208 @@ class Player(BasePlayer):
         label="Please select whether the participant should have a positive or negative health tip.",
         widget=widgets.RadioSelect)
 
-    Page1affirm = models.BooleanField(
+    Page1affirm1 = models.BooleanField(
          choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
          label="----",
          widget=widgets.RadioSelect)
 
-    Page2healthM = models.StringField(
+    Page2healthM1 = models.StringField(
         choices=[["CO", "I am confident that I have seen this message in the scanner before."],
                  ["CN", "I can confidently say I've never seen this message in the scanner before."],
                  ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident"]],
+                 ["UN", "This message does not seem familiar, although I am not confident."]],
         label="----",
         widget=widgets.RadioSelect)
-    Page3healthT = models.StringField(
+    Page3healthT1 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
         label='How confident are you in carrying out the previous health tip?',
         widget=widgets.RadioSelectHorizontal)
-    Page4mood = models.StringField(
+    Page4mood1 = models.StringField(
         choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
         label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
         widget=widgets.RadioSelectHorizontal)
-    accel = models.BooleanField(
+    accel1 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
         widget=widgets.RadioSelectHorizontal)
-    help = models.BooleanField(
+    help1 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+
+    Page1affirm2 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="----",
+        widget=widgets.RadioSelect)
+
+    Page2healthM2 = models.StringField(
+        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
+                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
+                 ["UO", "This message seems vaguely familiar, but I am not confident."],
+                 ["UN", "This message does not seem familiar, although I am not confident."]],
+        label="----",
+        widget=widgets.RadioSelect)
+    Page3healthT2 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip?',
+        widget=widgets.RadioSelectHorizontal)
+    Page4mood2 = models.StringField(
+        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
+        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        widget=widgets.RadioSelectHorizontal)
+    accel2 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    help2 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+
+    Page1affirm3 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="----",
+        widget=widgets.RadioSelect)
+
+    Page2healthM3 = models.StringField(
+        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
+                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
+                 ["UO", "This message seems vaguely familiar, but I am not confident."],
+                 ["UN", "This message does not seem familiar, although I am not confident."]],
+        label="----",
+        widget=widgets.RadioSelect)
+    Page3healthT3 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip?',
+        widget=widgets.RadioSelectHorizontal)
+    Page4mood3 = models.StringField(
+        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
+        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        widget=widgets.RadioSelectHorizontal)
+    accel3 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    help3 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    Page1affirm4 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="----",
+        widget=widgets.RadioSelect)
+
+    Page2healthM4 = models.StringField(
+        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
+                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
+                 ["UO", "This message seems vaguely familiar, but I am not confident."],
+                 ["UN", "This message does not seem familiar, although I am not confident."]],
+        label="----",
+        widget=widgets.RadioSelect)
+    Page3healthT4 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip?',
+        widget=widgets.RadioSelectHorizontal)
+    Page4mood4 = models.StringField(
+        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
+        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        widget=widgets.RadioSelectHorizontal)
+    accel4 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    help4 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    Page1affirm5 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="----",
+        widget=widgets.RadioSelect)
+
+    Page2healthM5 = models.StringField(
+        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
+                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
+                 ["UO", "This message seems vaguely familiar, but I am not confident."],
+                 ["UN", "This message does not seem familiar, although I am not confident."]],
+        label="----",
+        widget=widgets.RadioSelect)
+    Page3healthT5 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip?',
+        widget=widgets.RadioSelectHorizontal)
+    Page4mood5 = models.StringField(
+        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
+        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        widget=widgets.RadioSelectHorizontal)
+    accel5 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    help5 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    Page1affirm6 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="----",
+        widget=widgets.RadioSelect)
+
+    Page2healthM6 = models.StringField(
+        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
+                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
+                 ["UO", "This message seems vaguely familiar, but I am not confident."],
+                 ["UN", "This message does not seem familiar, although I am not confident."]],
+        label="----",
+        widget=widgets.RadioSelect)
+    Page3healthT6 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip?',
+        widget=widgets.RadioSelectHorizontal)
+    Page4mood6 = models.StringField(
+        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
+        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        widget=widgets.RadioSelectHorizontal)
+    accel6 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    help6 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+
+    Page1affirm7 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="----",
+        widget=widgets.RadioSelect)
+
+    Page2healthM7 = models.StringField(
+        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
+                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
+                 ["UO", "This message seems vaguely familiar, but I am not confident."],
+                 ["UN", "This message does not seem familiar, although I am not confident."]],
+        label="----",
+        widget=widgets.RadioSelect)
+    Page3healthT7 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip?',
+        widget=widgets.RadioSelectHorizontal)
+    Page4mood7 = models.StringField(
+        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
+        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        widget=widgets.RadioSelectHorizontal)
+    accel7 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    help7 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)

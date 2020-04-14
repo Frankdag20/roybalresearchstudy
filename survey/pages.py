@@ -1,19 +1,28 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
-from .models import Constants
+from .models import Constants, Player
 
 import datetime
 import time
 
+page1 = ["Page1affirm1", "Page1affirm2", "Page1affirm3", "Page1affirm4", "Page1affirm5", "Page1affirm6", "Page1affirm7"]
+page2 = ["Page2healthM1", "Page2healthM2", "Page2healthM3", "Page2healthM4", "Page2healthM5", "Page2healthM6", "Page2healthM7"]
+page3 = ["Page3healthT1", "Page3healthT2", "Page3healthT3", "Page3healthT4", "Page3healthT5", "Page3healthT6", "Page3healthT7"]
+page4 = ["Page4mood1", "Page4mood2", "Page4mood3", "Page4mood4", "Page4mood5", "Page4mood6", "Page4mood7"]
+page5 = ["accel1", "accel2", "accel3", "accel4", "accel5", "accel6", "accel7"]
+page6 = ["help1", "help2", "help3", "help4", "help5", "help6", "help7"]
+
 class PreTrial(Page):
     timeout_seconds = 5
+    def before_next_page(self):
+        self.player.daysurv = -1
 
 class Start(Page):
     form_model = 'player'
     form_fields = ['valueP1', 'valueP2']
 
-    def before_next_page(self):
-        self.participant.vars['expiry'] = time.time() + 1 * 60
+    # def before_next_page(self):
+    #     self.participant.vars['expiry'] = time.time() + 1 * 60
 
 class Wait(Page):
     form_model = 'player'
@@ -31,15 +40,18 @@ class Next(Page):
 class Intro(Page):
     form_model = 'player'
 
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
+    def before_next_page(self):
+        self.player.daysurv = self.player.daysurv + 1
 
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+    # def get_timeout_seconds(self):
+    #     return self.participant.vars['expiry'] - time.time()
+    #
+    # def is_displayed(self):
+    #     return self.get_timeout_seconds() > 3
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['Page1affirm']
+    form_fields = page1[int(daysurv)]
 
     def vars_for_template(self):
         valueP1 = self.player.valueP1
@@ -47,15 +59,15 @@ class MyPage(Page):
             valueP1 = valueP1
         )
 
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+    # def get_timeout_seconds(self):
+    #     return self.participant.vars['expiry'] - time.time()
+    #
+    # def is_displayed(self):
+    #     return self.get_timeout_seconds() > 3
 
 class MyPage2(Page):
     form_model = 'player'
-    form_fields = ['Page2healthM']
+    form_fields = page2[]
 
     def vars_for_template(self):
         valueP2 = self.player.valueP2
@@ -63,32 +75,32 @@ class MyPage2(Page):
             valueP2 = valueP2
         )
 
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+    # def get_timeout_seconds(self):
+    #     return self.participant.vars['expiry'] - time.time()
+    #
+    # def is_displayed(self):
+    #     return self.get_timeout_seconds() > 3
 
 class MyPage3(Page):
     form_model = 'player'
     form_fields = ['Page3healthT']
     #timeout_seconds = 60
 
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+    # def get_timeout_seconds(self):
+    #     return self.participant.vars['expiry'] - time.time()
+    #
+    # def is_displayed(self):
+    #     return self.get_timeout_seconds() > 3
 
 class MyPage4(Page):
     form_model = 'player'
     form_fields = ['Page4mood']
 
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+    # def get_timeout_seconds(self):
+    #     return self.participant.vars['expiry'] - time.time()
+    #
+    # def is_displayed(self):
+    #     return self.get_timeout_seconds() > 3
 
 class MyPage5(Page):
     form_model = 'player'
