@@ -45,13 +45,13 @@ class Player(BasePlayer):
         label="Please select the designated value of importance for the participant.",
         widget=widgets.RadioSelect)
     valueP2 = models.StringField(
-        choices=[["As you move around more in your day-to-day life, your body can use blood sugar. This can keep your arteries healthy.", "positive"],
-                 ["If you do not move around more in your day-to-day life, your body does not use blood sugar. This can make your arteries unhealthy.","negative"]],
+        choices=[["As you move around more in your day-to-day life, your body can use blood sugar. This can keep your arteries healthy. Have you seen this message while in the MRI scanner before?", "positive"],
+                 ["If you do not move around more in your day-to-day life, your body does not use blood sugar. This can make your arteries unhealthy. Have you seen this message while in the MRI scanner before?","negative"]],
         label="Please select whether the participant should have a positive or negative health tip.",
         widget=widgets.RadioSelect)
 
-    Page1affirm = models.BooleanField(
-         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+    Page1affirm = models.StringField(
+         choices=[["CO", "I am confident that I have seen this message in the scanner before."], ["CN", "I can confidently say I've never seen this message in the scanner before."], ["UO", "This message seems vaguely familiar, but I am not confident."], ["UN", "This message does not seem familiar, although I am not confident"]],
          label="----",
          widget=widgets.RadioSelect)
 
@@ -70,11 +70,11 @@ class Player(BasePlayer):
     accel = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelect)
+        widget=widgets.RadioSelectHorizontal)
     help = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
-        widget=widgets.RadioSelect)
+        widget=widgets.RadioSelectHorizontal)
 
     affirm3 = models.BooleanField(
         choices=[[True, 'Press when you have thought of the situation.']],
