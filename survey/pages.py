@@ -42,9 +42,9 @@ class MyPage(Page):
     form_fields = ['Page1affirm']
 
     def vars_for_template(self):
-        value = self.player.value
+        valueP1 = self.player.valueP1
         return dict(
-            value = value
+            valueP1 = valueP1
         )
 
     def get_timeout_seconds(self):
@@ -56,6 +56,12 @@ class MyPage(Page):
 class MyPage2(Page):
     form_model = 'player'
     form_fields = ['Page2healthM']
+
+    def vars_for_template(self):
+        valueP2 = self.player.valueP2
+        return dict(
+            valueP2 = valueP2
+        )
 
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
