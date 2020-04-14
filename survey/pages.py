@@ -1,16 +1,16 @@
-from otree.api import Currency as c, currency_range
+#from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants, Player
 
 import datetime
 import time
 
-page1 = ["Page1affirm1", "Page1affirm2", "Page1affirm3", "Page1affirm4", "Page1affirm5", "Page1affirm6", "Page1affirm7"]
-page2 = ["Page2healthM1", "Page2healthM2", "Page2healthM3", "Page2healthM4", "Page2healthM5", "Page2healthM6", "Page2healthM7"]
-page3 = ["Page3healthT1", "Page3healthT2", "Page3healthT3", "Page3healthT4", "Page3healthT5", "Page3healthT6", "Page3healthT7"]
-page4 = ["Page4mood1", "Page4mood2", "Page4mood3", "Page4mood4", "Page4mood5", "Page4mood6", "Page4mood7"]
-page5 = ["accel1", "accel2", "accel3", "accel4", "accel5", "accel6", "accel7"]
-page6 = ["help1", "help2", "help3", "help4", "help5", "help6", "help7"]
+page1 = ['Page1affirm1', 'Page1affirm2', 'Page1affirm3', 'Page1affirm4', 'Page1affirm5', 'Page1affirm6', 'Page1affirm7']
+page2 = ['Page2healthM1', 'Page2healthM2', 'Page2healthM3', 'Page2healthM4', 'Page2healthM5', 'Page2healthM6', 'Page2healthM7']
+page3 = ['Page3healthT1', 'Page3healthT2', 'Page3healthT3', 'Page3healthT4', 'Page3healthT5', 'Page3healthT6', 'Page3healthT7']
+page4 = ['Page4mood1', 'Page4mood2', 'Page4mood3', 'Page4mood4', 'Page4mood5', 'Page4mood6', 'Page4mood7']
+page5 = ['accel1', 'accel2', 'accel3', 'accel4', 'accel5', 'accel6', 'accel7']
+page6 = ['help1', 'help2', 'help3', 'help4', 'help5', 'help6', 'help7']
 
 class PreTrial(Page):
     timeout_seconds = 5
@@ -29,7 +29,7 @@ class Wait(Page):
 
     #timeout_seconds = 10
 
-    #timer_text = "See you tomorrow!"
+    #timer_text = 'See you tomorrow!'
     #timeout_seconds = 10
     # time = datetime.now()
     # form_fields = [time]
@@ -51,7 +51,7 @@ class Intro(Page):
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = page1[0]
+    form_fields = [page1[0]]
 
     def vars_for_template(self):
         valueP1 = self.player.valueP1
@@ -67,7 +67,7 @@ class MyPage(Page):
 
 class MyPage2(Page):
     form_model = 'player'
-    form_fields = page2[0]
+    form_fields = [page2[0]]
 
     def vars_for_template(self):
         valueP2 = self.player.valueP2
@@ -83,7 +83,7 @@ class MyPage2(Page):
 
 class MyPage3(Page):
     form_model = 'player'
-    form_fields = page3[0]
+    form_fields = [page3[0]]
     #timeout_seconds = 60
 
     # def get_timeout_seconds(self):
@@ -94,7 +94,7 @@ class MyPage3(Page):
 
 class MyPage4(Page):
     form_model = 'player'
-    form_fields = page4[0]
+    form_fields = [page4[0]]
 
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
@@ -104,11 +104,11 @@ class MyPage4(Page):
 
 class MyPage5(Page):
     form_model = 'player'
-    form_fields = page5[0]
+    form_fields = [page5[0]]
 
 class MyPage6(Page):
     form_model = 'player'
-    form_fields = page6[0]
+    form_fields = [page6[0]]
 
 class Results(Page):
     pass
