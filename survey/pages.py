@@ -10,7 +10,7 @@ class PreTrial(Page):
 
 class Start(Page):
     form_model = 'player'
-    form_fields = ['value']
+    form_fields = ['valueP1', 'valueP2']
 
     def before_next_page(self):
         self.participant.vars['expiry'] = time.time() + 1 * 60
