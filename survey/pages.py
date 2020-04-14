@@ -51,7 +51,7 @@ class Intro(Page):
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = page1[int(self.player.daysurv)]
+    form_fields = page1[0]
 
     def vars_for_template(self):
         valueP1 = self.player.valueP1
@@ -67,7 +67,7 @@ class MyPage(Page):
 
 class MyPage2(Page):
     form_model = 'player'
-    form_fields = page2[int(self.player.daysurv)]
+    form_fields = page2[0]
 
     def vars_for_template(self):
         valueP2 = self.player.valueP2
@@ -83,7 +83,7 @@ class MyPage2(Page):
 
 class MyPage3(Page):
     form_model = 'player'
-    form_fields = page3[int(self.player.daysurv)]
+    form_fields = page3[0]
     #timeout_seconds = 60
 
     # def get_timeout_seconds(self):
@@ -94,7 +94,7 @@ class MyPage3(Page):
 
 class MyPage4(Page):
     form_model = 'player'
-    form_fields = page4[int(self.player.daysurv)]
+    form_fields = page4[0]
 
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
@@ -104,11 +104,11 @@ class MyPage4(Page):
 
 class MyPage5(Page):
     form_model = 'player'
-    form_fields = page5[int(self.player.daysurv)]
+    form_fields = page5[0]
 
 class MyPage6(Page):
     form_model = 'player'
-    form_fields = page6[int(self.player.daysurv)]
+    form_fields = page6[0]
 
 class Results(Page):
     pass
