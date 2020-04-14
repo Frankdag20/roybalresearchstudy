@@ -50,13 +50,16 @@ class Player(BasePlayer):
         label="Please select whether the participant should have a positive or negative health tip.",
         widget=widgets.RadioSelect)
 
-    Page1affirm = models.StringField(
-         choices=[["CO", "I am confident that I have seen this message in the scanner before."], ["CN", "I can confidently say I've never seen this message in the scanner before."], ["UO", "This message seems vaguely familiar, but I am not confident."], ["UN", "This message does not seem familiar, although I am not confident"]],
+    Page1affirm = models.BooleanField(
+         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
          label="----",
          widget=widgets.RadioSelect)
 
-    Page2healthM = models.BooleanField(
-        choices=[[True,'Please press this button when finished reading.']],
+    Page2healthM = models.StringField(
+        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
+                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
+                 ["UO", "This message seems vaguely familiar, but I am not confident."],
+                 ["UN", "This message does not seem familiar, although I am not confident"]],
         label="----",
         widget=widgets.RadioSelect)
     Page3healthT = models.StringField(
