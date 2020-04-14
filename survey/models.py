@@ -30,18 +30,21 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
+def insert_val(val):
+    return models.BooleanField(
+        choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label= val,
+        widget=widgets.RadioSelect)
 
 class Player(BasePlayer):
 
     value = models.StringField(
-        choices=[["family", "family"],["money","money"],["religion","religion"]],
+        choices=[["Think of a time when you would be inspired by family", "family"],["Think of a time when you would be inspired by money","money"],["Think of a time when you would be inspired by religion","religion"]],
         label="Please select the designated value of importance for the participant.",
         widget=widgets.RadioSelect)
 
-    Page1affirm = models.BooleanField(
-        choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label='Think of a time when you would be inspired by {}'.format(survey.Player.value),
-        widget=widgets.RadioSelect)
+    Page1affirm = insert_val(value)
+
     Page2healthM = models.BooleanField(
         choices=[[True,'Please press this button when finished reading.']],
         label='As you move around more, your body can use blood sugar. This can keep your arteries healthy.',
