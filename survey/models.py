@@ -43,7 +43,7 @@ class Player(BasePlayer):
         label="Please select the designated value of importance for the participant.",
         widget=widgets.RadioSelect)
 
-    Page1affirm = insert_val(value)
+    Page1affirm = insert_val(player.value)
 
     Page2healthM = models.BooleanField(
         choices=[[True,'Please press this button when finished reading.']],
