@@ -3,18 +3,16 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 import datetime
-# import time
+import time
 
-# currentDT = datetime.datetime.now()
+class PreTrial(Page):
+    timeout_seconds = 5
 
 class Start(Page):
     form_model = 'player'
-    def is_displayed(self):
-        return self.round_number == 1
 
     def before_next_page(self):
-        import time
-        self.participant.vars['expiry'] = time.time() + 3 * 60
+        self.participant.vars['expiry'] = time.time() + 1 * 60
 
 class Wait(Page):
     form_model = 'player'
@@ -29,11 +27,6 @@ class Wait(Page):
 class Next(Page):
     form_model = 'player'
 
-class Idle(Page):
-    form_model = 'player'
-
-    timeout_seconds = 5
-
 class Intro(Page):
     form_model = 'player'
 
@@ -45,7 +38,13 @@ class Intro(Page):
 
 class MyPage(Page):
     form_model = 'player'
-    form_fields = ['Page1affirm']#, 'affirm2', 'affirm3']
+    form_fields = ['Page1affirm']
+
+    def vars_for_template(self):
+        value = self.player.value
+        return dict(
+            value = value
+        )
 
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
@@ -55,7 +54,7 @@ class MyPage(Page):
 
 class MyPage2(Page):
     form_model = 'player'
-    form_fields = ['Page2healthM']#, 'healthP2', 'healthP3']
+    form_fields = ['Page2healthM']
 
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
@@ -98,7 +97,7 @@ class Results(Page):
     pass
 
 
-page_sequence = [Idle]
+page_sequence = [PreTrial, Start, MyPage]
 # , Start, Intro, MyPage, MyPage2, MyPage4, Wait, Next,
 #                  Intro, MyPage, MyPage2, Wait, Next,
 #                  Intro, MyPage, MyPage2, Wait, Next,

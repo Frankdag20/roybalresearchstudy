@@ -32,9 +32,15 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+
+    value = models.StringField(
+        choices=[["family", "family"],["money","money"],["religion","religion"]],
+        label="Please select the designated value of importance for the participant.",
+        widget=widgets.RadioSelect)
+
     Page1affirm = models.BooleanField(
         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label='Think of a time when you would be inspired by friends and family.',
+        label='Think of a time when you would be inspired by %s' % self.value,
         widget=widgets.RadioSelect)
     Page2healthM = models.BooleanField(
         choices=[[True,'Please press this button when finished reading.']],
@@ -48,7 +54,6 @@ class Player(BasePlayer):
         choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
         label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
         widget=widgets.RadioSelectHorizontal)
-
     affirm1 = models.BooleanField(
         choices=[[True, 'Press when you have thought of the situation.']],
         label='Imagine a time when you would have fun with your family and friends.',
