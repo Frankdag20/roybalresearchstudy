@@ -68,12 +68,12 @@ class Player(BasePlayer):
         label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
         widget=widgets.RadioSelectHorizontal)
     accel = models.BooleanField(
-        choices=[[True, 'Press the button if you have been wearing your accelerometer.']],
-        label='Make sure you are wearing your accelerometer as often as possible this week!',
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
         widget=widgets.RadioSelect)
     help = models.BooleanField(
-        choices=[[True, 'Would you want a research coordinator to reach out to you?']],
-        label='Please feel welcome to reach out with any questions or concerns you may have.',
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelect)
 
     affirm3 = models.BooleanField(
