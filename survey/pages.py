@@ -83,7 +83,7 @@ class MyPage2(Page):
 
 class MyPage3(Page):
     form_model = 'player'
-    form_fields = [page3[0]]
+    form_fields = ['Page3healthT']
     #timeout_seconds = 60
 
     # def get_timeout_seconds(self):

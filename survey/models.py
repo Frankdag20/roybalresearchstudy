@@ -64,7 +64,7 @@ class Player(BasePlayer):
                  ["UN", "This message does not seem familiar, although I am not confident."]],
         label="----",
         widget=widgets.RadioSelect)
-    Page3healthT1 = models.StringField(
+    Page3healthT = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
         label='How confident are you in carrying out the previous health tip?',
         widget=widgets.RadioSelectHorizontal)
