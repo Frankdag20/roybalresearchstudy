@@ -32,7 +32,7 @@ class Group(BaseGroup):
 
 def insert_val(val):
     return models.BooleanField(
-        choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        choices=[[True, val]],#'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
         label='Think of a time when you would be inspired by {}'.format(val),
         widget=widgets.RadioSelect)
 
