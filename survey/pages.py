@@ -4,9 +4,10 @@ from .models import Constants, Player
 import datetime
 import calendar
 import smtplib
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import sendEmail.py
+import survey.sendEmail
 
 
 import datetime
