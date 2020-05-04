@@ -1,7 +1,13 @@
 #from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants, Player
-from sendEmail import send_email
+import datetime
+import calendar
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import sendEmail.py
+
 
 import datetime
 import time
@@ -63,7 +69,7 @@ class MyPage(Page):
         )
 
     if (daysurv == 0):
-        send_email(self.player.id_in_group)
+        sendEmail.send_email(self.player.id_in_group)
 
     # form_fields = ['affirm_answer']
     #
