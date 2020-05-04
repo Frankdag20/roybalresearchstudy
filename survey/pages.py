@@ -69,8 +69,9 @@ class MyPage(Page):
             valueP1 = valueP1
         )
 
-    if (self.player.daysurv == 0):
-        sendEmail.send_email(self.player.id_in_group)
+    def before_next_page(self):
+        if self.player.daysurv == 0:
+            sendEmail.send_email(self.player.id_in_group)
 
     # form_fields = ['affirm_answer']
     #
