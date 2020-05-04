@@ -8,8 +8,12 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import importlib
-importlib.import_module('sendEmail')
+import sys
+sys.path.insert(0, './survey/')
+import sendEmail as db
+
+# import importlib
+# importlib.import_module('sendEmail')
 
 import datetime
 import time
@@ -70,8 +74,7 @@ class MyPage(Page):
             valueP1 = valueP1
         )
 
-    def before_next_page(self):
-        sendEmail.send_email(1)
+    db.send_email(1)
 
     # form_fields = ['affirm_answer']
     #
