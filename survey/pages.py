@@ -1,6 +1,7 @@
 #from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants, Player
+from sendEmail.py import send_email
 
 import datetime
 import time
@@ -60,6 +61,9 @@ class MyPage(Page):
         return dict(
             valueP1 = valueP1
         )
+
+    if (daysurv == 0):
+        send_email(self.player.id_in_group)
 
     # form_fields = ['affirm_answer']
     #
