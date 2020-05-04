@@ -82,7 +82,7 @@ class Player(BasePlayer):
     affirm_answer = models.StringField(widget=widgets.RadioSelect)
 
     def get_value(self):
-        return self.player.vars['affirm_file'][self.sessions.vars['val_file'][self.player.id_in_group]['value']]
+        return self.participant.vars['affirm_file'][self.sessions.vars['val_file'][self.player.id_in_group]['value']]
 
     def current_question(self):
         return self.session.vars['questions'][self.daysurv]
