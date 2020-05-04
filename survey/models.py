@@ -40,9 +40,9 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         if self.round_number == 1:
 
-            self.participant.vars['questions'] = Constants.questions.copy()
-            self.participant.vars['affirm_file'] = Constants.affirm_file.copy()
-            self.participant.vars['val_file'] = Constants.val_file.copy()
+            self.session.vars['questions'] = Constants.questions.copy()
+            self.session.vars['affirm_file'] = Constants.affirm_file.copy()
+            self.session.vars['val_file'] = Constants.val_file.copy()
             # randomize for each participant
             # import random
             # randomized_questions = random.sample(Constants.questions, len(Constants.questions))
