@@ -55,8 +55,7 @@ class Subsession(BaseSubsession):
             p.solution = question_data['solution']
             p.seen = int(question_data['seen'])
 
-            p.val_label = self.session.vars['val_file'][self.player.id_in_group]['value']
-
+            p.val_label = p.get_value()
             p.affirm_question = self.session.vars['affirm_file']
 
 
@@ -85,6 +84,9 @@ class Player(BasePlayer):
 
     # def get_value(self):
     #     return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
+
+    def get_value(self):
+        return self.session.vars['val_file'][self.track]['value']
 
     def current_question(self):
         return self.session.vars['questions'][self.daysurv]
@@ -116,6 +118,7 @@ class Player(BasePlayer):
             return
 
     daysurv = models.IntegerField(initial=0)
+    track = models.IntegerField()
 
     valueP1 = models.StringField(
         choices=[["Think of a time when you would be inspired by family, and focus on the thoughts and emotions associated with the experience.", "family"],

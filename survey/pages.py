@@ -16,6 +16,7 @@ class PreTrial(Page):
     # timeout_seconds = 5
     def before_next_page(self):
         self.player.daysurv = -1
+        self.player.track = self.player.id_in_group
 
 class Start(Page):
     form_model = 'player'
