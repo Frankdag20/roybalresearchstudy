@@ -9,7 +9,7 @@ from otree.api import (
     currency_range,
 )
 
-import sendEmail
+import survey.sendEmail
 import csv
 
 author = 'Frank DAgostino'
