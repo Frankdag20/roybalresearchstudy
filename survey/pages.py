@@ -88,6 +88,7 @@ class MyPage2(Page):
     def submitted_answer_choices(self):
         qd = self.player.current_question()
         return [
+            qd['question'],
             qd['CO'],
             qd['CN'],
             qd['UO'],
