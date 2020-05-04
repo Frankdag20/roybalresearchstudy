@@ -7,7 +7,7 @@ import smtplib
 import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import survey.sendEmail
+import sendEmail
 
 
 import datetime
@@ -70,7 +70,7 @@ class MyPage(Page):
         )
 
     def before_next_page(self):
-        survey.sendEmail.send_email(1)
+        sendEmail.send_email(1)
 
     # form_fields = ['affirm_answer']
     #

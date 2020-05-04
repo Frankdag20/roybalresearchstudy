@@ -12,7 +12,7 @@ def send_email(participant):
     cy = now.year  # current year
     cm = now.month  # current month
     cd = now.day # current day
-
+    participant = participant + 1
     FROM = "fdagostinoj@gmail.com"
     #TO = ["frankdag20@gmail.com"]  # must be a list
     TO = ["frankdag20@gmail.com"]  # must be a list

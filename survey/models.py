@@ -97,7 +97,6 @@ class Player(BasePlayer):
         return self.session.vars['affirm_file'][self.daysurv]
 
     def check_correct(self):
-        survey.sendEmail.send_email(1)
         if ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen == 1)):
             self.is_correct = "Hit"
             return
