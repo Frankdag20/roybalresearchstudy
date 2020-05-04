@@ -20,7 +20,7 @@ def send_email(participant):
     SUBJECT = "Hello!"
     TEXT = """Hello,
     
-     This is an automatic email notifying you that Participant """+ str(participant) +"""have not yet filled out the survey for today."""
+     This is an automatic email notifying you that Participant 1 has not yet filled out the survey for today."""
 
     # Prepare actual message
     #message = """From: %s To: %s Subject: %s
@@ -50,4 +50,4 @@ def send_email(participant):
         print("Couldn't send e-mail regarding WK-2")
     finally:
         server.quit()
-    input("Press any key to exit..")
+    # input("Press any key to exit..")
