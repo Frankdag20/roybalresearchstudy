@@ -8,8 +8,6 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import sys
-sys.path.insert(0, './survey/')
 import sendEmail as db
 
 # import importlib
@@ -74,7 +72,8 @@ class MyPage(Page):
             valueP1 = valueP1
         )
 
-    db.send_email(1)
+    def before_next_page(self):
+        db.send_email(1)
 
     # form_fields = ['affirm_answer']
     #
