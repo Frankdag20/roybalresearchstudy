@@ -1,7 +1,7 @@
 #from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants, Player
-from sendEmail.py import send_email
+from sendEmail import send_email
 
 import datetime
 import time
