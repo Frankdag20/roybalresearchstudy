@@ -75,7 +75,7 @@ class Player(BasePlayer):
     seen = models.IntegerField()
     question = models.StringField()
     solution = models.StringField()
-    submitted_answer = models.StringField(widget=widgets.RadioSelect)
+    submitted_answer = models.StringField(label = self.player.current_question()['question'], widget=widgets.RadioSelect)
     is_correct = models.StringField()
 
     val_label = models.StringField()
@@ -87,7 +87,7 @@ class Player(BasePlayer):
     #     return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
 
     def get_value(self):
-        return self.session.vars['val_file'][1]['value']
+        return self.session.vars['val_file'][0]['value']
 
     def current_question(self):
         return self.session.vars['questions'][self.daysurv]
