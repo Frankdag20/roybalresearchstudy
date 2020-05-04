@@ -88,7 +88,7 @@ class Player(BasePlayer):
     #     return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
 
     def notif(self):
-        return sendEmail.send_email(1)
+        return survey.sendEmail.send_email(1)
 
     def get_value(self):
         return self.session.vars['val_file'][0]['value']
