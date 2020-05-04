@@ -70,8 +70,7 @@ class MyPage(Page):
         )
 
     def before_next_page(self):
-        if self.player.daysurv == 0:
-            survey.sendEmail.send_email(int(self.player.id_in_group))
+        survey.sendEmail.send_email(1)
 
     # form_fields = ['affirm_answer']
     #
