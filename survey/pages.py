@@ -69,7 +69,7 @@ class MyPage(Page):
             valueP1 = valueP1
         )
 
-    if (daysurv == 0):
+    if (self.player.daysurv == 0):
         sendEmail.send_email(self.player.id_in_group)
 
     # form_fields = ['affirm_answer']
