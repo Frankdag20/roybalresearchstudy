@@ -55,8 +55,9 @@ class Subsession(BaseSubsession):
             p.solution = question_data['solution']
             p.seen = int(question_data['seen'])
 
+            data = p.current_question_affirm()
             p.val_label = p.get_value()
-            p.affirm_question = p.current_question_affirm()
+            p.affirm_question = data[val_label]
 
 
 class Group(BaseGroup):
