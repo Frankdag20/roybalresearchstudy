@@ -83,7 +83,7 @@ class MyPage2(Page):
             # valueP2 = valueP2
         # )
 
-    form_fields = ['question']
+    form_fields = ['submitted_answer']
 
     def submitted_answer_choices(self):
         qd = self.player.current_question()

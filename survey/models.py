@@ -75,7 +75,7 @@ class Player(BasePlayer):
     seen = models.IntegerField()
     question = models.StringField()
     solution = models.StringField()
-    submitted_answer = models.StringField(widget=widgets.RadioSelect)
+    submitted_answer = models.StringField(label = question, widget=widgets.RadioSelect)
     is_correct = models.StringField()
 
     val_label = models.StringField()
