@@ -57,7 +57,7 @@ class Subsession(BaseSubsession):
 
             data = p.current_question_affirm()
             p.val_label = p.get_value()
-            p.affirm_question = data[val_label]
+            p.affirm_question = data[p.val_label]
 
 
 class Group(BaseGroup):
