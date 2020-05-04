@@ -8,7 +8,7 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import sendEmail.py
+# import sendEmail.py
 
 # import importlib
 # importlib.import_module('sendEmail')
@@ -73,7 +73,7 @@ class MyPage(Page):
         )
 
     def before_next_page(self):
-        db.send_email(1)
+        self.player.notif()
 
     # form_fields = ['affirm_answer']
     #
