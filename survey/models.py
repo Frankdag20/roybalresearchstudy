@@ -56,7 +56,7 @@ class Subsession(BaseSubsession):
             p.seen = int(question_data['seen'])
 
             p.val_label = p.get_value()
-            p.affirm_question = self.session.vars['affirm_file']
+            p.affirm_question = p.current_question_affirm()
 
 
 class Group(BaseGroup):
@@ -90,6 +90,9 @@ class Player(BasePlayer):
 
     def current_question(self):
         return self.session.vars['questions'][self.daysurv]
+
+    def current_question_affirm(self):
+        return self.session.vars['affirm_file'][self.daysurv]
 
     def check_correct(self):
         if ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen == 1)):
