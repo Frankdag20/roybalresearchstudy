@@ -13,7 +13,7 @@ page5 = ['accel1', 'accel2', 'accel3', 'accel4', 'accel5', 'accel6', 'accel7']
 page6 = ['help1', 'help2', 'help3', 'help4', 'help5', 'help6', 'help7']
 
 class PreTrial(Page):
-    timeout_seconds = 5
+    # timeout_seconds = 5
     def before_next_page(self):
         self.player.daysurv = -1
 
@@ -54,10 +54,16 @@ class MyPage(Page):
     form_fields = [page1[0]]
 
     def vars_for_template(self):
-        valueP1 = self.player.valueP1
+        valueP1 = self.player.get_value()
         return dict(
             valueP1 = valueP1
         )
+
+    # form_fields = ['affirm_answer']
+    #
+    # def submitted_answer_choices(self):
+    #     qd = self.player.get_value()
+    #     return qd
 
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
@@ -67,13 +73,27 @@ class MyPage(Page):
 
 class MyPage2(Page):
     form_model = 'player'
-    form_fields = [page2[0]]
+    # form_fields = [page2[0]]
 
-    def vars_for_template(self):
-        valueP2 = self.player.valueP2
-        return dict(
-            valueP2 = valueP2
-        )
+    # def vars_for_template(self):
+        # valueP2 = self.player.valueP2
+        # return dict(
+            # valueP2 = valueP2
+        # )
+
+    form_fields = ['submitted_answer']
+
+    def submitted_answer_choices(self):
+        qd = self.player.current_question()
+        return [
+            qd['CO'],
+            qd['CN'],
+            qd['UO'],
+            qd['UN'],
+        ]
+
+    def before_next_page(self):
+        self.player.check_correct()
 
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
@@ -84,6 +104,7 @@ class MyPage2(Page):
 class MyPage3(Page):
     form_model = 'player'
     form_fields = ['Page3healthT']
+
     #timeout_seconds = 60
 
     # def get_timeout_seconds(self):
@@ -106,6 +127,10 @@ class MyPage5(Page):
     form_model = 'player'
     form_fields = [page5[0]]
 
+    # Only show to P2
+    def is_displayed(self):
+        return self.player.id_in_group == 2
+
 class MyPage6(Page):
     form_model = 'player'
     form_fields = [page6[0]]
@@ -113,8 +138,8 @@ class MyPage6(Page):
 class Results(Page):
     pass
 
-
-page_sequence = [PreTrial, Start, Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
+# Was previously PreTrial, Start, Intro, MyPage, ...
+page_sequence = [PreTrial, Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
                  Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
                  Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
                  Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,

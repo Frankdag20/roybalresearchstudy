@@ -9,22 +9,54 @@ from otree.api import (
     currency_range,
 )
 
+import csv
 
 author = 'Frank DAgostino'
 
 doc = """
-Research
+Roybal Research study program to sent daily survey
+to participates to test affirmation messaging research.
+See dailyQs.csv for input data
 """
 
 
 class Constants(BaseConstants):
     name_in_url = 'research'
     players_per_group = None
+
+    with open('survey/dailyQs.csv') as questions_file:
+        questions = list(csv.DictReader(questions_file))
+
+    with open('survey/affirmQs.csv') as aff:
+        affirm_file = list(csv.DictReader(aff))
+
+    with open('survey/values.csv') as val:
+        val_file = list(csv.DictReader(val))
+
     num_rounds = 1
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        if self.round_number == 1:
+
+            self.participant.vars['questions'] = Constants.questions.copy()
+            self.participant.vars['affirm_file'] = Constants.affirm_file.copy()
+            self.participant.vars['val_file'] = Constants.val_file.copy()
+            # randomize for each participant
+            # import random
+            # randomized_questions = random.sample(Constants.questions, len(Constants.questions))
+            # self.participant.vars['questions'] = randomized_questions
+
+        for p in self.get_players():
+            question_data = p.current_question()
+            p.question_id = int(question_data['id'])
+            p.question = question_data['question']
+            p.solution = question_data['solution']
+            p.seen = question_data['seen']
+
+            p.affirm_question = p.get_value()
+            p.affirm_id = int(data['id'])
 
 
 class Group(BaseGroup):
@@ -37,6 +69,49 @@ class Group(BaseGroup):
 #         widget=widgets.RadioSelect)
 
 class Player(BasePlayer):
+
+    question_id = models.IntegerField()
+    seen = models.IntegerField()
+    question = models.StringField()
+    solution = models.StringField()
+    submitted_answer = models.StringField(widget=widgets.RadioSelect)
+    is_correct = models.StringField()
+
+    affirm_question = models.StringField()
+    affirm_id = models.IntegerField()
+    affirm_answer = models.StringField(widget=widgets.RadioSelect)
+
+    def get_value(self):
+        return self.session.vars['affirm_file'][self.sessions.vars['val_file'][self.player.id_in_group]['value']]
+
+    def current_question(self):
+        return self.session.vars['questions'][self.daysurv]
+
+    def check_correct(self):
+        if ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen == 1)):
+            self.is_correct = "Hit"
+            return
+        elif ((self.submitted_answer == "I can confidently say I've never seen this message in the scanner before.") and (self.seen == 1)):
+            self.is_correct = "Miss"
+            return
+        elif ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen == 0)):
+            self.is_correct = "False Alarm"
+            return
+        elif ((self.submitted_answer == "I can confidently say I've never seen this message in the scanner before.") and (self.seen == 0)):
+            self.is_correct = "Correct Rejection"
+            return
+        elif ((self.submitted_answer == "This message seems vaguely familiar, but I am not confident.") and (self.seen == 1)):
+            self.is_correct = "Unsure Hit"
+            return
+        elif ((self.submitted_answer == "This message does not seem familiar, although I am not confident.") and (self.seen == 1)):
+            self.is_correct = "Unsure Miss"
+            return
+        elif ((self.submitted_answer == "This message seems vaguely familiar, but I am not confident.") and (self.seen == 0)):
+            self.is_correct = "Unsure False Alarm"
+            return
+        elif ((self.submitted_answer == "This message does not seem familiar, although I am not confident.") and (self.seen == 0)):
+            self.is_correct = "Unsure Correct Rejection"
+            return
 
     daysurv = models.IntegerField(initial=0)
 
