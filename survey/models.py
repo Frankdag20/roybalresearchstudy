@@ -86,7 +86,7 @@ class Player(BasePlayer):
     #     return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
 
     def get_value(self):
-        return self.session.vars['val_file'][self.track]['value']
+        return self.session.vars['val_file'][1]['value']
 
     def current_question(self):
         return self.session.vars['questions'][self.daysurv]
