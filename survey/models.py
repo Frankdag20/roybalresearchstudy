@@ -53,7 +53,7 @@ class Subsession(BaseSubsession):
             p.question_id = int(question_data['id'])
             p.question = question_data['question']
             p.solution = question_data['solution']
-            p.seen = question_data['seen']
+            p.seen = int(question_data['seen'])
 
             p.affirm_question = p.get_value()
             p.affirm_id = int(data['id'])
