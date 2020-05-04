@@ -55,7 +55,7 @@ class MyPage(Page):
 
     def vars_for_template(self):
         # self.player.valueP1
-        valueP1 = self.player.affirm_question[self.player.val_label[self.player.id_in_group]['value']]
+        valueP1 = self.player.affirm_question[self.player.val_label]
         return dict(
             valueP1 = valueP1
         )

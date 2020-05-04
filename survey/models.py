@@ -55,7 +55,7 @@ class Subsession(BaseSubsession):
             p.solution = question_data['solution']
             p.seen = int(question_data['seen'])
 
-            p.val_label = self.session.vars['val_file']
+            p.val_label = self.session.vars['val_file'][self.player.id_in_group]['value']
 
             p.affirm_question = self.session.vars['affirm_file']
 
