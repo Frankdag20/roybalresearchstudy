@@ -8,7 +8,7 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import sendEmail as db
+import sendEmail.py
 
 # import importlib
 # importlib.import_module('sendEmail')
