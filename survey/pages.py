@@ -24,10 +24,10 @@ page5 = ['accel1', 'accel2', 'accel3', 'accel4', 'accel5', 'accel6', 'accel7']
 page6 = ['help1', 'help2', 'help3', 'help4', 'help5', 'help6', 'help7']
 
 class PreTrial(Page):
-    # timeout_seconds = 5
-    def before_next_page(self):
-        self.player.daysurv = -1
-        self.player.track = self.player.id_in_group
+    timeout_seconds = 5
+    # def before_next_page(self):
+        #self.player.daysurv = -1
+        #self.player.track = self.player.id_in_group
 
 class Start(Page):
     form_model = 'player'
@@ -72,8 +72,8 @@ class MyPage(Page):
             valueP1 = valueP1
         )
 
-    def before_next_page(self):
-        self.player.notif()
+    # def before_next_page(self):
+        # self.player.notif()
 
     # form_fields = ['affirm_answer']
     #
