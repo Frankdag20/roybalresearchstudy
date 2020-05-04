@@ -55,7 +55,9 @@ class Subsession(BaseSubsession):
             p.solution = question_data['solution']
             p.seen = int(question_data['seen'])
 
-            p.affirm_question = p.get_value()
+            p.val_label = self.session.vars['val_file']
+
+            p.affirm_question = self.session.vars['affirm_file']
 
 
 class Group(BaseGroup):
@@ -76,12 +78,13 @@ class Player(BasePlayer):
     submitted_answer = models.StringField(widget=widgets.RadioSelect)
     is_correct = models.StringField()
 
+    val_label = models.StringField()
     affirm_question = models.StringField()
-    affirm_id = models.IntegerField()
-    affirm_answer = models.StringField(widget=widgets.RadioSelect)
+    # affirm_id = models.IntegerField()
+    # affirm_answer = models.StringField(widget=widgets.RadioSelect)
 
-    def get_value(self):
-        return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
+    # def get_value(self):
+    #     return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
 
     def current_question(self):
         return self.session.vars['questions'][self.daysurv]
