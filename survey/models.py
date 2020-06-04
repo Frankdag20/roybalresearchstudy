@@ -187,8 +187,9 @@ class Player(BasePlayer):
         label='How confident are you in carrying out the previous health tip?',
         widget=widgets.RadioSelectHorizontal)
     Page4mood2 = models.StringField(
-        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
-        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
+        # choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
+        choices=[["1", 'Sad'], ["2", ''], ["3", ''], ["4", ''], ["5", ''], ["6", ''], ["7", 'Happy']],
+        label='What is your current mood? Please rank from sad (sad face) to happy (smiling face).',
         widget=widgets.RadioSelectHorizontal)
     accel2 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],

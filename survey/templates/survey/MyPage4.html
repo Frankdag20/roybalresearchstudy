@@ -23,6 +23,38 @@ zoomed {
 <center>
     {% formfields %}
 </center>
+
+
+<center>
+    <table class="table table-light">
+      <!--Create table for activities-->
+      <thead>
+      <center>
+         <tr>
+             <th scope="col"></th>
+             <th scope="col"><img src="{% static "Page4/hs1.jpg" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs2.jpg" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs3.jpg" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs4.jpg" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs5.jpg" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs6.jpg" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs7.jpg" %}"/></th>
+         </tr>
+      </center>
+      </thead>
+      <tbody>
+      <center>
+          <tr>
+            <td>{{ form.Page4Mood2.label }}</td>
+                {% for choice in form.Page4Mood2 %}
+                <td>{{  choice  }}</td>
+                {% endfor %}
+          </tr>
+          </center>
+      </tbody>
+
+</table>
+        </center>
     <center>{% next_button %}</center>
 
 <!--    </big></big></big></big>-->
