@@ -131,8 +131,7 @@ class MyPage3(Page):
 
 class MyPage4(Page):
     form_model = 'player'
-    form_fields = ['Page4Mood2']
-    #form_fields = [page4[0]]
+    form_fields = [page4[1]]
 
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
