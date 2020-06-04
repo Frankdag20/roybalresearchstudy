@@ -32,25 +32,25 @@ zoomed {
       <center>
          <tr>
              <th scope="col"></th>
-             <th scope="col"><img src="{% static "Page4/hs1.jpg" %}"/></th>
-             <th scope="col"><img src="{% static "Page4/hs2.jpg" %}"/></th>
-             <th scope="col"><img src="{% static "Page4/hs3.jpg" %}"/></th>
-             <th scope="col"><img src="{% static "Page4/hs4.jpg" %}"/></th>
-             <th scope="col"><img src="{% static "Page4/hs5.jpg" %}"/></th>
-             <th scope="col"><img src="{% static "Page4/hs6.jpg" %}"/></th>
-             <th scope="col"><img src="{% static "Page4/hs7.jpg" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs1.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs2.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs3.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs4.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs5.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs6.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs7.png" %}"/></th>
          </tr>
       </center>
       </thead>
       <tbody>
       <center>
           <tr>
-            <td>{{ form.Page4Mood2.label }}</td>
+                <td><center>{{ form.Page4Mood2.label }}</center></td>
                 {% for choice in form.Page4Mood2 %}
-                <td>{{  choice  }}</td>
+                <td><center>{{  choice  }}</center></td>
                 {% endfor %}
           </tr>
-          </center>
+      </center>
       </tbody>
 
 </table>
