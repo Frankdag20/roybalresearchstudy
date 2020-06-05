@@ -79,13 +79,17 @@ zoomed {
       <center>
          <tr>
 
-             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs1.jpg' %}'/></th>
-             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs2.jpg' %}'/></th>
-             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs3.jpg' %}'/></th>
-             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs4.jpg' %}'/></th>
-             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs5.jpg' %}'/></th>
-             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/></th>
-             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/></th>
+             {% for i in colNames %}
+                <td><center>{{  i  }}</center></td>
+             {% endfor %}
+
+<!--             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs1.jpg' %}'/></th>-->
+<!--             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs2.jpg' %}'/></th>-->
+<!--             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs3.jpg' %}'/></th>-->
+<!--             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs4.jpg' %}'/></th>-->
+<!--             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs5.jpg' %}'/></th>-->
+<!--             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/></th>-->
+<!--             <th scope="col"><img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/></th>-->
 <!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/p35qccv" alt=""></th>-->
 <!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/CFfli65" alt=""></th>-->
 <!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/Eza6e6x" alt=""></th>-->
@@ -99,17 +103,17 @@ zoomed {
       <tbody>
       <center>
           <tr>
-              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs1.jpg' %}'/>"><center>form.Page4mood2.value[0]</center></td>
-              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs2.jpg' %}'/>"><center>form.Page4mood2.value[1]</center></td>
-              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs3.jpg' %}'/>"><center>form.Page4mood2.value[[2]]</center></td>
-              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs4.jpg' %}'/>"><center>form.Page4mood2[3]</center></td>
-              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs5.jpg' %}'/>"><center>form.Page4mood2[4]</center></td>
-              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/>"><center>form</center></td>
-              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/>"><center>form.Page4mood2[6]</center></td>
+<!--              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs1.jpg' %}'/>"><center>{{form.Page4mood2[0]}}</center></td>-->
+<!--              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs2.jpg' %}'/>"><center>{{form.Page4mood2.value}}</center></td>-->
+<!--              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs3.jpg' %}'/>"><center>{{form.Page4mood2.value[2]}}</center></td>-->
+<!--              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs4.jpg' %}'/>"><center>form.Page4mood2[3]</center></td>-->
+<!--              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs5.jpg' %}'/>"><center>form.Page4mood2[4]</center></td>-->
+<!--              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/>"><center>form</center></td>-->
+<!--              <td data-title="<img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/>"><center>form.Page4mood2[6]</center></td>-->
 
-<!--                {% for choice in form.Page4mood2 %}-->
-<!--                <td><center>{{  choice  }}</center></td>-->
-<!--                {% endfor %}-->
+                {% for choice in form.Page4mood2 %}
+                <td data-title="colNames"><center>{{  choice  }}</center></td>
+                {% endfor %}
           </tr>
       </center>
       </tbody>
