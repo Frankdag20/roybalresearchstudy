@@ -23,8 +23,6 @@ page4 = ['Page4mood1', 'Page4mood2', 'Page4mood3', 'Page4mood4', 'Page4mood5', '
 page5 = ['accel1', 'accel2', 'accel3', 'accel4', 'accel5', 'accel6', 'accel7']
 page6 = ['help1', 'help2', 'help3', 'help4', 'help5', 'help6', 'help7']
 
-colNames = ["<img width='100' height='100' src='{% static 'Page4/hs1.jpg' %}'/>", "<img width='100' height='100' src='{% static 'Page4/hs2.jpg' %}'/>", "<img width='100' height='100' src='{% static 'Page4/hs3.jpg' %}'/>", "<img width='100' height='100' src='{% static 'Page4/hs4.jpg' %}'/>", "<img width='100' height='100' src='{% static 'Page4/hs5.jpg' %}'/>", "<img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/>", "<img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/>"]
-
 class PreTrial(Page):
     timeout_seconds = 5
     # def before_next_page(self):

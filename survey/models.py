@@ -128,6 +128,14 @@ class Player(BasePlayer):
     daysurv = models.IntegerField(initial=0)
     track = models.IntegerField()
 
+    colNames = ["<img width='100' height='100' src='{% static 'Page4/hs1.jpg' %}'/>",
+                "<img width='100' height='100' src='{% static 'Page4/hs2.jpg' %}'/>",
+                "<img width='100' height='100' src='{% static 'Page4/hs3.jpg' %}'/>",
+                "<img width='100' height='100' src='{% static 'Page4/hs4.jpg' %}'/>",
+                "<img width='100' height='100' src='{% static 'Page4/hs5.jpg' %}'/>",
+                "<img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/>",
+                "<img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/>"]
+
     valueP1 = models.StringField(
         choices=[["Think of a time when you would be inspired by family, and focus on the thoughts and emotions associated with the experience.", "family"],
                  ["Think of a time when you would be inspired by money, and focus on the thoughts and emotions associated with the experience.","money"],
