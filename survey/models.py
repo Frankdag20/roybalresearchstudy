@@ -36,14 +36,6 @@ class Constants(BaseConstants):
 
     num_rounds = 1
 
-    colNames = ["<img width='100' height='100' src='{% static 'Page4/hs1.jpg' %}'/>",
-                "<img width='100' height='100' src='{% static 'Page4/hs2.jpg' %}'/>",
-                "<img width='100' height='100' src='{% static 'Page4/hs3.jpg' %}'/>",
-                "<img width='100' height='100' src='{% static 'Page4/hs4.jpg' %}'/>",
-                "<img width='100' height='100' src='{% static 'Page4/hs5.jpg' %}'/>",
-                "<img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/>",
-                "<img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/>"]
-
 
 class Subsession(BaseSubsession):
     def creating_session(self):
