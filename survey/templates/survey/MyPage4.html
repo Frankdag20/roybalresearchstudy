@@ -6,9 +6,9 @@
 <style>
 
 
-td {
-  display: inline-block;
-}
+/*table {*/
+/*  display: inline-block;*/
+/*}*/
 /*@media only screen and (max-width: 800px) {*/
 
 /*	!* Force table to not be like tables anymore *!*/
@@ -59,6 +59,15 @@ td {
 /*	#no-more-tables td:before { content: attr(data-title); }*/
 /*}*/
 
+@media only screen and (max-width: 800px) {
+	#unseen table td:nth-child(5),
+	#unseen table th:nth-child(5),
+    #unseen table td:nth-child(6),
+    #unseen table th:nth-child(6),
+    #unseen table td:nth-child(7),
+    #unseen table th:nth-child(7) {display: block;}
+}
+
 zoomed {
     zoom: 1.2;
     -moz-transform: scale(1.2);
@@ -81,13 +90,13 @@ zoomed {
       <center>
          <tr>
 
-             <td scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs1.jpg' %}'/></center></td>
-             <td scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs2.jpg' %}'/></center></td>
-             <td scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs3.jpg' %}'/></center></td>
-             <td scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs4.jpg' %}'/></center></td>
-             <td scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs5.jpg' %}'/></center></td>
-             <td scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs6.jpg' %}'/></center></td>
-             <td scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs7.jpg' %}'/></center></td>
+             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs1.jpg' %}'/></center></th>
+             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs2.jpg' %}'/></center></th>
+             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs3.jpg' %}'/></center></th>
+             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs4.jpg' %}'/></center></th>
+             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs5.jpg' %}'/></center></th>
+             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs6.jpg' %}'/></center></th>
+             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs7.jpg' %}'/></center></th>
 <!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/p35qccv" alt=""></th>-->
 <!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/CFfli65" alt=""></th>-->
 <!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/Eza6e6x" alt=""></th>-->
