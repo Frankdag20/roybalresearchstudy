@@ -187,7 +187,7 @@ class Player(BasePlayer):
         label='How confident are you in carrying out the previous health tip?',
         widget=widgets.RadioSelectHorizontal)
     Page4mood2 = models.StringField(
-        choices=[["1", '<img width='50' height='50' src='{% static 'Page4/hs1.jpg' %}'/> \n Very Bad'], ["2", 'Really Bad'], ["3", 'Bad'], ["4", 'So-so'], ["5", 'Good'], ["6", 'Really Good'], ["7", 'Very good']],
+        choices=[["1", 'Very Bad'], ["2", 'Really Bad'], ["3", 'Bad'], ["4", 'So-so'], ["5", 'Good'], ["6", 'Really Good'], ["7", 'Very good']],
         label='How are you feeling? Please rank from very bad to very good.',
         widget=widgets.RadioSelect)
     accel2 = models.BooleanField(
