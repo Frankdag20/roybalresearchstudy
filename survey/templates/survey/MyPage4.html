@@ -59,17 +59,17 @@
 /*	#no-more-tables td:before { content: attr(data-title); }*/
 /*}*/
 
-#table_id  {display: block; }
-#table_id  td {display: inline-block; }
+/*#table_id  {display: block; }*/
+/*#table_id  td {display: inline-block; }*/
 
-/*@media only screen and (max-width: 800px) {*/
-/*	table td:nth-child(5),*/
-/*	table th:nth-child(5),*/
-/*    table td:nth-child(6),*/
-/*    table th:nth-child(6),*/
-/*    table td:nth-child(7),*/
-/*    table th:nth-child(7) {display: table-row;}*/
-/*}*/
+@media only screen and (max-width: 800px) {
+	table td:nth-child(5) {display: inline-block; float: left}
+	table th:nth-child(5) {display: inline-block; float: left}
+    table td:nth-child(6) {display: inline-block; clear:both}
+    table th:nth-child(6) {display: inline-block; clear:both}
+    table td:nth-child(7) {display: inline-block; float: right}
+    table th:nth-child(7) {display: inline-block; float: right}
+}
 
 zoomed {
     zoom: 1.2;
@@ -88,7 +88,7 @@ zoomed {
 
       <center>  {{ form.Page4mood2.label }}   </center>
         <center>
-    <table id="table_id" class="table table-light" width="100%" style="display: inline;">
+    <table class="table table-light" width="100%" style="display: inline;">
       <!--Create table for activities-->
       <thead>
       <center>
@@ -126,7 +126,7 @@ zoomed {
                 <td><center>{{  choice  }}</center></td>
                 {% endfor %}
           </tr>
-          
+
       </center>
       </tbody>
 
