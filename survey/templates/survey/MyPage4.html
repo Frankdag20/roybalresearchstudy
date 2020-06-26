@@ -59,14 +59,17 @@
 /*	#no-more-tables td:before { content: attr(data-title); }*/
 /*}*/
 
-@media only screen and (max-width: 800px) {
-	td:nth-child(5),
-	th:nth-child(5),
-    td:nth-child(6),
-    th:nth-child(6),
-    td:nth-child(7),
-    th:nth-child(7) {display: table-row;}
-}
+#table_id  {display: block; }
+#table_id  td {display: inline-block; }
+
+/*@media only screen and (max-width: 800px) {*/
+/*	table td:nth-child(5),*/
+/*	table th:nth-child(5),*/
+/*    table td:nth-child(6),*/
+/*    table th:nth-child(6),*/
+/*    table td:nth-child(7),*/
+/*    table th:nth-child(7) {display: table-row;}*/
+/*}*/
 
 zoomed {
     zoom: 1.2;
@@ -85,7 +88,7 @@ zoomed {
 
       <center>  {{ form.Page4mood2.label }}   </center>
         <center>
-    <table class="table table-light" width="100%" style="display: inline;">
+    <table id="table_id" class="table table-light" width="100%" style="display: inline;">
       <!--Create table for activities-->
       <thead>
       <center>
@@ -122,6 +125,30 @@ zoomed {
                 {% for choice in form.Page4mood2 %}
                 <td><center>{{  choice  }}</center></td>
                 {% endfor %}
+          </tr>
+
+          <tr>
+
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+
+          </tr>
+
+          <tr>
+
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+              <td> . </td>
+
           </tr>
       </center>
       </tbody>
