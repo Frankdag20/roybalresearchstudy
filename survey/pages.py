@@ -30,8 +30,8 @@ class PreTrial(Page):
 
     def before_next_page(self):
         import time
-        # user has 5 minutes to complete as many pages as possible
-        self.player.vars['expiry'] = time.time() + 2 * 60
+
+        self.participant.vars['expiry'] = time.time() + 2 * 60
     # timeout_seconds = 5
     # def before_next_page(self):
         #self.player.daysurv = -1
@@ -42,7 +42,7 @@ class Start(Page):
     form_fields = ['valueP1', 'valueP2']
 
     def get_timeout_seconds(self):
-        return self.player.vars['expiry'] - time.time()
+        return self.participant.vars['expiry'] - time.time()
 
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
@@ -55,7 +55,7 @@ class Wait(Page):
     #timeout_seconds = 10
 
     def get_timeout_seconds(self):
-        return self.player.vars['expiry'] - time.time()
+        return self.participant.vars['expiry'] - time.time()
 
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
@@ -68,7 +68,7 @@ class Next(Page):
     form_model = 'player'
 
     def get_timeout_seconds(self):
-        return self.player.vars['expiry'] - time.time()
+        return self.participant.vars['expiry'] - time.time()
 
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
@@ -80,7 +80,7 @@ class Intro(Page):
         self.player.daysurv = self.player.daysurv + 1
 
     def get_timeout_seconds(self):
-        return self.player.vars['expiry'] - time.time()
+        return self.participant.vars['expiry'] - time.time()
 
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
