@@ -24,10 +24,13 @@ page5 = ['accel1', 'accel2', 'accel3', 'accel4', 'accel5', 'accel6', 'accel7']
 page6 = ['help1', 'help2', 'help3', 'help4', 'help5', 'help6', 'help7']
 
 class PreTrial(Page):
+    def is_displayed(self):
+        return self.round_number == 1
+
     def before_next_page(self):
         import time
         # user has 5 minutes to complete as many pages as possible
-        self.participant.vars['expiry'] = time.time() + 5 * 60
+        self.participant.vars['expiry'] = time.time() + 2 * 60
     # timeout_seconds = 5
     # def before_next_page(self):
         #self.player.daysurv = -1
