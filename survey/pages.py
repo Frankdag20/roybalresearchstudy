@@ -24,7 +24,11 @@ page5 = ['accel1', 'accel2', 'accel3', 'accel4', 'accel5', 'accel6', 'accel7']
 page6 = ['help1', 'help2', 'help3', 'help4', 'help5', 'help6', 'help7']
 
 class PreTrial(Page):
-    timeout_seconds = 5
+    def before_next_page(self):
+        import time
+        # user has 5 minutes to complete as many pages as possible
+        self.participant.vars['expiry'] = time.time() + 5 * 60
+    # timeout_seconds = 5
     # def before_next_page(self):
         #self.player.daysurv = -1
         #self.player.track = self.player.id_in_group
@@ -33,6 +37,11 @@ class Start(Page):
     form_model = 'player'
     form_fields = ['valueP1', 'valueP2']
 
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
     # def before_next_page(self):
     #     self.participant.vars['expiry'] = time.time() + 1 * 60
 
@@ -41,6 +50,11 @@ class Wait(Page):
 
     #timeout_seconds = 10
 
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
     #timer_text = 'See you tomorrow!'
     #timeout_seconds = 10
     # time = datetime.now()
@@ -49,12 +63,23 @@ class Wait(Page):
 class Next(Page):
     form_model = 'player'
 
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
+
 class Intro(Page):
     form_model = 'player'
 
     def before_next_page(self):
         self.player.daysurv = self.player.daysurv + 1
 
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
     #
@@ -71,6 +96,12 @@ class MyPage(Page):
         return dict(
             valueP1 = valueP1
         )
+
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
 
     # def before_next_page(self):
         # self.player.notif()
@@ -111,6 +142,11 @@ class MyPage2(Page):
     def before_next_page(self):
         self.player.check_correct()
 
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
     #
@@ -144,12 +180,24 @@ class MyPage5(Page):
     form_fields = [page5[0]]
 
     # Only show to P2
+    #def is_displayed(self):
+    #    return self.player.id_in_group == 2
+
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
     def is_displayed(self):
-        return self.player.id_in_group == 2
+        return self.get_timeout_seconds() > 3
 
 class MyPage6(Page):
     form_model = 'player'
     form_fields = [page6[0]]
+
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
 
 class Results(Page):
     pass
