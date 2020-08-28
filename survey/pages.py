@@ -24,4 +24,4 @@ class MyPage2(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
 
-page_sequence = [Demographics, CognitiveReflectionTest]
+page_sequence = [MyPage, MyPage2]
