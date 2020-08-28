@@ -42,10 +42,11 @@ class Start(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
+        print(y)
         return self.participant.vars['expiry'] - int(y)
 
     def is_displayed(self):
-        return self.get_timeout_seconds() == 0
+        return self.get_timeout_seconds() != 0
 
 class Wait(Page):
     form_model = 'player'
@@ -56,7 +57,7 @@ class Wait(Page):
         return self.participant.vars['expiry'] - int(y)
 
     def is_displayed(self):
-        return self.get_timeout_seconds() == 0
+        return self.get_timeout_seconds() != 0
 
 class Next(Page):
     form_model = 'player'
