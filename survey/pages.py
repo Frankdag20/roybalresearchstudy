@@ -111,7 +111,7 @@ class Start(Page):
 
         return self.get_timeout_seconds() != 0
 
-class Wait(Page):
+class Wait1(Page):
     form_model = 'player'
 
     def before_next_page(self):
@@ -127,7 +127,11 @@ class Wait(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
+
+        if int(y) == 6:
+            self.participant.vars['day_of_experiment'] = 2
+
+        if self.participant.vars['day_of_experiment'] == 2:
             return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -329,12 +333,64 @@ class MyPage6(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
 
+class Wait2(Page):
+    form_model = 'player'
+
+    def before_next_page(self):
+        from datetime import datetime
+
+        # Datetime is 4 hours ahead of EDT
+        self.participant.vars['expiry'] = int("08")
+
+    def get_timeout_seconds(self):
+        x = datetime.now()
+        y = x.strftime("%H")
+        # Get day of the week
+        day = 1
+        if int(y) == 5:
+            y = 29
+
+        if int(y) == 6:
+            self.participant.vars['day_of_experiment'] = 2
+
+        if self.participant.vars['day_of_experiment'] == 2:
+            return (self.participant.vars['expiry'] - int(y)) * 3600
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() != 0
+
+class Wait(Page):
+    form_model = 'player'
+
+    def before_next_page(self):
+        from datetime import datetime
+
+        # Datetime is 4 hours ahead of EDT
+        self.participant.vars['expiry'] = int("08")
+
+    def get_timeout_seconds(self):
+        x = datetime.now()
+        y = x.strftime("%H")
+        # Get day of the week
+        day = 1
+        if int(y) == 5:
+            y = 29
+
+        if int(y) == 6:
+            self.participant.vars['day_of_experiment'] = 2
+
+        if self.participant.vars['day_of_experiment'] == 2:
+            return (self.participant.vars['expiry'] - int(y)) * 3600
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() != 0
+
 class Results(Page):
     pass
 
 # Was previously PreTrial, Start, Intro, MyPage, ...
-page_sequence = [PreTrial, Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
-                 Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
+page_sequence = [PreTrial, Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait1,
+                 Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait2,
                  Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
                  Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
                  Intro, MyPage, MyPage2, MyPage3, MyPage4, MyPage5, MyPage6, Wait,
