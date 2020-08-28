@@ -39,13 +39,15 @@ ROOMS = [
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
 
+
+
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
-DEMO_PAGE_INTRO_HTML = """
-Here are some oTree games.
-"""
+ADMIN_PASSWORD = '123'
+#ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+
+DEMO_PAGE_INTRO_HTML = """ """
 
 # don't share this with anybody.
 SECRET_KEY = 'lr!bh(leq5n=d-9wvt#qy^r1exd(qc5w%z_4skr+l22*!8$-o#'
