@@ -4,7 +4,7 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 import time
 
-class Demographics(Page):
+class MyPage(Page):
     def is_displayed(self):
         return self.round_number == 1
 
@@ -15,7 +15,7 @@ class Demographics(Page):
     form_fields = ['age', 'gender']
 
 
-class CognitiveReflectionTest(Page):
+class MyPage2(Page):
     form_model = 'player'
     form_fields = ['crt_bat', 'crt_widget', 'crt_lake']
     def get_timeout_seconds(self):
