@@ -1,1 +1,2 @@
-web: python manage.py runserver 0.0.0.0:$PORT
+web: otree prodserver1of2
+worker: otree prodserver2of2
