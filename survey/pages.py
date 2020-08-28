@@ -13,53 +13,14 @@ from email.mime.multipart import MIMEMultipart
 # import importlib
 # importlib.import_module('sendEmail')
 
-def send_email(participant):
-    now = datetime.datetime.now()
-
-    today_date = datetime.date.today()  # today's date
-
-    cy = now.year  # current year
-    cm = now.month  # current month
-    cd = now.day  # current day
-    participant = participant + 1
-    FROM = "fdagostinoj@gmail.com"
-    # TO = ["frankdag20@gmail.com"]  # must be a list
-    TO = ["frankdag20@gmail.com"]  # must be a list
-
-    SUBJECT = "Hello!"
-    TEXT = """Hello,
-
-     This is an automatic email notifying you that Participant 1 has not yet filled out the survey for today."""
-
-    # Prepare actual message
-    # message = """From: %s To: %s Subject: %s
-    #
-    # %s
-    # """ % (FROM, ", ".join(TO), "Hello", TEXT)
-
-    # Prepare actual message
-    message = """Subject: %s
-
-    %s
-     """ % ("Research Notification", TEXT)
-
-    # Send the mail
-    username = str("fdagostinoj@gmail.com")
-    password = str("dagostino1")
-
-    server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
-    server.set_debuglevel(1)
-
-    try:
-        server.starttls()
-        server.login(username, password)
-        server.sendmail(FROM, TO, message)
-        print("The reminder e-mail for WK-2 was sent !")
-    except:
-        print("Couldn't send e-mail regarding WK-2")
-    finally:
-        server.quit()
-    # input("Press any key to exit..")
+def send_simple_message(participant):
+    return requests.post(
+        "https://api.mailgun.net/v3/sandbox64b219372bff4b91b520ff77398d0f05.mailgun.org/messages",
+        auth=("api", "53966fdaf212fbf14192dfb555d27f4e-4d640632-109e5b0c"),
+        data={"from": "Excited User <sandbox64b219372bff4b91b520ff77398d0f05.mailgun.org>",
+              "to": ["frankdag20@gmail.com", "sandbox64b219372bff4b91b520ff77398d0f05.mailgun.org"],
+              "subject": "Hello",
+              "text": "Test!"})
 
 from datetime import datetime
 import time
@@ -99,7 +60,7 @@ class Start(Page):
     def is_displayed(self):
 
         if self.get_timeout_seconds() == 0:
-            send_email(self.player.id_in_group)
+            send_simple_message(self.player.id_in_group)
 
         return self.get_timeout_seconds() != 0
 
