@@ -80,7 +80,7 @@ class PreTrial(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("29")
+        self.participant.vars['expiry'] = int("08")
         print(self.participant.vars['expiry'])
 
 
