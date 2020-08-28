@@ -83,7 +83,7 @@ class PreTrial(Page):
     def before_next_page(self):
         from datetime import datetime
 
-        self.participant.vars['day_of_experiment'] = 1
+        #self.participant.vars['day_of_experiment'] = 1
         # Datetime is 4 hours ahead of EDT
         self.participant.vars['expiry'] = int("29")
         print(self.participant.vars['expiry'])
@@ -100,8 +100,7 @@ class Start(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y))*3600
+        return (self.participant.vars['expiry'] - int(y))*3600
 
     def before_next_page(self):
         self.player.email_send()
@@ -128,11 +127,11 @@ class Wait1(Page):
         if int(y) == 5:
             y = 29
 
-        if int(y) == 18:
-            self.participant.vars['day_of_experiment'] = 2
+        #if int(y) == 18:
+        #    self.participant.vars['day_of_experiment'] = 2
 
-        if self.participant.vars['day_of_experiment'] == 2:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        #if self.participant.vars['day_of_experiment'] == 2:
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -156,9 +155,6 @@ class Next(Page):
 class Intro(Page):
     form_model = 'player'
 
-    def before_next_page(self):
-        self.player.daysurv = self.player.daysurv + 1
-
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
@@ -166,10 +162,14 @@ class Intro(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y) - 1) * 3600
+
+    def before_next_page(self):
+        self.player.email_send()
+        send_email(self.player.id_in_group)
 
     def is_displayed(self):
+
         return self.get_timeout_seconds() != 0
 
 class MyPage(Page):
@@ -189,8 +189,7 @@ class MyPage(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -241,8 +240,7 @@ class MyPage2(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -258,8 +256,7 @@ class MyPage3(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -283,8 +280,7 @@ class MyPage4(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -310,8 +306,7 @@ class MyPage5(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -327,8 +322,7 @@ class MyPage6(Page):
         day = 1
         if int(y) == 5:
             y = 29
-        if self.participant.vars['day_of_experiment'] == 1:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -350,11 +344,7 @@ class Wait2(Page):
         if int(y) == 5:
             y = 29
 
-        if int(y) == 6:
-            self.participant.vars['day_of_experiment'] = 2
-
-        if self.participant.vars['day_of_experiment'] == 2:
-            return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
