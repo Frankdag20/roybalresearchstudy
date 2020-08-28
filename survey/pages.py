@@ -158,11 +158,15 @@ class Intro(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        # Get day of the week
-        day = 1
+
         if int(y) == 5:
             y = 29
-        return (self.participant.vars['expiry'] - int(y) - 1) * 3600
+
+        if int(y) == self.participant.vars['expiry']:
+            delta = 0
+        else:
+            delta = 1
+        return (self.participant.vars['expiry'] - int(y) - delta) * 3600
 
     def before_next_page(self):
         #self.player.email_send()
