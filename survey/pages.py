@@ -31,7 +31,7 @@ class PreTrial(Page):
     def before_next_page(self):
         from datetime import datetime
 
-        self.participant.vars['expiry'] = int("03")
+        self.participant.vars['expiry'] = int("02")
         print(self.participant.vars['expiry'])
 
 
