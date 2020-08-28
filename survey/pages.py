@@ -31,7 +31,8 @@ class PreTrial(Page):
     def before_next_page(self):
         from datetime import datetime
 
-        self.participant.vars['expiry'] = int("12")
+        # Datetime is 4 hours ahead of EDT
+        self.participant.vars['expiry'] = int("29")
         print(self.participant.vars['expiry'])
 
 
@@ -42,7 +43,9 @@ class Start(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y))*3600
 
     def is_displayed(self):
@@ -54,7 +57,9 @@ class Wait(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -66,7 +71,9 @@ class Next(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -81,7 +88,9 @@ class Intro(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -100,8 +109,12 @@ class MyPage(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
+
+
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -148,7 +161,9 @@ class MyPage2(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -161,8 +176,10 @@ class MyPage3(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
-        return (self.participant.vars['expiry'] - int(y))*3600
+
+        if int(y) == 5:
+            y = 29
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -182,7 +199,9 @@ class MyPage4(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -205,7 +224,9 @@ class MyPage5(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -218,7 +239,9 @@ class MyPage6(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        print(y)
+
+        if int(y) == 5:
+            y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
