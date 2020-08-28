@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+    <label class="col-form-label">
+    Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life?
+    </label>
+
+    <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Unlikely</span>
+    </div>
+
+    <input type="range" name="info3" min="1" max="5" step="1">
+
+    <div class="input-group-append">
+        <span class="input-group-text">Very Likely</span>
+    </div>
+    </div>
+
+    {% next_button %}
+
+    Page 3/5
+{% endblock %}

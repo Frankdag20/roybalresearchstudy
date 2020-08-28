@@ -12,7 +12,6 @@ class Page(otree.api.Page):
 class WaitPage(otree.api.WaitPage):
     subsession: models.Subsession
     group: models.Group
-    player: models.Player
 
 
 class Bot(otree.api.Bot):

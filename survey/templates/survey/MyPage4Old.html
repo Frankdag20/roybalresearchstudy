@@ -1,0 +1,95 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+<html>
+{% block content %}
+
+<style>
+zoomed {
+    zoom: 1.2;
+    -moz-transform: scale(1.2);
+    -moz-transform-origin: 0 0;
+}
+</style>
+
+<zoomed>
+<div class="card">
+  <div class="card-header">
+    Question
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+<!--      <big><big><big><big>-->
+
+<center>
+    {% formfields %}
+</center>
+
+
+<center>
+    <table class="table table-light">
+      <!--Create table for activities-->
+      <thead>
+      <center>
+         <tr>
+             <th scope="col"></th>
+             <th scope="col"><img src="{% static "Page4/hs1.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs2.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs3.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs4.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs5.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs6.png" %}"/></th>
+             <th scope="col"><img src="{% static "Page4/hs7.png" %}"/></th>
+         </tr>
+      </center>
+      </thead>
+      <tbody>
+      <center>
+          <tr>
+
+                {% for choice in form.Page4Mood2 %}
+                <td><center>{{  choice  }}</center></td>
+                {% endfor %}
+          </tr>
+      </center>
+      </tbody>
+
+</table>
+</center>
+    <center>{% next_button %}</center>
+
+<!--    </big></big></big></big>-->
+      <footer class="blockquote-footer">Question 4/4</footer>
+    </blockquote>
+  </div>
+</div>
+
+    <script>
+
+        document.querySelector("form").submit()
+
+    // handle other types of messages here..
+}</script>
+
+<center>
+<div class="card text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h7 class="card-title"><b>Help</b></h7>
+    <p class="card-text">Contact <i>Cora Orway</i> at 123-456-7890 if having any issues.</p>
+    <a href="tel:732-675-1910" class="btn btn-primary">Call Cora</a>
+  </div>
+</div>
+</center>
+
+<!--<div class="footer">-->
+<!--    <div class="container">-->
+<!--        <big><big><big><big>-->
+<!--        <p>Contact Cora Orway at 123-456-7890 if having any issues.</p>-->
+<!--        </big></big></big></big>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+{% endblock %}
+</zoomed>
+
+</html>
