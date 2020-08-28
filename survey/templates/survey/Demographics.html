@@ -2,12 +2,17 @@
 {% load otree %}
 
 {% block title %}
-    Results
+    Survey
 {% endblock %}
 
 {% block content %}
 
-    <p>Your name is {{ player.info1 }} and your age is {{ player.info2 }}.</p>
+    <p>
+        Please answer the following questions.
+    </p>
+
+    {% formfields %}
 
     {% next_button %}
+
 {% endblock %}
