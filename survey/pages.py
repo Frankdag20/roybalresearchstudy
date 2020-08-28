@@ -85,7 +85,7 @@ class PreTrial(Page):
 
         #self.participant.vars['day_of_experiment'] = 1
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("14")
+        self.participant.vars['expiry'] = int("18")
         print(self.participant.vars['expiry'])
 
 
@@ -97,9 +97,9 @@ class Start(Page):
         x = datetime.now()
         y = x.strftime("%H")
         # Get day of the week
-        day = 1
-        if int(y) == 5:
-            y = 29
+
+        if int(y) == 6:
+            y = 30
         return (self.participant.vars['expiry'] - int(y))*3600
 
     def before_next_page(self):
@@ -117,15 +117,15 @@ class Wait1(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("14")
+        self.participant.vars['expiry'] = int("18")
 
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
         # Get day of the week
 
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
 
         #if int(y) == 18:
         #    self.participant.vars['day_of_experiment'] = 2
@@ -144,8 +144,8 @@ class Next(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
         if self.participant.vars['day_of_experiment'] == 1:
             return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -159,14 +159,10 @@ class Intro(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
 
-        if int(y) == self.participant.vars['expiry']:
-            delta = 0
-        else:
-            delta = 1
-        return (self.participant.vars['expiry'] - int(y) - delta) * 3600
+        return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
     def before_next_page(self):
         #self.player.email_send()
@@ -191,8 +187,8 @@ class MyPage(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -242,8 +238,8 @@ class MyPage2(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -258,8 +254,8 @@ class MyPage3(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -282,8 +278,8 @@ class MyPage4(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -308,8 +304,8 @@ class MyPage5(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -324,8 +320,8 @@ class MyPage6(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -345,8 +341,8 @@ class Wait2(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
 
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -367,8 +363,8 @@ class Wait(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 5:
-            y = 29
+        if int(y) == 6:
+            y = 30
 
         if int(y) == 6:
             self.participant.vars['day_of_experiment'] = 2
