@@ -118,17 +118,17 @@ class Wait1(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("08")
+        self.participant.vars['expiry'] = int("29")
 
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
         # Get day of the week
-        day = 1
+
         if int(y) == 5:
             y = 29
 
-        if int(y) == 16:
+        if int(y) == 17:
             self.participant.vars['day_of_experiment'] = 2
 
         if self.participant.vars['day_of_experiment'] == 2:
