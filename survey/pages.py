@@ -128,7 +128,7 @@ class Wait1(Page):
         if int(y) == 5:
             y = 29
 
-        if int(y) == 6:
+        if int(y) == 16:
             self.participant.vars['day_of_experiment'] = 2
 
         if self.participant.vars['day_of_experiment'] == 2:
