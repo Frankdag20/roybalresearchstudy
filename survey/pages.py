@@ -68,7 +68,7 @@ class Next(Page):
         return self.participant.vars['expiry'] - int(y)
 
     def is_displayed(self):
-        return self.get_timeout_seconds() == 0
+        return self.get_timeout_seconds() != 0
 
 class Intro(Page):
     form_model = 'player'
@@ -82,7 +82,7 @@ class Intro(Page):
         return self.participant.vars['expiry'] - int(y)
 
     def is_displayed(self):
-        return self.get_timeout_seconds() == 0
+        return self.get_timeout_seconds() != 0
 
 class MyPage(Page):
     form_model = 'player'
@@ -100,7 +100,7 @@ class MyPage(Page):
         return self.participant.vars['expiry'] - int(y)
 
     def is_displayed(self):
-        return self.get_timeout_seconds() == 0
+        return self.get_timeout_seconds() != 0
 
     # def before_next_page(self):
         # self.player.notif()
@@ -154,6 +154,14 @@ class MyPage3(Page):
     form_model = 'player'
     form_fields = ['Page3healthT']
 
+    def get_timeout_seconds(self):
+        x = datetime.now()
+        y = x.strftime("%H")
+        return self.participant.vars['expiry'] - int(y)
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() != 0
+
     #timeout_seconds = 60
 
     # def get_timeout_seconds(self):
@@ -165,6 +173,14 @@ class MyPage3(Page):
 class MyPage4(Page):
     form_model = 'player'
     form_fields = [page4[1]]
+
+    def get_timeout_seconds(self):
+        x = datetime.now()
+        y = x.strftime("%H")
+        return self.participant.vars['expiry'] - int(y)
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() != 0
 
     # def get_timeout_seconds(self):
     #     return self.participant.vars['expiry'] - time.time()
@@ -181,20 +197,24 @@ class MyPage5(Page):
     #    return self.player.id_in_group == 2
 
     def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
+        x = datetime.now()
+        y = x.strftime("%H")
+        return self.participant.vars['expiry'] - int(y)
 
     def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+        return self.get_timeout_seconds() != 0
 
 class MyPage6(Page):
     form_model = 'player'
     form_fields = [page6[0]]
 
     def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
+        x = datetime.now()
+        y = x.strftime("%H")
+        return self.participant.vars['expiry'] - int(y)
 
     def is_displayed(self):
-        return self.get_timeout_seconds() > 3
+        return self.get_timeout_seconds() != 0
 
 class Results(Page):
     pass
