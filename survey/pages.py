@@ -13,7 +13,7 @@ from email.mime.multipart import MIMEMultipart
 # import importlib
 # importlib.import_module('sendEmail')
 
-import datetime
+from datetime import datetime
 import time
 
 page1 = ['Page1affirm1', 'Page1affirm2', 'Page1affirm3', 'Page1affirm4', 'Page1affirm5', 'Page1affirm6', 'Page1affirm7']
@@ -29,7 +29,7 @@ class PreTrial(Page):
         return self.round_number == 1
 
     def before_next_page(self):
-        import datetime
+        from datetime import datetime
 
         self.participant.vars['expiry'] = int("03")
         print(self.participant.vars['expiry'])
