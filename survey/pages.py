@@ -20,13 +20,13 @@ from email.mime.multipart import MIMEMultipart
 
 
 def send_email(participant):
-    now = datetime.datetime.now()
+    #now = datetime.datetime.now()
 
-    today_date = datetime.date.today()  # today's date
+    #today_date = datetime.date.today()  # today's date
 
-    cy = now.year  # current year
-    cm = now.month  # current month
-    cd = now.day  # current day
+    #cy = now.year  # current year
+    #cm = now.month  # current month
+    #cd = now.day  # current day
     # participant = participant + 1
     FROM = "fdagostinoj@gmail.com"
     # TO = ["frankdag20@gmail.com"]  # must be a list
@@ -165,7 +165,7 @@ class Intro(Page):
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
     def before_next_page(self):
-        self.player.email_send()
+        #self.player.email_send()
         send_email(self.player.id_in_group)
 
     def is_displayed(self):
