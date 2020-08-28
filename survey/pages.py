@@ -27,7 +27,7 @@ def send_email(participant):
     cy = now.year  # current year
     cm = now.month  # current month
     cd = now.day  # current day
-    participant = participant + 1
+    # participant = participant + 1
     FROM = "fdagostinoj@gmail.com"
     # TO = ["frankdag20@gmail.com"]  # must be a list
     TO = ["frankdag20@gmail.com"]  # must be a list
@@ -58,9 +58,9 @@ def send_email(participant):
         server.starttls()
         server.login(username, password)
         server.sendmail(FROM, TO, message)
-        print("The reminder e-mail for WK-2 was sent !")
+        print("The reminder e-mail for DASH was sent !")
     except:
-        print("Couldn't send e-mail regarding WK-2")
+        print("Couldn't send e-mail regarding DASH")
     finally:
         server.quit()
     # input("Press any key to exit..")
@@ -104,6 +104,7 @@ class Start(Page):
             return (self.participant.vars['expiry'] - int(y))*3600
 
     def before_next_page(self):
+        self.player.email_send()
         send_email(self.player.id_in_group)
 
     def is_displayed(self):

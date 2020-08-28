@@ -87,6 +87,52 @@ class Player(BasePlayer):
     # def get_value(self):
     #     return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
 
+    def email_send(self):
+        now = datetime.datetime.now()
+
+        today_date = datetime.date.today()  # today's date
+        participant = 1
+        cy = now.year  # current year
+        cm = now.month  # current month
+        cd = now.day  # current day
+        # participant = participant + 1
+        FROM = "fdagostinoj@gmail.com"
+        # TO = ["frankdag20@gmail.com"]  # must be a list
+        TO = ["frankdag20@gmail.com"]  # must be a list
+
+        SUBJECT = "Hello!"
+        TEXT = f"Hello, This is an automatic email notifying you that Participant {participant} has not yet filled out the survey for today."
+
+        # Prepare actual message
+        # message = """From: %s To: %s Subject: %s
+        #
+        # %s
+        # """ % (FROM, ", ".join(TO), "Hello", TEXT)
+
+        # Prepare actual message
+        message = """Subject: %s
+
+            %s
+             """ % ("Research Notification", TEXT)
+
+        # Send the mail
+        username = str("fdagostinoj@gmail.com")
+        password = str("dagostino1")
+
+        server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
+        server.set_debuglevel(1)
+
+        try:
+            server.starttls()
+            server.login(username, password)
+            server.sendmail(FROM, TO, message)
+            print("The reminder e-mail for DASH was sent !")
+        except:
+            print("Couldn't send e-mail regarding DASH")
+        finally:
+            server.quit()
+        # input("Press any key to exit..")
+
     def notif(self):
         return survey.sendEmail.send_email(self.player.id_in_group)
 
