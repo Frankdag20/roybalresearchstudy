@@ -85,7 +85,7 @@ class PreTrial(Page):
 
         #self.participant.vars['day_of_experiment'] = 1
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("29")
+        self.participant.vars['expiry'] = int("14")
         print(self.participant.vars['expiry'])
 
 
@@ -117,7 +117,7 @@ class Wait1(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("29")
+        self.participant.vars['expiry'] = int("14")
 
     def get_timeout_seconds(self):
         x = datetime.now()
