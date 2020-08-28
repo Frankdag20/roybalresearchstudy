@@ -85,7 +85,7 @@ class PreTrial(Page):
 
         #self.participant.vars['day_of_experiment'] = 1
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("18")
+        self.participant.vars['expiry'] = int("19")
         print(self.participant.vars['expiry'])
 
 
