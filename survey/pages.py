@@ -8,10 +8,10 @@ import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# import sendEmail.py
+import sendEmail.py
 
-# import importlib
-# importlib.import_module('sendEmail')
+import importlib
+importlib.import_module('sendEmail')
 
 from datetime import datetime
 import time
@@ -49,6 +49,10 @@ class Start(Page):
         return (self.participant.vars['expiry'] - int(y))*3600
 
     def is_displayed(self):
+
+        if self.get_timeout_seconds() == 0:
+            self.player.notif(self.player.id_in_group)
+
         return self.get_timeout_seconds() != 0
 
 class Wait(Page):
@@ -113,8 +117,6 @@ class MyPage(Page):
         if int(y) == 5:
             y = 29
         return (self.participant.vars['expiry'] - int(y)) * 3600
-
-
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
