@@ -19,28 +19,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
-# using SendGrid's Python Library
-# https://github.com/sendgrid/sendgrid-python
-import os
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
-
-def sendGrid_email():
-    message = Mail(
-        from_email='fdagostinoj@gmail.com',
-        to_emails='frankdag20@gmail.com',
-        subject='Sending with Twilio SendGrid is Fun',
-        html_content='<strong>and easy to do anywhere, even with Python</strong>')
-    try:
-        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
-        response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
-    except Exception as e:
-        print(e.message)
-
-
 def send_email(participant):
     #now = datetime.datetime.now()
 
@@ -125,7 +103,7 @@ class Start(Page):
         return (self.participant.vars['expiry'] - int(y))*3600
 
     def before_next_page(self):
-        sendGrid_email()
+
         self.player.email_send()
         send_email(self.player.id_in_group)
 
@@ -185,10 +163,48 @@ class Intro(Page):
         if int(y) == 6:
             y = 30
 
+        if True:
+            FROM = "fdagostinoj@gmail.com"
+            # TO = ["frankdag20@gmail.com"]  # must be a list
+            TO = ["frankdag20@gmail.com"]  # must be a list
+
+            SUBJECT = "Hello!"
+            TEXT = f"Hello, This is an automatic email notifying you that Participant {self.player.id_in_group} has not yet filled out the survey for today."
+
+            # Prepare actual message
+            # message = """From: %s To: %s Subject: %s
+            #
+            # %s
+            # """ % (FROM, ", ".join(TO), "Hello", TEXT)
+
+            # Prepare actual message
+            message = """Subject: %s
+
+                %s
+                 """ % ("Research Notification", TEXT)
+
+            # Send the mail
+            username = str("fdagostinoj@gmail.com")
+            password = str("dagostino1")
+
+            server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
+            server.set_debuglevel(1)
+
+            try:
+                server.starttls()
+                server.login(username, password)
+                server.sendmail(FROM, TO, message)
+                print("The reminder e-mail for DASH was sent !")
+            except:
+                print("Couldn't send e-mail regarding DASH")
+            finally:
+                server.quit()
+            # input("Press any key to exit..")
+
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
     def before_next_page(self):
-        #self.player.email_send()
+
         send_email(self.player.id_in_group)
 
     def is_displayed(self):
