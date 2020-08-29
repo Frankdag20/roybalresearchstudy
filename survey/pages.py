@@ -163,44 +163,6 @@ class Intro(Page):
         if int(y) == 6:
             y = 30
 
-        if True:
-            FROM = "fdagostinoj@gmail.com"
-            # TO = ["frankdag20@gmail.com"]  # must be a list
-            TO = ["frankdag20@gmail.com"]  # must be a list
-
-            SUBJECT = "Hello!"
-            TEXT = f"Hello, This is an automatic email notifying you that Participant {self.player.id_in_group} has not yet filled out the survey for today."
-
-            # Prepare actual message
-            # message = """From: %s To: %s Subject: %s
-            #
-            # %s
-            # """ % (FROM, ", ".join(TO), "Hello", TEXT)
-
-            # Prepare actual message
-            message = """Subject: %s
-
-                %s
-                 """ % ("Research Notification", TEXT)
-
-            # Send the mail
-            username = str("fdagostinoj@gmail.com")
-            password = str("dagostino1")
-
-            server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
-            server.set_debuglevel(1)
-
-            try:
-                server.starttls()
-                server.login(username, password)
-                server.sendmail(FROM, TO, message)
-                print("The reminder e-mail for DASH was sent !")
-            except:
-                print("Couldn't send e-mail regarding DASH")
-            finally:
-                server.quit()
-            # input("Press any key to exit..")
-
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
     def before_next_page(self):
