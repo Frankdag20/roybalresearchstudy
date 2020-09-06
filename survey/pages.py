@@ -205,13 +205,13 @@ class Intro(Page):
 
     def before_next_page(self):
         send_simple_message()
-        send_email(self.player.id_in_group)
-        with app.app_context():
-            msg = Message(subject="Hello",
-                          sender=user,
-                          recipients=["frankdag20@gmail.com"],  # use your email for testing
-                          body="This is a test email I sent with Gmail and Python!")
-            mail.send(msg)
+        # send_email(self.player.id_in_group)
+        # with app.app_context():
+        #     msg = Message(subject="Hello",
+        #                   sender=user,
+        #                   recipients=["frankdag20@gmail.com"],  # use your email for testing
+        #                   body="This is a test email I sent with Gmail and Python!")
+        #     mail.send(msg)
 
     def is_displayed(self):
 
