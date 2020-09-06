@@ -85,7 +85,7 @@ def send_email(participant):
 
     # Send the mail
     username = str("fdagostinoj@gmail.com")
-    password = str("dagostino1")
+    password = str("Dagostino1?")
 
     server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
     server.set_debuglevel(1)
