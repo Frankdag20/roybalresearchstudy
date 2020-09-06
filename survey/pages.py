@@ -20,28 +20,28 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# import boto
-# from boto.s3.connection import S3Connection
-# user = S3Connection(os.environ['gmailUser'])
-# password = S3Connection(os.environ['gmailPass'])
-#
-# from flask import Flask
-# from flask_mail import Mail, Message
-# import os
-#
-# app = Flask(__name__)
-#
-# mail_settings = {
-#     "MAIL_SERVER": 'smtp.gmail.com',
-#     "MAIL_PORT": 465,
-#     "MAIL_USE_TLS": False,
-#     "MAIL_USE_SSL": True,
-#     "MAIL_USERNAME": user,
-#     "MAIL_PASSWORD": password
-# }
-#
-# app.config.update(mail_settings)
-# mail = Mail(app)
+import boto
+from boto.s3.connection import S3Connection
+user = S3Connection(os.environ['gmailUser'])
+password = S3Connection(os.environ['gmailPass'])
+
+from flask import Flask
+from flask_mail import Mail, Message
+import os
+
+app = Flask(__name__)
+
+mail_settings = {
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": False,
+    "MAIL_USE_SSL": True,
+    "MAIL_USERNAME": user,
+    "MAIL_PASSWORD": password
+}
+
+app.config.update(mail_settings)
+mail = Mail(app)
 
 import requests
 
@@ -49,7 +49,7 @@ def send_simple_message():
     return requests.post(
         "https://api.mailgun.net/v3/sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org/messages",
         auth=("api", "5ef8144ae568ce778c28211951d26fb5-7cd1ac2b-169be750"),
-        data={"from": "Excited User <sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org>",
+        data={"from": "Excited User <mailgun@sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org>",
               "to": ["fdagostinoj@gmail.com", "frankdag20@gmail.com"],
               "subject": "Hello",
               "text": "Testing some Mailgun awesomness!"})
@@ -192,12 +192,7 @@ class Next(Page):
 class Intro(Page):
     form_model = 'player'
 
-    #with app.app_context():
-    #    msg = Message(subject="Hello",
-    #                  sender=user,
-    #                  recipients=["frankdag20@gmail.com"],  # use your email for testing
-    #                  body="This is a test email I sent with Gmail and Python!")
-    #    mail.send(msg)
+
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -211,6 +206,12 @@ class Intro(Page):
     def before_next_page(self):
         send_simple_message()
         send_email(self.player.id_in_group)
+        with app.app_context():
+            msg = Message(subject="Hello",
+                          sender=user,
+                          recipients=["frankdag20@gmail.com"],  # use your email for testing
+                          body="This is a test email I sent with Gmail and Python!")
+            mail.send(msg)
 
     def is_displayed(self):
 
