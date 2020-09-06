@@ -5,5 +5,3 @@ psycopg2>=2.5.1
 Flask-Mail
 requests
 boto
-smptplib
-email
