@@ -141,7 +141,7 @@ class Start(Page):
     def before_next_page(self):
 
         self.player.email_send()
-        send_email(self.player.id_in_group)
+        #send_email(self.player.id_in_group)
 
     def is_displayed(self):
 
@@ -192,7 +192,7 @@ class Next(Page):
 class Intro(Page):
     form_model = 'player'
 
-    send_email(1)
+    #send_email(1)
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -206,22 +206,22 @@ class Intro(Page):
     def before_next_page(self):
         import smtplib
 
-        send_email(1)
+        send_email(self.player.id_in_group)
 
-        from email.mime.text import MIMEText
-
-        msg = MIMEText('Testing some Mailgun awesomness')
-        msg['Subject'] = "Hello"
-        msg['From'] = "sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org"
-        msg['To'] = "frankdag20@gmail.com"
-
-        s = smtplib.SMTP('smtp.mailgun.org', 587)
-
-        s.login('postmaster@sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org', '171846746250de1d35a9a840e546a270-7cd1ac2b-f878a06b')
-        s.sendmail(msg['From'], msg['To'], msg.as_string())
-        s.quit()
-
-        send_simple_message()
+        # from email.mime.text import MIMEText
+        #
+        # msg = MIMEText('Testing some Mailgun awesomness')
+        # msg['Subject'] = "Hello"
+        # msg['From'] = "sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org"
+        # msg['To'] = "frankdag20@gmail.com"
+        #
+        # s = smtplib.SMTP('smtp.mailgun.org', 587)
+        #
+        # s.login('postmaster@sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org', '171846746250de1d35a9a840e546a270-7cd1ac2b-f878a06b')
+        # s.sendmail(msg['From'], msg['To'], msg.as_string())
+        # s.quit()
+        #
+        # send_simple_message()
         # send_email(self.player.id_in_group)
         # with app.app_context():
         #     msg = Message(subject="Hello",
