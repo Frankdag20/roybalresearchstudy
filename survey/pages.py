@@ -20,28 +20,28 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-import boto
-from boto.s3.connection import S3Connection
-user = S3Connection(os.environ['gmailUser'])
-password = S3Connection(os.environ['gmailPass'])
-
-from flask import Flask
-from flask_mail import Mail, Message
-import os
-
-app = Flask(__name__)
-
-mail_settings = {
-    "MAIL_SERVER": 'smtp.gmail.com',
-    "MAIL_PORT": 465,
-    "MAIL_USE_TLS": False,
-    "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": user,
-    "MAIL_PASSWORD": password
-}
-
-app.config.update(mail_settings)
-mail = Mail(app)
+# import boto
+# from boto.s3.connection import S3Connection
+# user = S3Connection(os.environ['gmailUser'])
+# password = S3Connection(os.environ['gmailPass'])
+#
+# from flask import Flask
+# from flask_mail import Mail, Message
+# import os
+#
+# app = Flask(__name__)
+#
+# mail_settings = {
+#     "MAIL_SERVER": 'smtp.gmail.com',
+#     "MAIL_PORT": 465,
+#     "MAIL_USE_TLS": False,
+#     "MAIL_USE_SSL": True,
+#     "MAIL_USERNAME": user,
+#     "MAIL_PASSWORD": password
+# }
+#
+# app.config.update(mail_settings)
+# mail = Mail(app)
 
 import requests
 
