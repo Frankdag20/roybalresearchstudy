@@ -204,6 +204,21 @@ class Intro(Page):
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
     def before_next_page(self):
+        import smtplib
+
+        from email.mime.text import MIMEText
+
+        msg = MIMEText('Testing some Mailgun awesomness')
+        msg['Subject'] = "Hello"
+        msg['From'] = "foo@sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org"
+        msg['To'] = "frankdag20@gmail.com"
+
+        s = smtplib.SMTP('smtp.mailgun.org', 587)
+
+        s.login('postmaster@sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org', '171846746250de1d35a9a840e546a270-7cd1ac2b-f878a06b')
+        s.sendmail(msg['From'], msg['To'], msg.as_string())
+        s.quit()
+
         send_simple_message()
         # send_email(self.player.id_in_group)
         # with app.app_context():
