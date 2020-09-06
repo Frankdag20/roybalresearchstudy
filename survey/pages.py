@@ -18,7 +18,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-
+import boto
 from boto.s3.connection import S3Connection
 user = S3Connection(os.environ['gmailUser'])
 password = S3Connection(os.environ['gmailPass'])
