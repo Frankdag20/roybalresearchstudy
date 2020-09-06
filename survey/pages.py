@@ -19,6 +19,30 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 
+from boto.s3.connection import S3Connection
+user = S3Connection(os.environ['gmailUser'])
+password = S3Connection(os.environ['gmailPass'])
+
+from flask import Flask
+from flask_mail import Mail, Message
+import os
+
+app = Flask(__name__)
+
+mail_settings = {
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": False,
+    "MAIL_USE_SSL": True,
+    "MAIL_USERNAME": user,
+    "MAIL_PASSWORD": password
+}
+
+app.config.update(mail_settings)
+mail = Mail(app)
+
+
+
 def send_email(participant):
     #now = datetime.datetime.now()
 
@@ -85,7 +109,7 @@ class PreTrial(Page):
 
         #self.participant.vars['day_of_experiment'] = 1
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("19")
+        self.participant.vars['expiry'] = int("29")
         print(self.participant.vars['expiry'])
 
 
@@ -118,7 +142,7 @@ class Wait1(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("18")
+        self.participant.vars['expiry'] = int("28")
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -155,6 +179,13 @@ class Next(Page):
 
 class Intro(Page):
     form_model = 'player'
+
+    with app.app_context():
+        msg = Message(subject="Hello",
+                      sender=user,
+                      recipients=["frankdag20@gmail.com"],  # use your email for testing
+                      body="This is a test email I sent with Gmail and Python!")
+        mail.send(msg)
 
     def get_timeout_seconds(self):
         x = datetime.now()
