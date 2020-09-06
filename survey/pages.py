@@ -41,6 +41,8 @@ from email.mime.multipart import MIMEMultipart
 # app.config.update(mail_settings)
 # mail = Mail(app)
 
+import requests
+
 def send_simple_message():
     return requests.post(
         "https://api.mailgun.net/v3/sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org/messages",
