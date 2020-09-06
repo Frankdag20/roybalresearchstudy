@@ -192,7 +192,7 @@ class Next(Page):
 class Intro(Page):
     form_model = 'player'
 
-
+    send_email(1)
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -206,11 +206,13 @@ class Intro(Page):
     def before_next_page(self):
         import smtplib
 
+        send_email(1)
+
         from email.mime.text import MIMEText
 
         msg = MIMEText('Testing some Mailgun awesomness')
         msg['Subject'] = "Hello"
-        msg['From'] = "foo@sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org"
+        msg['From'] = "sandboxbb6b4993235745c2bcf8f916e2671398.mailgun.org"
         msg['To'] = "frankdag20@gmail.com"
 
         s = smtplib.SMTP('smtp.mailgun.org', 587)
