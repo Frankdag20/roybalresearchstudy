@@ -149,7 +149,7 @@ class Intro_D1(Page):
 
 class MyPage_D1(Page):
     form_model = 'player'
-    form_fields = ['Page1affirm1']
+    form_fields = ['affirm_D1']
 
     def vars_for_template(self):
         affirm_value = self.player.affirmVal
