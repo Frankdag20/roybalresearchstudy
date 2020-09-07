@@ -20,6 +20,27 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+def fix_time(y):
+    if int(y) == 1:
+        y = 25
+
+    if int(y) == 2:
+        y = 26
+
+    if int(y) == 3:
+        y = 27
+
+    if int(y) == 4:
+        y = 28
+
+    if int(y) == 5:
+        y = 29
+
+    if int(y) == 6:
+        y = 30
+
+    return y
+
 # import boto
 # from boto.s3.connection import S3Connection
 # user = S3Connection(os.environ['gmailUser'])
@@ -200,10 +221,9 @@ class Intro(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
 
-        if int(y) == 26:
+        if int(y) == 22:
 
             stop = 0
 
