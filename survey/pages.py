@@ -203,7 +203,7 @@ class Intro(Page):
         if int(y) == 6:
             y = 30
 
-        if int(y) == 22:
+        if int(y) == 26:
 
             stop = 0
 
