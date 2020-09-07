@@ -39,6 +39,15 @@ def fix_time(y):
 
     return y
 
+def check_notif_time(y):
+    stop = 0
+    if int(y) == 21:
+        import smtplib
+        if stop == 0:
+            send_email(self.player.id_in_group)
+            stop = 1
+        stop = 1
+
 def send_email(participant):
 
     FROM = "fdagostinoj@gmail.com"
@@ -130,14 +139,7 @@ class Intro_D1(Page):
 
         y = fix_time(y)
 
-        if int(y) == 16:
-
-            stop = 0
-            import smtplib
-            if stop == 0:
-                send_email(self.player.id_in_group)
-                stop = 1
-            stop = 1
+        check_notif_time(y)
 
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
@@ -158,9 +160,9 @@ class MyPage_D1(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        # Get day of the week
-        day = 1
+
         y = fix_time(y)
+        check_notif_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -180,8 +182,14 @@ class MyPage2_D1(Page):
 
     def vars_for_template(self):
         health_message = self.player.posOrNeg
+
+        if health_message == False:
+            disp = "If you stay inactive, you are more likely to die early. You may miss out on the people and things you love. If you stay inactive, you are more likely to die early. You may miss out on the people and things you love."
+        if health_message == True:
+            disp = "If you start to sit less, you are more likely to live longer. You will be able to enjoy the people and things you love."
+
         return dict(
-            disp_health_message=health_message
+            disp_health_message=disp
         )
 
     form_fields = ['submitted_answer']
@@ -201,8 +209,8 @@ class MyPage2_D1(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        # Get day of the week
-        day = 1
+
+        check_notif_time(y)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -217,6 +225,7 @@ class MyPage3_D1(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
+        check_notif_time(y)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -230,19 +239,13 @@ class MyPage4_D1(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        # Get day of the week
-        day = 1
+
+        check_notif_time(y)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
-
-    # def get_timeout_seconds(self):
-    #     return self.participant.vars['expiry'] - time.time()
-    #
-    # def is_displayed(self):
-    #     return self.get_timeout_seconds() > 3
 
 class MyPage5_D1(Page):
     form_model = 'player'
@@ -255,8 +258,8 @@ class MyPage5_D1(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        # Get day of the week
-        day = 1
+
+        check_notif_time(y)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -270,8 +273,8 @@ class MyPage6_D1(Page):
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
-        # Get day of the week
-        day = 1
+
+        check_notif_time(y)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 

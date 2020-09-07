@@ -128,6 +128,12 @@ class Player(BasePlayer):
         label="------------------------------------",
         widget=widgets.RadioSelect)
 
+    x = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        # choices=[["1", 'Very Bad'], ["2", 'Really Bad'], ["3", 'Bad'], ["4", 'So-so'], ["5", 'Good'], ["6", 'Really Good'], ["7", 'Very good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
 
 
 

@@ -20,8 +20,8 @@ zoomed {
     <blockquote class="blockquote mb-0">
 <!--      <big><big><big><big>-->
 
-{% formfield player.submitted_answer label=player.question %}
-
+<!--{% formfield player.submitted_answer label=player.question %}-->
+    {% formfield player.submitted_answer label={{disp_health_message}}%}
     <center>{% next_button %}</center>
 
 <!--    </big></big></big></big>-->
