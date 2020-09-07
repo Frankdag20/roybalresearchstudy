@@ -223,7 +223,7 @@ class Intro(Page):
 
         y = fix_time(y)
 
-        if int(y) == 22:
+        if int(y) == 26:
 
             stop = 0
 
