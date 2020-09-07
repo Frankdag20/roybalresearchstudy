@@ -39,15 +39,6 @@ def fix_time(y):
 
     return y
 
-def check_notif_time(y):
-    stop = 0
-    if int(y) == 21:
-        import smtplib
-        if stop == 0:
-            send_email(self.player.id_in_group)
-            stop = 1
-        stop = 1
-
 def send_email(participant):
 
     FROM = "fdagostinoj@gmail.com"
@@ -78,6 +69,15 @@ def send_email(participant):
         print("Couldn't send e-mail regarding DASH")
     finally:
         server.quit()
+
+def check_notif_time(y):
+    stop = 0
+    if int(y) == 22:
+        import smtplib
+        if stop == 0:
+            send_email(self.player.id_in_group)
+            stop = 1
+        stop = 1
 
 class PreTrial(Page):
     form_model = 'player'
