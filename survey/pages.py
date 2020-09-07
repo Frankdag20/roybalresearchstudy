@@ -204,9 +204,13 @@ class Intro(Page):
             y = 30
 
         if int(y) == 21:
-            import smtplib
 
-            send_email(self.player.id_in_group)
+            stop = 0
+
+            import smtplib
+            if stop == 0:
+                send_email(self.player.id_in_group)
+                stop = 1
 
 
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
