@@ -96,11 +96,6 @@ class Start(Page):
 
         return (self.participant.vars['expiry'] - int(y))*3600
 
-    def before_next_page(self):
-
-        self.player.email_send()
-        #send_email(self.player.id_in_group)
-
     def is_displayed(self):
 
         return self.get_timeout_seconds() != 0
