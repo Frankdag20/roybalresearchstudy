@@ -203,7 +203,7 @@ class Intro(Page):
         if int(y) == 6:
             y = 30
 
-        if int(y) == 21:
+        if int(y) == 22:
 
             stop = 0
 
@@ -212,10 +212,10 @@ class Intro(Page):
                 send_email(self.player.id_in_group)
                 stop = 1
 
-
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
     def before_next_page(self):
+        k = 0
         # import smtplib
         #
         # send_email(self.player.id_in_group)
