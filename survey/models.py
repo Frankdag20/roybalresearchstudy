@@ -64,12 +64,6 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     pass
 
-# def insert_val(val):
-#     return models.BooleanField(
-#         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-#         label= val,
-#         widget=widgets.RadioSelect)
-
 class Player(BasePlayer):
 
     question_id = models.IntegerField()
@@ -81,60 +75,6 @@ class Player(BasePlayer):
 
     val_label = models.StringField()
     affirm_question = models.StringField()
-    # affirm_id = models.IntegerField()
-    # affirm_answer = models.StringField(widget=widgets.RadioSelect)
-
-    # def get_value(self):
-    #     return self.session.vars['affirm_file'][self.session.vars['val_file'][self.id_in_group]['value']]
-
-    def email_send(self):
-        now = datetime.datetime.now()
-
-        today_date = datetime.date.today()  # today's date
-        participant = 1
-        cy = now.year  # current year
-        cm = now.month  # current month
-        cd = now.day  # current day
-        # participant = participant + 1
-        FROM = "fdagostinoj@gmail.com"
-        # TO = ["frankdag20@gmail.com"]  # must be a list
-        TO = ["frankdag20@gmail.com"]  # must be a list
-
-        SUBJECT = "Hello!"
-        TEXT = f"Hello, This is an automatic email notifying you that Participant {participant} has not yet filled out the survey for today."
-
-        # Prepare actual message
-        # message = """From: %s To: %s Subject: %s
-        #
-        # %s
-        # """ % (FROM, ", ".join(TO), "Hello", TEXT)
-
-        # Prepare actual message
-        message = """Subject: %s
-
-            %s
-             """ % ("Research Notification", TEXT)
-
-        # Send the mail
-        username = str("fdagostinoj@gmail.com")
-        password = str("dagostino1")
-
-        server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
-        server.set_debuglevel(1)
-
-        try:
-            server.starttls()
-            server.login(username, password)
-            server.sendmail(FROM, TO, message)
-            print("The reminder e-mail for DASH was sent !")
-        except:
-            print("Couldn't send e-mail regarding DASH")
-        finally:
-            server.quit()
-        # input("Press any key to exit..")
-
-    def notif(self):
-        return survey.sendEmail.send_email(self.player.id_in_group)
 
     def get_value(self):
         return self.session.vars['val_file'][0]['value']
@@ -173,6 +113,31 @@ class Player(BasePlayer):
 
     daysurv = models.IntegerField(initial=0)
     track = models.IntegerField()
+
+    posOrNeg = models.BooleanField(
+        choices=[[True, 'Positive'], [False, 'Negative']],
+        label='Please choose whether this participant will receive positive or negative health messages throughout the study.',
+        widget=widgets.RadioSelectHorizontal)
+
+    affirmVal = models.StringField(
+        label='Please choose what value this participant deems most important to them.',
+        widget=widgets.RadioSelectHorizontal, choices=[['family', 'family'], ['money', 'money'], ['religion', 'religion'], ['health', 'health']])
+
+    affirm_D1 = models.BooleanField(
+        choices=[[True,'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+
+
+
+
+
+
+
+
+
+
+
 
     valueP1 = models.StringField(
         choices=[["Think of a time when you would be inspired by family, and focus on the thoughts and emotions associated with the experience.", "family"],
