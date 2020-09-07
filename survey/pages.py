@@ -104,8 +104,6 @@ def send_email(participant):
 from datetime import datetime
 import time
 
-# Put global variable so email only sends once
-k = 0
 
 page1 = ['Page1affirm1', 'Page1affirm2', 'Page1affirm3', 'Page1affirm4', 'Page1affirm5', 'Page1affirm6', 'Page1affirm7']
 page2 = ['Page2healthM1', 'Page2healthM2', 'Page2healthM3', 'Page2healthM4', 'Page2healthM5', 'Page2healthM6', 'Page2healthM7']
@@ -124,7 +122,7 @@ class PreTrial(Page):
 
         #self.participant.vars['day_of_experiment'] = 1
         # Datetime is 4 hours ahead of EDT
-        k = 0
+
         self.participant.vars['expiry'] = int("29")
         print(self.participant.vars['expiry'])
 
@@ -205,9 +203,9 @@ class Intro(Page):
         if int(y) == 6:
             y = 30
 
-        if int(y) == 21 and k == 0:
+        if int(y) == 21:
             import smtplib
-            k = 1
+
             send_email(self.player.id_in_group)
 
 
