@@ -347,8 +347,7 @@ class MyPage3(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -371,8 +370,7 @@ class MyPage4(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -397,8 +395,7 @@ class MyPage5(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -413,8 +410,7 @@ class MyPage6(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -434,8 +430,7 @@ class Wait2(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
 
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -456,8 +451,7 @@ class Wait(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
 
         if int(y) == 6:
             self.participant.vars['day_of_experiment'] = 2
