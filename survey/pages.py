@@ -223,7 +223,7 @@ class Intro(Page):
 
         y = fix_time(y)
 
-        if int(y) == 26:
+        if int(y) == 28:
 
             stop = 0
 
@@ -231,6 +231,7 @@ class Intro(Page):
             if stop == 0:
                 send_email(self.player.id_in_group)
                 stop = 1
+            stop = 1
 
         return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
@@ -281,8 +282,7 @@ class MyPage(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -332,8 +332,7 @@ class MyPage2(Page):
         y = x.strftime("%H")
         # Get day of the week
         day = 1
-        if int(y) == 6:
-            y = 30
+        y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
