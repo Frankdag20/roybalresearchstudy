@@ -103,7 +103,7 @@ def send_email_help(participant):
 
 def check_notif_time(y):
     #stop = 0
-    if int(y) == 7:
+    if int(y) == 16:
         import smtplib
        # if stop == 0:
         send_email(self.player.id_in_group)
@@ -121,7 +121,7 @@ class PreTrial(Page):
         # Datetime is 4 hours ahead of EDT
         # Should be 29
 
-        self.participant.vars['expiry'] = int("07")
+        self.participant.vars['expiry'] = int("29")
         print(self.participant.vars['expiry'])
 
 class Start(Page):
@@ -130,7 +130,7 @@ class Start(Page):
 
     def is_displayed(self):
 
-        return self.get_timeout_seconds() != 0
+        return self.get_timeout_seconds() <= 0
 
 class Wait(Page):
     form_model = 'player'
@@ -139,7 +139,7 @@ class Wait(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
-        # self.participant.vars['expiry'] = int("28")
+        self.participant.vars['expiry'] = int("28")
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -151,7 +151,7 @@ class Wait(Page):
         return (self.participant.vars['expiry'] - int(y) + 1) * 3600
 
     def is_displayed(self):
-        return self.get_timeout_seconds() != 0
+        return self.get_timeout_seconds() <= 0
 
 class Intro_D1(Page):
     form_model = 'player'
@@ -166,12 +166,13 @@ class Intro_D1(Page):
 
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
-    #def before_next_page(self):
+    def before_next_page(self):
+        self.participant.vars['expiry'] = int("28")
     #    send_email(self.player.id_in_group)
 
     def is_displayed(self):
 
-        return self.get_timeout_seconds() != 0
+        return self.get_timeout_seconds() <= 0
 
 class MyPage_D1(Page):
     form_model = 'player'
@@ -192,7 +193,7 @@ class MyPage_D1(Page):
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
-        return self.get_timeout_seconds() != 0
+        return self.get_timeout_seconds() <= 0
 
     # def before_next_page(self):
         # self.player.notif()
@@ -241,7 +242,7 @@ class MyPage2_D1(Page):
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
-        return self.get_timeout_seconds() != 0
+        return self.get_timeout_seconds() <= 0
 
 class MyPage3_D1(Page):
     form_model = 'player'
@@ -271,7 +272,7 @@ class MyPage4_D1(Page):
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
-        return self.get_timeout_seconds() != 0
+        return self.get_timeout_seconds() <= 0
 
 class MyPage5_D1(Page):
     form_model = 'player'
@@ -280,21 +281,6 @@ class MyPage5_D1(Page):
     # Only show to P2
     #def is_displayed(self):
     #    return self.player.id_in_group == 2
-
-    def get_timeout_seconds(self):
-        x = datetime.now()
-        y = x.strftime("%H")
-
-        check_notif_time(y)
-        y = fix_time(y)
-        return (self.participant.vars['expiry'] - int(y)) * 3600
-
-    def is_displayed(self):
-        return self.get_timeout_seconds() != 0
-
-class MyPage6_D1(Page):
-    form_model = 'player'
-    form_fields = ['help1']
 
     def vars_for_template(self):
         assist = self.player.help1
@@ -310,11 +296,26 @@ class MyPage6_D1(Page):
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
-        return self.get_timeout_seconds() != 0
+        return self.get_timeout_seconds() <= 0
+
+class MyPage6_D1(Page):
+    form_model = 'player'
+    form_fields = ['help1']
+
+    def get_timeout_seconds(self):
+        x = datetime.now()
+        y = x.strftime("%H")
+
+        check_notif_time(y)
+        y = fix_time(y)
+        return (self.participant.vars['expiry'] - int(y)) * 3600
+
+    def is_displayed(self):
+        return self.get_timeout_seconds() <= 0
 
 class Results(Page):
     pass
 
 # Init page sequence
-page_sequence = [PreTrial, Start, Intro_D1, MyPage_D1, MyPage2_D1, MyPage3_D1, MyPage4_D1, MyPage5_D1, MyPage6_D1, Wait,
+page_sequence = [PreTrial, Start, Intro_D1, MyPage_D1, MyPage2_D1, MyPage3_D1, MyPage4_D1, MyPage6_D1, MyPage5_D1, Wait,
                  Intro_D1, MyPage2_D1, Wait, Intro_D1, Wait, Intro_D1]
