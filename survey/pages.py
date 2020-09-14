@@ -103,7 +103,7 @@ def send_email_help(participant):
 
 def check_notif_time(y):
     stop = 0
-    if int(y) == 07:
+    if int(y) == 7:
         import smtplib
         if stop == 0:
             send_email(self.player.id_in_group)
