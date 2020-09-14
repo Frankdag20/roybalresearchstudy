@@ -161,13 +161,14 @@ class Intro_D1(Page):
         y = x.strftime("%H")
 
         y = fix_time(y)
-
+        send_email(self.player.id_in_group)
         check_notif_time(y)
 
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def before_next_page(self):
-        self.participant.vars['expiry'] = int("28")
+
+        self.participant.vars['expiry'] = int("29")
     #    send_email(self.player.id_in_group)
 
     def is_displayed(self):
