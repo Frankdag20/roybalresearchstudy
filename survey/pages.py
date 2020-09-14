@@ -164,7 +164,7 @@ class Intro_D1(Page):
 
         check_notif_time(y)
 
-        return (self.participant.vars['expiry'] - int(y) - 1) * 3600
+        return (self.participant.vars['expiry'] - int(y) - 2) * 3600
 
     #def before_next_page(self):
     #    send_email(self.player.id_in_group)
@@ -294,7 +294,12 @@ class MyPage5_D1(Page):
 
 class MyPage6_D1(Page):
     form_model = 'player'
-    form_fields = [page6[0]]
+    form_fields = ['help1']
+
+    def vars_for_template(self):
+        assist = self.player.help1
+        if assist == True:
+            send_email(self.player.id_in_group)
 
     def get_timeout_seconds(self):
         x = datetime.now()
