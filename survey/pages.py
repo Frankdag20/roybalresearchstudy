@@ -102,13 +102,13 @@ def send_email_help(participant):
         server.quit()
 
 def check_notif_time(y):
-    stop = 0
+    #stop = 0
     if int(y) == 7:
         import smtplib
-        if stop == 0:
-            send_email(self.player.id_in_group)
-            stop = 1
-        stop = 1
+       # if stop == 0:
+        send_email(self.player.id_in_group)
+        #    stop = 1
+        #stop = 1
 
 class PreTrial(Page):
     form_model = 'player'
@@ -139,7 +139,7 @@ class Wait(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("28")
+        # self.participant.vars['expiry'] = int("28")
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -148,7 +148,7 @@ class Wait(Page):
 
         y = fix_time(y)
 
-        return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y) + 1) * 3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -164,7 +164,7 @@ class Intro_D1(Page):
 
         check_notif_time(y)
 
-        return (self.participant.vars['expiry'] - int(y) - 2) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 3600
 
     #def before_next_page(self):
     #    send_email(self.player.id_in_group)
@@ -317,4 +317,4 @@ class Results(Page):
 
 # Init page sequence
 page_sequence = [PreTrial, Start, Intro_D1, MyPage_D1, MyPage2_D1, MyPage3_D1, MyPage4_D1, MyPage5_D1, MyPage6_D1, Wait,
-                 Intro_D1]
+                 Intro_D1, MyPage2_D1, Wait, Intro_D1, Wait, Intro_D1]
