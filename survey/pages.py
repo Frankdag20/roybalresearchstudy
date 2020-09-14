@@ -19,6 +19,9 @@ page5 = ['accel1', 'accel2', 'accel3', 'accel4', 'accel5', 'accel6', 'accel7']
 page6 = ['help1', 'help2', 'help3', 'help4', 'help5', 'help6', 'help7']
 
 def fix_time(y):
+    if int(y) == 0:
+        y = 24
+
     if int(y) == 1:
         y = 25
 
@@ -33,9 +36,6 @@ def fix_time(y):
 
     if int(y) == 5:
         y = 29
-
-    if int(y) == 6:
-        y = 30
 
     return y
 
@@ -70,9 +70,40 @@ def send_email(participant):
     finally:
         server.quit()
 
+def send_email_help(participant):
+
+    FROM = "fdagostinoj@gmail.com"
+
+    TO = ["frankdag20@gmail.com"]  # must be a list
+
+    SUBJECT = "Hello!"
+    TEXT = f"Hello, Participant {participant} has requested that someone reach out to them for assistance."
+
+    message = """Subject: %s
+
+    %s
+     """ % (f"DASH: Participant {participant} has not filled out survey.", TEXT)
+
+    # Send the mail
+    username = str("fdagostinoj@gmail.com")
+    password = str("Dagostino1?")
+
+    server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
+    server.set_debuglevel(1)
+
+    try:
+        server.starttls()
+        server.login(username, password)
+        server.sendmail(FROM, TO, message)
+        print("The reminder e-mail for DASH was sent !")
+    except:
+        print("Couldn't send e-mail regarding DASH")
+    finally:
+        server.quit()
+
 def check_notif_time(y):
     stop = 0
-    if int(y) == 22:
+    if int(y) == 11:
         import smtplib
         if stop == 0:
             send_email(self.player.id_in_group)
@@ -88,22 +119,14 @@ class PreTrial(Page):
         from datetime import datetime
 
         # Datetime is 4 hours ahead of EDT
+        # Should be 29
 
-        self.participant.vars['expiry'] = int("29")
+        self.participant.vars['expiry'] = int("07")
         print(self.participant.vars['expiry'])
 
 class Start(Page):
     form_model = 'player'
     form_fields = ['posOrNeg', 'affirmVal']
-
-    def get_timeout_seconds(self):
-        x = datetime.now()
-        y = x.strftime("%H")
-        # Get hour of the day
-
-        y = fix_time(y)
-
-        return (self.participant.vars['expiry'] - int(y))*3600
 
     def is_displayed(self):
 
@@ -141,7 +164,10 @@ class Intro_D1(Page):
 
         check_notif_time(y)
 
-        return (self.participant.vars['expiry'] - int(y) - 1) * 3600
+        return (self.participant.vars['expiry'] - int(y) + 1) * 3600
+
+    def before_next_page(self):
+        send_email(self.player.id_in_group)
 
     def is_displayed(self):
 
