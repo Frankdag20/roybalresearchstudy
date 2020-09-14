@@ -299,7 +299,7 @@ class MyPage6_D1(Page):
     def vars_for_template(self):
         assist = self.player.help1
         if assist == True:
-            send_email(self.player.id_in_group)
+            send_email_help(self.player.id_in_group)
 
     def get_timeout_seconds(self):
         x = datetime.now()
