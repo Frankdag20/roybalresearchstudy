@@ -164,10 +164,10 @@ class Intro_D1(Page):
 
         check_notif_time(y)
 
-        return (self.participant.vars['expiry'] - int(y) + 1) * 3600
+        return (self.participant.vars['expiry'] - int(y) - 1) * 3600
 
-    def before_next_page(self):
-        send_email(self.player.id_in_group)
+    #def before_next_page(self):
+    #    send_email(self.player.id_in_group)
 
     def is_displayed(self):
 
