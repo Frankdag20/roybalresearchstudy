@@ -4,6 +4,7 @@
 {% block content %}
 
 <style>
+
 zoomed {
     zoom: 1.2;
     -moz-transform: scale(1.2);
@@ -19,15 +20,13 @@ zoomed {
   <div class="card-body">
     <blockquote class="blockquote mb-0">
 <!--      <big><big><big><big>-->
+    Think of a time when you would feel peaceful because of your {{disp_affirm_value}}.
+    {% formfields %}
 
-      "{{disp_health_message}}"
-<!--{% formfield player.submitted_answer label=player.question %}-->
-    {% formfield player.submitted_answer label = "Have you seen this message previously?"%}
-<!--      label={{disp_health_message}}%}-->
-    <center>{% next_button %}</center>
+        <center>{% next_button %}</center>
 
 <!--    </big></big></big></big>-->
-      <footer class="blockquote-footer">Question 2/4</footer>
+      <footer class="blockquote-footer">Question 1/4</footer>
     </blockquote>
   </div>
 </div>

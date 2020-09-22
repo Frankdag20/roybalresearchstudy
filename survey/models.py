@@ -76,6 +76,9 @@ class Player(BasePlayer):
     val_label = models.StringField()
     affirm_question = models.StringField()
 
+    seen_or_not = models.BooleanField()
+
+
     def get_value(self):
         return self.session.vars['val_file'][0]['value']
 
@@ -86,32 +89,77 @@ class Player(BasePlayer):
         return self.session.vars['affirm_file'][self.daysurv]
 
     def check_correct(self):
-        if ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen == 1)):
+        if ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen_or_not == 1)):
             self.is_correct = "Hit"
             return
-        elif ((self.submitted_answer == "I can confidently say I've never seen this message in the scanner before.") and (self.seen == 1)):
+        elif ((self.submitted_answer == "I can confidently say I've never seen this message in the scanner before.") and (self.seen_or_not == 1)):
             self.is_correct = "Miss"
             return
-        elif ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen == 0)):
+        elif ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen_or_not == 0)):
             self.is_correct = "False Alarm"
             return
-        elif ((self.submitted_answer == "I can confidently say I've never seen this message in the scanner before.") and (self.seen == 0)):
+        elif ((self.submitted_answer == "I can confidently say I've never seen this message in the scanner before.") and (self.seen_or_not == 0)):
             self.is_correct = "Correct Rejection"
             return
-        elif ((self.submitted_answer == "This message seems vaguely familiar, but I am not confident.") and (self.seen == 1)):
+        elif ((self.submitted_answer == "This message seems vaguely familiar, but I am not confident.") and (self.seen_or_not == 1)):
             self.is_correct = "Unsure Hit"
             return
-        elif ((self.submitted_answer == "This message does not seem familiar, although I am not confident.") and (self.seen == 1)):
+        elif ((self.submitted_answer == "This message does not seem familiar, although I am not confident.") and (self.seen_or_not == 1)):
             self.is_correct = "Unsure Miss"
             return
-        elif ((self.submitted_answer == "This message seems vaguely familiar, but I am not confident.") and (self.seen == 0)):
+        elif ((self.submitted_answer == "This message seems vaguely familiar, but I am not confident.") and (self.seen_or_not == 0)):
             self.is_correct = "Unsure False Alarm"
             return
-        elif ((self.submitted_answer == "This message does not seem familiar, although I am not confident.") and (self.seen == 0)):
+        elif ((self.submitted_answer == "This message does not seem familiar, although I am not confident.") and (self.seen_or_not == 0)):
             self.is_correct = "Unsure Correct Rejection"
             return
 
     daysurv = models.IntegerField(initial=0)
+
+    time_begin_d1 = models.IntegerField(initial=0)
+    time_begin_d2 = models.IntegerField(initial=0)
+    time_begin_d3 = models.IntegerField(initial=0)
+    time_begin_d4 = models.IntegerField(initial=0)
+    time_begin_d5 = models.IntegerField(initial=0)
+    time_begin_d6 = models.IntegerField(initial=0)
+    time_begin_d7 = models.IntegerField(initial=0)
+    time_begin_d8 = models.IntegerField(initial=0)
+    time_begin_d9 = models.IntegerField(initial=0)
+    time_begin_d10 = models.IntegerField(initial=0)
+    time_begin_d11 = models.IntegerField(initial=0)
+    time_begin_d12 = models.IntegerField(initial=0)
+    time_begin_d13 = models.IntegerField(initial=0)
+    time_begin_d14 = models.IntegerField(initial=0)
+    time_begin_d15 = models.IntegerField(initial=0)
+    time_begin_d16 = models.IntegerField(initial=0)
+    time_begin_d17 = models.IntegerField(initial=0)
+    time_begin_d18 = models.IntegerField(initial=0)
+    time_begin_d19 = models.IntegerField(initial=0)
+    time_begin_d20 = models.IntegerField(initial=0)
+    time_begin_d21 = models.IntegerField(initial=0)
+    time_begin_d22 = models.IntegerField(initial=0)
+    time_begin_d23 = models.IntegerField(initial=0)
+    time_begin_d24 = models.IntegerField(initial=0)
+    time_begin_d25 = models.IntegerField(initial=0)
+    time_begin_d26 = models.IntegerField(initial=0)
+    time_begin_d27 = models.IntegerField(initial=0)
+    time_begin_d28 = models.IntegerField(initial=0)
+    time_begin_d29 = models.IntegerField(initial=0)
+    time_begin_d30 = models.IntegerField(initial=0)
+    time_begin_d31 = models.IntegerField(initial=0)
+    time_begin_d32 = models.IntegerField(initial=0)
+    time_begin_d33 = models.IntegerField(initial=0)
+    time_begin_d34 = models.IntegerField(initial=0)
+    time_begin_d35 = models.IntegerField(initial=0)
+    time_begin_d36 = models.IntegerField(initial=0)
+    time_begin_d37 = models.IntegerField(initial=0)
+    time_begin_d38 = models.IntegerField(initial=0)
+    time_begin_d39 = models.IntegerField(initial=0)
+    time_begin_d40 = models.IntegerField(initial=0)
+    time_begin_d41 = models.IntegerField(initial=0)
+    time_begin_d42 = models.IntegerField(initial=0)
+
+
     track = models.IntegerField()
 
     posOrNeg = models.BooleanField(
@@ -123,316 +171,905 @@ class Player(BasePlayer):
         label='Please choose what value this participant deems most important to them.',
         widget=widgets.RadioSelectHorizontal, choices=[['family', 'family'], ['money', 'money'], ['religion', 'religion'], ['health', 'health']])
 
+    ####################################################################33
+
     affirm_D1 = models.BooleanField(
         choices=[[True,'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
         label="------------------------------------",
         widget=widgets.RadioSelect)
 
-    x = models.StringField(
+    conf_D1 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+
+    mood_D1 = models.StringField(
         choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
                  ["5", 'Very Good']],
-        # choices=[["1", 'Very Bad'], ["2", 'Really Bad'], ["3", 'Bad'], ["4", 'So-so'], ["5", 'Good'], ["6", 'Really Good'], ["7", 'Very good']],
         label='How are you feeling? Please rank from very bad to very good.',
         widget=widgets.RadioSelect)
 
-
-
-
-
-
-
-
-
-
-
-    valueP1 = models.StringField(
-        choices=[["Think of a time when you would be inspired by family, and focus on the thoughts and emotions associated with the experience.", "family"],
-                 ["Think of a time when you would be inspired by money, and focus on the thoughts and emotions associated with the experience.","money"],
-                 ["Think of a time when you would be inspired by religion, and focus on the thoughts and emotions associated with the experience.","religion"]],
-        label="Please select the designated value of importance for the participant.",
-        widget=widgets.RadioSelect)
-    valueP2 = models.StringField(
-        choices=[["As you move around more in your day-to-day life, your body can use blood sugar. This can keep your arteries healthy. Have you seen this message while in the MRI scanner before?", "positive"],
-                 ["If you do not move around more in your day-to-day life, your body does not use blood sugar. This can make your arteries unhealthy. Have you seen this message while in the MRI scanner before?","negative"]],
-        label="Please select whether the participant should have a positive or negative health tip.",
-        widget=widgets.RadioSelect)
-
-    Page1affirm1 = models.BooleanField(
-         choices=[[True, 'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-         label="----",
-         widget=widgets.RadioSelect)
-
-    Page2healthM1 = models.StringField(
-        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
-                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
-                 ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident."]],
-        label="----",
-        widget=widgets.RadioSelect)
-    Page3healthT = models.StringField(
-        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip?',
-        widget=widgets.RadioSelectHorizontal)
-    Page4mood1 = models.StringField(
-        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
-        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
-        widget=widgets.RadioSelectHorizontal)
-    accel1 = models.BooleanField(
-        choices=[[True, 'Yes'], [False, 'No']],
-        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelectHorizontal)
-    help1 = models.BooleanField(
+    help_D1 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)
 
-    Page1affirm2 = models.BooleanField(
+    ####################################################################33
+
+    affirm_D2 = models.BooleanField(
         choices=[[True,
                   'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="----",
+        label="------------------------------------",
         widget=widgets.RadioSelect)
 
-    Page2healthM2 = models.StringField(
-        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
-                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
-                 ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident."]],
-        label="----",
-        widget=widgets.RadioSelect)
-    Page3healthT2 = models.StringField(
+    conf_D2 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip?',
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
-    Page4mood2 = models.StringField(
+
+    mood_D2 = models.StringField(
         choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
                  ["5", 'Very Good']],
-        #choices=[["1", 'Very Bad'], ["2", 'Really Bad'], ["3", 'Bad'], ["4", 'So-so'], ["5", 'Good'], ["6", 'Really Good'], ["7", 'Very good']],
         label='How are you feeling? Please rank from very bad to very good.',
         widget=widgets.RadioSelect)
-    accel2 = models.BooleanField(
-        choices=[[True, 'Yes'], [False, 'No']],
-        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelectHorizontal)
-    help2 = models.BooleanField(
+
+    help_D2 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)
 
-    Page1affirm3 = models.BooleanField(
+    ####################################################################33
+
+    affirm_D3 = models.BooleanField(
         choices=[[True,
                   'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="----",
+        label="------------------------------------",
         widget=widgets.RadioSelect)
-
-    Page2healthM3 = models.StringField(
-        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
-                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
-                 ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident."]],
-        label="----",
-        widget=widgets.RadioSelect)
-    Page3healthT3 = models.StringField(
+    conf_D3 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip?',
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
-    Page4mood3 = models.StringField(
-        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
-        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
-        widget=widgets.RadioSelectHorizontal)
-    accel3 = models.BooleanField(
-        choices=[[True, 'Yes'], [False, 'No']],
-        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelectHorizontal)
-    help3 = models.BooleanField(
+    mood_D3 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D3 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)
-    Page1affirm4 = models.BooleanField(
+
+    ####################################################################33
+
+    affirm_D4 = models.BooleanField(
         choices=[[True,
                   'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="----",
+        label="------------------------------------",
         widget=widgets.RadioSelect)
-
-    Page2healthM4 = models.StringField(
-        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
-                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
-                 ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident."]],
-        label="----",
-        widget=widgets.RadioSelect)
-    Page3healthT4 = models.StringField(
+    conf_D4 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip?',
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
-    Page4mood4 = models.StringField(
-        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
-        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
-        widget=widgets.RadioSelectHorizontal)
-    accel4 = models.BooleanField(
-        choices=[[True, 'Yes'], [False, 'No']],
-        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelectHorizontal)
-    help4 = models.BooleanField(
+    mood_D4 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D4 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)
-    Page1affirm5 = models.BooleanField(
+    ####################################################################33
+
+    affirm_D5 = models.BooleanField(
         choices=[[True,
                   'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="----",
+        label="------------------------------------",
         widget=widgets.RadioSelect)
-
-    Page2healthM5 = models.StringField(
-        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
-                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
-                 ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident."]],
-        label="----",
-        widget=widgets.RadioSelect)
-    Page3healthT5 = models.StringField(
+    conf_D5 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip?',
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
-    Page4mood5 = models.StringField(
-        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
-        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
-        widget=widgets.RadioSelectHorizontal)
-    accel5 = models.BooleanField(
-        choices=[[True, 'Yes'], [False, 'No']],
-        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelectHorizontal)
-    help5 = models.BooleanField(
+    mood_D5 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D5 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)
-    Page1affirm6 = models.BooleanField(
+    ####################################################################33
+
+    affirm_D6 = models.BooleanField(
         choices=[[True,
                   'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="----",
+        label="------------------------------------",
         widget=widgets.RadioSelect)
-
-    Page2healthM6 = models.StringField(
-        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
-                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
-                 ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident."]],
-        label="----",
-        widget=widgets.RadioSelect)
-    Page3healthT6 = models.StringField(
+    conf_D6 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip?',
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
-    Page4mood6 = models.StringField(
-        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
-        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
-        widget=widgets.RadioSelectHorizontal)
-    accel6 = models.BooleanField(
-        choices=[[True, 'Yes'], [False, 'No']],
-        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelectHorizontal)
-    help6 = models.BooleanField(
+    mood_D6 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D6 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
 
-    Page1affirm7 = models.BooleanField(
+    affirm_D7 = models.BooleanField(
         choices=[[True,
                   'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="----",
+        label="------------------------------------",
         widget=widgets.RadioSelect)
-
-    Page2healthM7 = models.StringField(
-        choices=[["CO", "I am confident that I have seen this message in the scanner before."],
-                 ["CN", "I can confidently say I've never seen this message in the scanner before."],
-                 ["UO", "This message seems vaguely familiar, but I am not confident."],
-                 ["UN", "This message does not seem familiar, although I am not confident."]],
-        label="----",
-        widget=widgets.RadioSelect)
-    Page3healthT7 = models.StringField(
+    conf_D7 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip?',
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
-    Page4mood7 = models.StringField(
-        choices=[["1", '😄'], ["2", '🙂'], ["3", '😐'], ["4", '🙁'], ["5", '😧']],
-        label='What is your current mood? Please rank from happy (smiley face) to negative (sad face).',
-        widget=widgets.RadioSelectHorizontal)
-    accel7 = models.BooleanField(
-        choices=[[True, 'Yes'], [False, 'No']],
-        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
-        widget=widgets.RadioSelectHorizontal)
-    help7 = models.BooleanField(
+    mood_D7 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D7 = models.BooleanField(
         choices=[[True, 'Yes'], [False, 'No']],
         label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
         widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
 
-    affirm3 = models.BooleanField(
-        choices=[[True, 'Press when you have thought of the situation.']],
-        label='Imagine a time when you would feel grateful for your independence.',
+    affirm_D8 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
         widget=widgets.RadioSelect)
-    healthP1 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='If you start to sit less, you are more likely to live longer. You will be able to enjoy the people and things you love.',
-        widget=widgets.RadioSelect)
-    healthP2 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='As you move around more, your body can use blood sugar. This can keep your arteries healthy.',
-        widget=widgets.RadioSelect)
-    healthP3 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='If you become less sedentary, your bones will stay stronger as you get older. This makes it easier to do things you like.',
-        widget=widgets.RadioSelect)
-    healthN1 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='If you stay inactive, you are more likely to die early. You may miss out on the people and things you love.',
-        widget=widgets.RadioSelect)
-    healthN2 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='As you move around less, your body cannot use blood sugar. This can make your arteries sick.',
-        widget=widgets.RadioSelect)
-    healthN3 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='If you continue to be sedentary, your bones will weaken faster as you get older. This makes it harder to do things you like.',
-        widget=widgets.RadioSelect)
-    healthT1 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='Think of nearby places you go often. Try walking to these places instead of driving.',
-        widget=widgets.RadioSelect)
-    healthT2 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='Find a time every day when you can get out and walk around for at least 15 minutes. For example, maybe you can walk to and from the grocery store every day.',
-        widget=widgets.RadioSelect)
-    healthT3 = models.BooleanField(
-        choices=[[True, 'Press when you have read the following statement.']],
-        label='Make a habit of walking up and down the stairs whenever you can. Avoid taking the elevator as often as possible.',
-        widget=widgets.RadioSelect)
-    healthtip = models.BooleanField(
-        choices=[[True, 'How likely are you to try this health tip?']],
-        label='How likely are you to try this health tip?',
-        widget=widgets.RadioSelect)
-    #info2 = models.BooleanField(
-    #    choices=[[True, 'New Statement'], [False, 'Old Statement']],
-    #    label='You are more likely to live longer and enjoy people and things you love if you start to sit less.',
-    #    widget=widgets.RadioSelectHorizontal)
-    # info3 = models.StringField(
-    #     choices=[[1, 'Unlikely \n 1'], ['2', '2'], ['3', 'Neutral \n 3'], ['4', '4'], ['5', 'Very Likely \n 5']],
-    #     label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life? (1 unlikely - 5 very likely)',
-    #     widget=widgets.RadioSelectHorizontal)
-    info3 = models.IntegerField(
-        label='Think of nearby places you go often. Try walking to these places instead of driving. How likely are you to do this in your daily life?',
-        widget=widgets.RadioSelectHorizontal, choices=[[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]])
-    info4 = models.StringField(
-        choices=[['1', '😄'], ['2', '🙂'], ['3', '😐'], ['4', '🙁'], ['5', '😧']],
-        label='Mood?',
+    conf_D8 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
-    # info5 = models.StringField(
-    #     label='What time did you get into bed last night?')
-    # info6 = models.StringField(
-    #     label='What time did you go to sleep last night?')
-    # info7 = models.StringField(
-    #     label='What time did you wake up?')
-    # info8 = models.StringField(
-    #     label='What time did you get out of bed?')
-    # info9 = models.BooleanField(
-    #     choices=[[True, 'Yes'], [False, 'No']],
-    #     label='Did you remove any of the monitors for >10 minutes today?',
-    #     widget=widgets.RadioSelectHorizontal)
+    mood_D8 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D8 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D9 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D9 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D9 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D9 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D10 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D10 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D10 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D10 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D11 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D11 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D11 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D11 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D12 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D12 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D12 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D12 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D13 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D13 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D13 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D13 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D14 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D14 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D14 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D14 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D15 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D15 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D15 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D15 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D15 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D16 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D16 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D16 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D16 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D16 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D17 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D17 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D17 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D17 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D17 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D18 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D18 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D18 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D18 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D18 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D19 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D19 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D19 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D19 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D19 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D20 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D20 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D20 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D20 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D20 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D21 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D21 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D21 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D21 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D21 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D22 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D22 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D22 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D22 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D23 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D23 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D23 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D23 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D24 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D24 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D24 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D24 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D25 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D25 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D25 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D25 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D26 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D26 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D26 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D26 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D27 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D27 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D27 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D27 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D28 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D28 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D28 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D28 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D29 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D29 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D29 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D29 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D30 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D30 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D30 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D30 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D31 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D31 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D31 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D31 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D32 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D32 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D32 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D32 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D33 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D33 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D33 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D33 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D34 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D34 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D34 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D34 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D35 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D35 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D35 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D35 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D36 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D36 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D36 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D36 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D37 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D37 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D37 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D37 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D37 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D38 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D38 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D38 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D38 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D38 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D39 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D39 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D39 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D39 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D39 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D40 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D40 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D40 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D40 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D40 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D41 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D41 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D41 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D41 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D41 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
+    affirm_D42 = models.BooleanField(
+        choices=[[True,
+                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
+        label="------------------------------------",
+        widget=widgets.RadioSelect)
+    conf_D42 = models.StringField(
+        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
+        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        widget=widgets.RadioSelectHorizontal)
+    mood_D42 = models.StringField(
+        choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
+                 ["5", 'Very Good']],
+        label='How are you feeling? Please rank from very bad to very good.',
+        widget=widgets.RadioSelect)
+    help_D42 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Please feel welcome to reach out with any questions or concerns you may have. Would you want a research coordinator to reach out to you?',
+        widget=widgets.RadioSelectHorizontal)
+    accel_D42 = models.BooleanField(
+        choices=[[True, 'Yes'], [False, 'No']],
+        label='Make sure you are wearing your accelerometer as often as possible this week! Have you been wearing your accelerometer?',
+        widget=widgets.RadioSelectHorizontal)
+    ####################################################################33
+
