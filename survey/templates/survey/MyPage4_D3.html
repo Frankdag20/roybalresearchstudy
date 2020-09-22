@@ -86,7 +86,7 @@ zoomed {
   <div class="card-body">
     <blockquote class="blockquote mb-0">
 
-      <center>  {{ form.Page4mood2.label }}   </center>
+      <center>  {{ form.mood_D3.label }}   </center>
         <center>
     <table class="table table-light" width="100%" style="display: inline;">
       <!--Create table for activities-->
@@ -123,7 +123,7 @@ zoomed {
 <!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs6.jpg' %}'/>"><center>form</center></td>-->
 <!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs7.jpg' %}'/>"><center>form.Page4mood2[6]</center></td>-->
 
-                {% for choice in form.Page4mood2 %}
+                {% for choice in form.mood_D3 %}
                 <td><center>{{  choice  }}</center></td>
                 {% endfor %}
           </tr>
