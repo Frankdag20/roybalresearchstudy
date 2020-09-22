@@ -197,7 +197,7 @@ class MyPage2_D1(Page):
     def vars_for_template(self):
         health_message = self.player.posOrNeg
 
-        self.participant.seen_or_not = 1
+        self.player.seen_or_not = 1
 
         if health_message == False:
             disp = "If you stay inactive, you are more likely to die early. You may miss out on the people and things you love."
@@ -373,7 +373,7 @@ class MyPage2_D2(Page):
     def vars_for_template(self):
         health_message = self.player.posOrNeg
 
-        self.participant.seen_or_not = 0
+        self.player.seen_or_not = 0
 
         if health_message == False:
             disp = "Inactive people often have higher blood sugar. Having high blood sugar can hurt your arteries."
@@ -548,7 +548,7 @@ class MyPage2_D3(Page):
     def vars_for_template(self):
         health_message = self.player.posOrNeg
 
-        self.participant.seen_or_not = 0
+        self.player.seen_or_not = 0
 
         if health_message == False:
             disp = "If you don't walk enough, your bones will grow weaker. Weaker bones make you more likely to have pain."
@@ -723,7 +723,7 @@ class MyPage2_D4(Page):
     def vars_for_template(self):
         health_message = self.player.posOrNeg
 
-        self.participant.seen_or_not = 1
+        self.player.seen_or_not = 1
 
         if health_message == False:
             disp = "If you keep being inactive, you are more likely to get cancer. This means you may die earlier than if you were more active."
@@ -898,7 +898,7 @@ class MyPage2_D5(Page):
     def vars_for_template(self):
         health_message = self.player.posOrNeg
 
-        self.participant.seen_or_not = 1
+        self.player.seen_or_not = 1
 
         if health_message == False:
             disp = "People who spend all of their time sitting are almost twice as likely to die from cancer than those who are very active."
@@ -1073,7 +1073,7 @@ class MyPage2_D6(Page):
     def vars_for_template(self):
         health_message = self.player.posOrNeg
 
-        self.participant.seen_or_not = 0
+        self.player.seen_or_not = 0
 
         if health_message == False:
             disp = "If you continue to be inactive, it is more difficult to digest food. This means you are more likely to get colon cancer."
@@ -1248,7 +1248,7 @@ class MyPage2_D7(Page):
     def vars_for_template(self):
         health_message = self.player.posOrNeg
 
-        self.participant.seen_or_not = 0
+        self.player.seen_or_not = 0
 
         if health_message == False:
             disp = "People who are inactive have more of the hormones that help cancer grow. This means you are more likely to develop cancer."
