@@ -149,7 +149,7 @@ class Intro_D1(Page):
     def before_next_page(self):
         self.participant.vars['expiry'] = int("29")
 
-        self.player.time_begin_d1 = datetime.now()
+        self.player.time_begin_d1 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         x = datetime.now()
         y = x.strftime("%H")
@@ -324,7 +324,7 @@ class Intro_D2(Page):
         return (self.participant.vars['expiry'] - int(y)-8) * 3600
 
     def before_next_page(self):
-        self.player.time_begin_d2 = datetime.now()
+        self.player.time_begin_d1 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.participant.vars['expiry'] = int("29")
 
         x = datetime.now()
@@ -499,7 +499,7 @@ class Intro_D3(Page):
         return (self.participant.vars['expiry'] - int(y)-8) * 3600
 
     def before_next_page(self):
-        self.player.time_begin_d1 = datetime.now()
+        self.player.time_begin_d1 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
         self.participant.vars['expiry'] = int("29")
 
         x = datetime.now()
