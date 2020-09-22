@@ -11,6 +11,9 @@ from otree.api import (
 
 import survey.sendEmail
 import csv
+from datetime import datetime
+import time
+import calendar
 
 author = 'Frank DAgostino'
 
@@ -77,7 +80,6 @@ class Player(BasePlayer):
     affirm_question = models.StringField()
 
     seen_or_not = models.BooleanField()
-
 
     def get_value(self):
         return self.session.vars['val_file'][0]['value']
