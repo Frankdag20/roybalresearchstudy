@@ -156,6 +156,9 @@ class Intro_D1(Page):
 
         y = fix_time(y)
         check_notif_time(y)
+        if int(y) > 14 and int(y) < 16:
+            import smtplib
+            send_email(self.player.id_in_group)
 
     def is_displayed(self):
 
