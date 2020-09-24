@@ -176,8 +176,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D1 = models.BooleanField(
-        choices=[[True,'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True,'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
 
     conf_D1 = models.StringField(
@@ -199,9 +199,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D2 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
 
     conf_D2 = models.StringField(
@@ -223,9 +222,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D3 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D3 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -244,9 +242,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D4 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D4 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -264,9 +261,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D5 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D5 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -284,9 +280,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D6 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D6 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -304,9 +299,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D7 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D7 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -324,9 +318,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D8 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D8 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -344,10 +337,10 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D9 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
+
     conf_D9 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
         label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
@@ -364,9 +357,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D10 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D10 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -384,9 +376,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D11 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D11 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -404,9 +395,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D12 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D12 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -424,9 +414,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D13 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D13 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -444,9 +433,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D14 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D14 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -464,9 +452,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D15 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D15 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -488,9 +475,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D16 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D16 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -512,9 +498,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D17 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D17 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -536,9 +521,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D18 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D18 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -560,9 +544,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D19 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D19 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -584,9 +567,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D20 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D20 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -608,9 +590,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D21 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D21 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -632,9 +613,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D22 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D22 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -652,9 +632,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D23 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D23 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -672,9 +651,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D24 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D24 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -692,9 +670,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D25 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D25 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -712,9 +689,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D26 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D26 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -732,9 +708,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D27 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D27 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -752,9 +727,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D28 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D28 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -772,9 +746,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D29 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D29 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -792,9 +765,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D30 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D30 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -812,9 +784,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D31 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D31 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -832,9 +803,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D32 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D32 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -852,9 +822,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D33 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D33 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -872,9 +841,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D34 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D34 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -892,9 +860,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D35 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D35 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -912,9 +879,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D36 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D36 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -932,9 +898,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D37 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D37 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -956,9 +921,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D38 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D38 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -980,9 +944,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D39 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D39 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -1004,9 +967,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D40 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D40 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -1028,9 +990,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D41 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D41 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
@@ -1052,9 +1013,8 @@ class Player(BasePlayer):
     ####################################################################33
 
     affirm_D42 = models.BooleanField(
-        choices=[[True,
-                  'Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.']],
-        label="------------------------------------",
+        choices=[[True, 'Press this button when finished visualizing.']],
+        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
     conf_D42 = models.StringField(
         choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
