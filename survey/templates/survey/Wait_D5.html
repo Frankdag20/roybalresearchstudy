@@ -1,11 +1,30 @@
 {% extends "global/Page.html" %}
 {% load otree %}
 
-{% block content %}
+<style>
+
+ .otree-timer {
+    display: none;
+}
+
+</style>
+
+<zoomed>
+<div class="card">
+  <div class="card-header">
+    Question
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+<!--      <big><big><big><big>-->
 <big><big><big><big>
  Health tip of the day:
  <center>{{tip}}</center>
 </big></big></big></big>
- Thank you for filling out the survey for today! See you tomorrow!
+     <center>Thank you for filling out the survey for today! See you tomorrow!</center>
 
-{% endblock %}
+<!--    </big></big></big></big>-->
+
+    </blockquote>
+  </div>
+</div>
