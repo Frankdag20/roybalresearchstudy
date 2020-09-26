@@ -1391,9 +1391,8 @@ class Results(Page):
     pass
 
 # Init page sequence    # Intro_D1, MyPage_D1, MyPage2_D1, MyPage3_D1, MyPage4_D1, MyPage5_D1, Wait_D1,
-page_sequence = [PreTrial, Start,
-                                Intro_D2, MyPage_D2, MyPage2_D2, MyPage3_D2, MyPage4_D2, MyPage5_D2, Wait_D2,
-                                Intro_D3, MyPage_D3, MyPage2_D3, MyPage3_D3, MyPage4_D3, MyPage5_D3, Wait_D3,
+   # Intro_D2, MyPage_D2, MyPage2_D2, MyPage3_D2, MyPage4_D2, MyPage5_D2, Wait_D2,
+page_sequence = [PreTrial, Start, Intro_D3, MyPage_D3, MyPage2_D3, MyPage3_D3, MyPage4_D3, MyPage5_D3, Wait_D3,
                                 Intro_D4, MyPage_D4, MyPage2_D4, MyPage3_D4, MyPage4_D4, MyPage5_D4, Wait_D4,
                                 Intro_D5, MyPage_D5, MyPage2_D5, MyPage3_D5, MyPage4_D5, MyPage5_D5, Wait_D5,
                                 Intro_D6, MyPage_D6, MyPage2_D6, MyPage3_D6, MyPage4_D6, MyPage5_D6, Wait_D6,
