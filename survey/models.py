@@ -188,8 +188,8 @@ class Player(BasePlayer):
     mem_D1 = models.StringField(
         choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"],
                  ["4", "Confident I've seen it before"]],
-        label = "How confident are you that you've seen this message before?"
-        widget = widgets.RadioSelect
+        label = "How confident are you that you've seen this message before?",
+        widget=widgets.RadioSelect
     )
 
     mood_D1 = models.StringField(
