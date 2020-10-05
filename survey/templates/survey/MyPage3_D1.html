@@ -4,6 +4,9 @@
 {% block content %}
 
 <style>
+    ul {
+  list-style-type: none;
+}
     .otree-timer {
     display: none;
 }
@@ -17,7 +20,7 @@ zoomed {
 <zoomed>
 <div class="card">
   <div class="card-header">
-    Question
+
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
@@ -44,9 +47,26 @@ zoomed {
 
 <!--   </table>-->
 
-<center>
-    {% formfields %}
-</center>
+        <center>{{tip}}</center>
+        <br>
+        How confident are you that you can carry this out?
+<br>
+    <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Unlikely</span>
+    </div>
+
+    <input type="range" name="conf_D1" min="1" max="7" step="1">
+
+    <div class="input-group-append">
+        <span class="input-group-text">Very Likely</span>
+    </div>
+    </div>
+
+<!--<center>-->
+<!--    {% formfields %}-->
+<!--</center>-->
+        <br>
 
     <center>{% next_button %}</center>
 
@@ -57,15 +77,15 @@ zoomed {
 </div>
 
 
-<center>
-<div class="card text-center" style="width: 18rem;">
-  <div class="card-body">
-    <h7 class="card-title"><b>Help</b></h7>
-    <p class="card-text">Contact <i>Cora Orway</i> at 617-606-3452 if having any issues.</p>
-    <a href="tel:617-373-5236" class="btn btn-primary">Call Cora</a>
-  </div>
-</div>
-</center>
+<!--<center>-->
+<!--<div class="card text-center" style="width: 18rem;">-->
+<!--  <div class="card-body">-->
+<!--    <h7 class="card-title"><b>Help</b></h7>-->
+<!--    <p class="card-text">Contact <i>Cora Orway</i> at 617-606-3452 if having any issues.</p>-->
+<!--    <a href="tel:617-373-5236" class="btn btn-primary">Call Cora</a>-->
+<!--  </div>-->
+<!--</div>-->
+<!--</center>-->
 
 <!--<div class="footer">-->
 <!--    <div class="container">-->

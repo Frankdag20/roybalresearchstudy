@@ -166,11 +166,16 @@ class Intro_D1(Page):
 
 class MyPage_D1(Page):
     form_model = 'player'
-    form_fields = ['affirm_D1']
+
+    if self.player.daysurv == 1:
+        form_fields = ['affirm_D1']
+    else:
+        form_fields = ['affirm_D2']
 
     def vars_for_template(self):
         affirm_value = self.player.affirmVal
         return dict(
+            end_of_q = "be inspired by"
             disp_affirm_value = affirm_value
         )
 
@@ -241,6 +246,11 @@ class MyPage3_D1(Page):
     form_model = 'player'
     form_fields = ['conf_D1']
 
+    def vars_for_template(self):
+        return dict(
+            tip="Walk to music with a beat to improve your walking speed and rhythm."
+        )
+
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
@@ -297,6 +307,7 @@ class Wait_D1(Page):
     def before_next_page(self):
         from datetime import datetime
 
+        self.player.daysurv += 1
         # Datetime is 4 hours ahead of EDT
         self.participant.vars['expiry'] = int("28")
 
@@ -1396,6 +1407,5 @@ class Results(Page):
     # Intro_D4, MyPage_D4, MyPage2_D4, MyPage3_D4, MyPage4_D4, MyPage5_D4, Wait_D4,
     # Intro_D5, MyPage_D5, MyPage2_D5, MyPage3_D5, MyPage4_D5, MyPage5_D5, Wait_D5,
     # Intro_D6, MyPage_D6, MyPage2_D6, MyPage3_D6, MyPage4_D6, MyPage5_D6, Wait_D6,
-page_sequence = [PreTrial, Start,  Intro_D7, MyPage_D7, MyPage2_D7, MyPage3_D7, MyPage4_D7, MyPage5_D7, Wait_D7,
-                 Intro_D7
+page_sequence = [PreTrial, Start,  Intro_D1, MyPage_D1, MyPage3_D1, MyPage2_D1, MyPage4_D1, MyPage5_D1, Wait_D1
                  ]

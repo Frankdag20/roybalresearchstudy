@@ -116,7 +116,7 @@ class Player(BasePlayer):
             self.is_correct = "Unsure Correct Rejection"
             return
 
-    daysurv = models.IntegerField(initial=0)
+    daysurv = models.IntegerField(initial=1)
 
     time_begin_d1 = models.StringField()
     time_begin_d2 = models.StringField()
@@ -171,18 +171,17 @@ class Player(BasePlayer):
 
     affirmVal = models.StringField(
         label='Please choose what value this participant deems most important to them.',
-        widget=widgets.RadioSelectHorizontal, choices=[['family', 'family'], ['money', 'money'], ['religion', 'religion'], ['health', 'health'], ['independence', 'independence']])
+        widget=widgets.RadioSelectHorizontal, choices=[['family and friends', 'family and friends'], ['humor', 'humor'], ['spontaneity', 'spontaneity'], ['money', 'money'], ['religion', 'religion'], ['health', 'health'],  ['politics', 'politics'], ['independence', 'independence'] ['creativity', 'creativity']])
 
     ####################################################################33
 
     affirm_D1 = models.BooleanField(
-        choices=[[True,'Press this button when finished visualizing.']],
-        label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
+        choices=[[True,'I visualized for 30 seconds.']],
         widget=widgets.RadioSelect)
 
     conf_D1 = models.StringField(
-        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"], ["4", "Confident I've seen it before"]],
+        #label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
         widget=widgets.RadioSelectHorizontal)
 
     mood_D1 = models.StringField(
