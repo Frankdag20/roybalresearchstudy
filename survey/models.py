@@ -71,7 +71,7 @@ class Player(BasePlayer):
     checkslider = models.IntegerField(blank=True)
     def checkslider_error_message(self, value):
         if not value:
-            return 'Please make your decision using slider.'
+            return 'Please make your decision using the slider.'
 
     question_id = models.IntegerField()
     seen = models.IntegerField()
