@@ -252,7 +252,7 @@ class MyPage3_D1(Page):
 
     def checkslider_error_message(self, value):
         if not value:
-            return 'Please make your decision using slider'
+            return 'Please make your decision using slider.'
 
     def vars_for_template(self):
         return dict(

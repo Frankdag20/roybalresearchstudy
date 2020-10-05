@@ -91,7 +91,9 @@ zoomed {
     -moz-transform-origin: 0 0;
 }
 </style>
-
+<br>
+<br>
+<br>
 <zoomed>
 <div class="card">
   <div class="card-header">
@@ -121,7 +123,7 @@ zoomed {
 <!--      </tbody>-->
 
 <!--   </table>-->
-
+{% formfield player.checkslider %}
         <center><big><big><big>{{tip}}</big></big></big></center>
         <br>
         <br>
@@ -139,8 +141,12 @@ zoomed {
         </center>
 <center>
     <div class="slidecontainer">
+        <center>
     <input type="range" name="conf_D1" min="1" max="100" step="1" id="'inputId">
+            </center>
+        <center>
     <input type="hidden" name="checkslider" value="" id="id_checkslider"/>
+            </center>
     </div>
 </center>
         <center>
