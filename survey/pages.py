@@ -175,7 +175,7 @@ class MyPage_D1(Page):
     def vars_for_template(self):
         affirm_value = self.player.affirmVal
         return dict(
-            end_of_q = "be inspired by"
+            end_of_q = "be inspired by",
             disp_affirm_value = affirm_value
         )
 
