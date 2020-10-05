@@ -68,6 +68,7 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
+    checkslider = models.IntegerField(blank=True)
 
     question_id = models.IntegerField()
     seen = models.IntegerField()
