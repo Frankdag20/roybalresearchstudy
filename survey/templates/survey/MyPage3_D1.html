@@ -49,7 +49,9 @@ zoomed {
 
         <center>{{tip}}</center>
         <br>
-        How confident are you that you can carry this out?
+        <br>
+        <center>
+        How confident are you in carrying this tip out?
 <br>
 
 
@@ -58,14 +60,14 @@ zoomed {
         <span class="input-group-text">Unlikely</span>
     </div>
 
-    <input type="range" name="conf_D1" min="1" max="7" step="1" id="'inputId">
+    <input type="range" name="conf_D1" min="1" max="100" step="1" id="'inputId">
 
     <div class="input-group-append">
         <span class="input-group-text">Very Likely</span>
     </div>
     </div>
 {{ form.conf_D1.errors }}
-
+</center>
         {% block scripts %}
         <script>
 

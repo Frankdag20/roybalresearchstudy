@@ -220,7 +220,7 @@ class MyPage2_D1(Page):
             disp_health_message=disp
         )
 
-    form_fields = ['submitted_answer']
+    form_fields = ['mem_D1']
 
 
     def submitted_answer_choices(self):

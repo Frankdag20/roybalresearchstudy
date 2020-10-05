@@ -180,10 +180,17 @@ class Player(BasePlayer):
         label='Press the following button to affirm you completed the task',
         widget=widgets.RadioSelect)
 
-    conf_D1 = models.StringField(
-        choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"], ["4", "Confident I've seen it before"]],
-        label='Please choose your confidence level below',
-        widget=widgets.RadioSelectHorizontal)
+    conf_D1 = models.IntegerField(
+        #choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"], ["4", "Confident I've seen it before"]],
+
+        label='Please choose your confidence level below')
+
+    mem_D1 = models.StringField(
+        choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"],
+                 ["4", "Confident I've seen it before"]],
+        label = "How confident are you that you've seen this message before?"
+        widget = widgets.RadioSelect
+    )
 
     mood_D1 = models.StringField(
         choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
