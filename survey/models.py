@@ -171,7 +171,7 @@ class Player(BasePlayer):
 
     affirmVal = models.StringField(
         label='Please choose what value this participant deems most important to them.',
-        widget=widgets.RadioSelectHorizontal, choices=[['family and friends', 'family and friends'], ['humor', 'humor'], ['spontaneity', 'spontaneity'], ['money', 'money'], ['religion', 'religion'], ['health', 'health'],  ['politics', 'politics'], ['independence', 'independence'] ['creativity', 'creativity']])
+        widget=widgets.RadioSelectHorizontal, choices=[['family and friends', 'family and friends'], ['humor', 'humor'], ['spontaneity', 'spontaneity'], ['money', 'money'], ['religion', 'religion'], ['health', 'health'],  ['politics', 'politics'], ['independence', 'independence'], ['creativity', 'creativity']])
 
     ####################################################################33
 
