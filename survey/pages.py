@@ -250,9 +250,6 @@ class MyPage3_D1(Page):
     form_model = 'player'
     form_fields = ['conf_D1', 'checkslider']
 
-    def checkslider_error_message(self, value):
-        if not value:
-            return 'Please make your decision using slider.'
 
     def vars_for_template(self):
         return dict(
