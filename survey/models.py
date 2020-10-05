@@ -177,11 +177,12 @@ class Player(BasePlayer):
 
     affirm_D1 = models.BooleanField(
         choices=[[True,'I visualized for 30 seconds.']],
+        label='Press the following button to affirm you completed the task',
         widget=widgets.RadioSelect)
 
     conf_D1 = models.StringField(
         choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"], ["4", "Confident I've seen it before"]],
-        #label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
+        label='Please choose your confidence level below',
         widget=widgets.RadioSelectHorizontal)
 
     mood_D1 = models.StringField(

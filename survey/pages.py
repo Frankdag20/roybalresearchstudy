@@ -169,16 +169,17 @@ class Intro_D1(Page):
 class MyPage_D1(Page):
     form_model = 'player'
 
-   # if track_day == 1:
-    form_fields = ['affirm_D1']
-   # else:
-   #     form_fields = ['affirm_D2']
+    def get_form_fields(self):
+        if self.player.daysurv == 1:
+            return ['affirm_D1']
+        else:
+            return ['affirm_D2']
 
     def vars_for_template(self):
 
         affirm_value = self.player.affirmVal
         return dict(
-            end_of_q = "be inspired by",
+            end_of_q = "you would be inspired by",
             disp_affirm_value = affirm_value
         )
 
@@ -1410,5 +1411,5 @@ class Results(Page):
     # Intro_D4, MyPage_D4, MyPage2_D4, MyPage3_D4, MyPage4_D4, MyPage5_D4, Wait_D4,
     # Intro_D5, MyPage_D5, MyPage2_D5, MyPage3_D5, MyPage4_D5, MyPage5_D5, Wait_D5,
     # Intro_D6, MyPage_D6, MyPage2_D6, MyPage3_D6, MyPage4_D6, MyPage5_D6, Wait_D6,
-page_sequence = [PreTrial, Start,  Intro_D1, MyPage_D1, MyPage3_D1, MyPage2_D1, MyPage4_D1, MyPage5_D1, Wait_D1
+page_sequence = [PreTrial, Start, Intro_D1, MyPage_D1, MyPage3_D1, MyPage2_D1, MyPage4_D1, MyPage5_D1, Wait_D1
                  ]
