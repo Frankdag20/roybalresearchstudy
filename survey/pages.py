@@ -169,10 +169,10 @@ class Intro_D1(Page):
 class MyPage_D1(Page):
     form_model = 'player'
 
-    if track_day == 1:
-        form_fields = ['affirm_D1']
-    else:
-        form_fields = ['affirm_D2']
+   # if track_day == 1:
+    form_fields = ['affirm_D1']
+   # else:
+   #     form_fields = ['affirm_D2']
 
     def vars_for_template(self):
 
