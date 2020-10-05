@@ -137,6 +137,7 @@ class Start(Page):
 class Intro_D1(Page):
     form_model = 'player'
 
+    track_day = 0
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")
@@ -149,6 +150,7 @@ class Intro_D1(Page):
     def before_next_page(self):
         self.participant.vars['expiry'] = int("29")
 
+        track_day = self.player.daysurv
         self.player.time_begin_d1 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         x = datetime.now()
@@ -167,12 +169,13 @@ class Intro_D1(Page):
 class MyPage_D1(Page):
     form_model = 'player'
 
-    if self.player.daysurv == 1:
+    if track_day == 1:
         form_fields = ['affirm_D1']
     else:
         form_fields = ['affirm_D2']
 
     def vars_for_template(self):
+
         affirm_value = self.player.affirmVal
         return dict(
             end_of_q = "be inspired by",
