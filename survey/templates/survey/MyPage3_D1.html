@@ -47,7 +47,7 @@ zoomed {
 
 <!--   </table>-->
 
-        <center>{{tip}}</center>
+        <center><big><big><big>{{tip}}</big></big></big></center>
         <br>
         <br>
         <center>
@@ -57,15 +57,19 @@ zoomed {
 
 <center>
     <div class="input-group">
+        <center>
     <div class="input-group-prepend">
         <span class="input-group-text">Unlikely</span>
     </div>
-
+        </center>
+<center>
     <input type="range" name="conf_D1" min="1" max="100" step="1" id="'inputId">
-
+</center>
+        <center>
     <div class="input-group-append">
         <span class="input-group-text">Very Likely</span>
     </div>
+            </center>
     </div>
     <center>
 {{ form.conf_D1.errors }}

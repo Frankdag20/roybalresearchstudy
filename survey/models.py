@@ -145,14 +145,14 @@ class Player(BasePlayer):
     mem_D1 = models.StringField(
         choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"],
                  ["4", "Confident I've seen it before"]],
-        label = "How confident are you that you've seen this message before?",
+        label = "How confident are you that you've seen this message before in the scanner?",
         widget=widgets.RadioSelect
     )
 
     mood_D1 = models.StringField(
         choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
                  ["5", 'Very Good']],
-        label='How are you feeling? Please rank from very bad to very good.',
+        label='How do you rate your mood for today?',
         widget=widgets.RadioSelect)
 
     help_D1 = models.BooleanField(
