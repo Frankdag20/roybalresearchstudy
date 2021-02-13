@@ -10,61 +10,6 @@ ul {
 .otree-timer {
     display: none;
 }
-/*table {*/
-/*  display: inline-block;*/
-/*}*/
-/*@media only screen and (max-width: 800px) {*/
-
-/*	!* Force table to not be like tables anymore *!*/
-/*	#no-more-tables table,*/
-/*	#no-more-tables thead,*/
-/*	#no-more-tables tbody,*/
-/*	#no-more-tables th,*/
-/*	#no-more-tables td,*/
-/*	#no-more-tables tr {*/
-/*		display: block;*/
-/*	}*/
-
-/*	!* Hide table headers (but not display: none;, for accessibility) *!*/
-/*	#no-more-tables thead tr {*/
-/*		position: absolute;*/
-/*		top: -9999px;*/
-/*		left: -9999px;*/
-/*	}*/
-
-/*	#no-more-tables tr { border: 1px solid #ccc; }*/
-
-/*	#no-more-tables td {*/
-/*		!* Behave  like a "row" *!*/
-/*		border: none;*/
-/*		border-bottom: 1px solid #eee;*/
-/*		position: relative;*/
-/*		padding-left: 50%;*/
-/*		white-space: normal;*/
-/*		text-align:left;*/
-/*	}*/
-
-/*	#no-more-tables td:before {*/
-/*		!* Now like a table header *!*/
-/*		position: absolute;*/
-/*		!* Top/left values mimic padding *!*/
-/*		top: 6px;*/
-/*		left: 6px;*/
-/*		width: 45%;*/
-/*		padding-right: 10px;*/
-/*		white-space: nowrap;*/
-/*		text-align:left;*/
-/*		font-weight: bold;*/
-/*	}*/
-
-/*	!**/
-/*	Label the data*/
-/*	*!*/
-/*	#no-more-tables td:before { content: attr(data-title); }*/
-/*}*/
-
-/*#table_id  {display: block; }*/
-/*#table_id  td {display: inline-block; }*/
 
 @media only screen and (max-width: 800px) {
 	table td:nth-child(5) {display: block; clear:both}
@@ -76,7 +21,7 @@ ul {
 }
 
 zoomed {
-    zoom: 1.0;
+    zoom: 0.9;
     -moz-transform: scale(1.0);
     -moz-transform-origin: 0 0;
 }
@@ -102,20 +47,6 @@ zoomed {
       <center>
          <tr>
 <center>
-<!--             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs1.JPG' %}'/></center></th>-->
-<!--          <th scope="col"><center><img width='40' height='40' src='{% static 'Page4/hs2.JPG' %}'/></center></th>-->
-<!--          <th scope="col"><center><img width='40' height='40' src='{% static 'Page4/hs3.JPG' %}'/></center></th>-->
-<!--          <th scope="col"><center><img width='40' height='40' src='{% static 'Page4/hs4.JPG' %}'/></center></th>-->
-<!--          <th scope="col"><center><img width='40' height='40' src='{% static 'Page4/hs5.JPG' %}'/></center></th>-->
-<!--          <th scope="col"><center><img width='40' height='40' src='{% static 'Page4/hs6.JPG' %}'/></center></th>-->
-<!--             <th scope="col"><center><img width='50' height='50' src='{% static 'Page4/hs7.JPG' %}'/></center></th>-->
-<!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/p35qccv" alt=""></th>-->
-<!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/CFfli65" alt=""></th>-->
-<!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/Eza6e6x" alt=""></th>-->
-<!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/EZPE012" alt=""></th>-->
-<!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/lKYVU5o" alt=""></th>-->
-<!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/IMGtaLx" alt=""></th>-->
-<!--             <th scope="col"><img class="img-fluid rounded mb-3 mb-md-0" src="https://imgur.com/0pJklli" alt=""></th>-->
 
     <th scope="col"><center><img src = "https://i.imgur.com/nuIvUA8.jpg" alt = "😟" height = "40" width = "40" /></center></th>
     <th scope="col"><center><img src = "https://i.imgur.com/IhMuFcX.jpg" alt = "🙁" height = "40" width = "40" /></center></th>
@@ -131,13 +62,6 @@ zoomed {
       <tbody>
       <center>
           <tr>
-<!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs1.JPG' %}'/>"><center>form.Page4mood2[0]</center></td>-->
-<!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs2.JPG' %}'/>"><center>form.Page4mood2.value</center></td>-->
-<!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs3.JPG' %}'/>"><center>form.Page4mood2.value[2]</center></td>-->
-<!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs4.JPG' %}'/>"><center>form.Page4mood2[3]</center></td>-->
-<!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs5.JPG' %}'/>"><center>form.Page4mood2[4]</center></td>-->
-<!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs6.JPG' %}'/>"><center>form</center></td>-->
-<!--              <td data-title="<center><img width='100' height='100' src='{% static 'Page4/hs7.JPG' %}'/>"><center>form.Page4mood2[6]</center></td>-->
 
                 {% for choice in form.mood_D1 %}
                 <td><center>{{  choice  }}</center></td>
@@ -160,25 +84,6 @@ zoomed {
   </div>
 </div>
 
-
-<!--<center>-->
-<!--<div class="card text-center" style="width: 18rem;">-->
-<!--  <div class="card-body">-->
-<!--    <h7 class="card-title"><b>Help</b></h7>-->
-<!--    <p class="card-text">Contact <i>Cora Orway</i> at 617-606-3452 if having any issues.</p>-->
-<!--    <a href="tel:617-373-5236" class="btn btn-primary">Call Cora</a>-->
-<!--  </div>-->
-<!--</div>-->
-<!--</center>-->
-
-<!--<div class="footer">-->
-<!--    <div class="container">-->
-<!--        <big><big><big><big>-->
-<!--        <p>Contact Cora Orway at 123-456-7890 if having any issues.</p>-->
-<!--        </big></big></big></big>-->
-
-<!--    </div>-->
-<!--</div>-->
 
 {% endblock %}
 </zoomed>

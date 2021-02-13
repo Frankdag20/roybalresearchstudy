@@ -106,7 +106,7 @@ class Player(BasePlayer):
         #choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"], ["4", "Confident I've seen it before"]],
 
         label='Please choose your confidence level below.')
-
+     
     mem_D1 = models.StringField(
         choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"],
                  ["4", "Confident I've seen it before"]],

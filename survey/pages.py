@@ -72,7 +72,7 @@ def send_email(participant):
 
 def send_email_help(participant):
 
-    FROM = "fdagostinoj@gmail.com"
+    FROM = "dashstudy2021@gmail.com"
 
     TO = ["frankdag20@gmail.com"]  # must be a list
 
@@ -85,8 +85,8 @@ def send_email_help(participant):
      """ % (f"DASH: Participant {participant} is requesting assistance.", TEXT)
 
     # Send the mail
-    username = str("fdagostinoj@gmail.com")
-    password = str("Dagostino1?")
+    username = str("dashstudy2021@gmail.com")
+    password = str("bhFw3mL$mR")
 
     server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
     server.set_debuglevel(1)
@@ -170,7 +170,7 @@ class MyPage_D1(Page):
     form_model = 'player'
 
     def get_form_fields(self):
-        if self.player.daysurv == 1:
+        if self.player.daysurv == 2:
             return ['affirm_D1']
         else:
             return ['affirm_D2']
