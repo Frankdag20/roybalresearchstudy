@@ -194,15 +194,6 @@ class MyPage_D1(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
 
-    # def before_next_page(self):
-        # self.player.notif()
-
-    # form_fields = ['affirm_answer']
-    #
-    # def submitted_answer_choices(self):
-    #     qd = self.player.get_value()
-    #     return qd
-
 class MyPage2_D1(Page):
     form_model = 'player'
 
@@ -221,16 +212,6 @@ class MyPage2_D1(Page):
         )
 
     form_fields = ['mem_D1']
-
-
-    def submitted_answer_choices(self):
-        qd = self.player.current_question()
-        return [
-            qd['CO'],
-            qd['CN'],
-            qd['UO'],
-            qd['UN'],
-        ]
 
     def before_next_page(self):
         self.player.check_correct()
