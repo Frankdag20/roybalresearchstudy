@@ -28,41 +28,11 @@ class Constants(BaseConstants):
     name_in_url = 'research'
     players_per_group = None
 
-    with open('survey/dailyQs.csv') as questions_file:
-        questions = list(csv.DictReader(questions_file))
-
-    with open('survey/affirmQs.csv') as aff:
-        affirm_file = list(csv.DictReader(aff))
-
-    with open('survey/values.csv') as val:
-        val_file = list(csv.DictReader(val))
-
     num_rounds = 1
 
 
 class Subsession(BaseSubsession):
-    def creating_session(self):
-        if self.round_number == 1:
-
-            self.session.vars['questions'] = Constants.questions.copy()
-            self.session.vars['affirm_file'] = Constants.affirm_file.copy()
-            self.session.vars['val_file'] = Constants.val_file.copy()
-            # randomize for each participant
-            # import random
-            # randomized_questions = random.sample(Constants.questions, len(Constants.questions))
-            # self.participant.vars['questions'] = randomized_questions
-
-        for p in self.get_players():
-            question_data = p.current_question()
-            p.question_id = int(question_data['id'])
-            p.question = question_data['question']
-            p.solution = question_data['solution']
-            p.seen = int(question_data['seen'])
-
-            data = p.current_question_affirm()
-            p.val_label = p.get_value()
-            p.affirm_question = data[p.val_label]
-
+    pass
 
 class Group(BaseGroup):
     pass
@@ -84,15 +54,6 @@ class Player(BasePlayer):
     affirm_question = models.StringField()
 
     seen_or_not = models.BooleanField()
-
-    def get_value(self):
-        return self.session.vars['val_file'][0]['value']
-
-    def current_question(self):
-        return self.session.vars['questions'][self.daysurv]
-
-    def current_question_affirm(self):
-        return self.session.vars['affirm_file'][self.daysurv]
 
     def check_correct(self):
         if ((self.submitted_answer == "I am confident that I have seen this message in the scanner before.") and (self.seen_or_not == 1)):
@@ -144,7 +105,7 @@ class Player(BasePlayer):
     conf_D1 = models.IntegerField(
         #choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"], ["4", "Confident I've seen it before"]],
 
-        label='Please choose your confidence level below')
+        label='Please choose your confidence level below.')
 
     mem_D1 = models.StringField(
         choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"],

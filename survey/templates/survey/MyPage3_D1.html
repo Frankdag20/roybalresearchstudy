@@ -41,9 +41,9 @@
 <style>
 .slider {
   -webkit-appearance: none;
-  width: 100%;
-  height: 15px;
-  border-radius: 5px;
+  width: 80%;
+  height: 20px;
+  border-radius: 10px;
   background: #d3d3d3;
   outline: none;
  text-align:center;
@@ -57,9 +57,9 @@
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
   background: #4CAF50;
     text-align:center;
     justify-content: center;
@@ -68,10 +68,10 @@
 }
 
 .slider::-moz-range-thumb {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
     text-align:center;
-  border-radius: 50%;
+  border-radius: 100%;
   background: #4CAF50;
   cursor: pointer;
 }
@@ -125,28 +125,7 @@ zoomed {
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-<!--      <big><big><big><big>-->
 
-<!--    <table class="table table-light">-->
-<!--      &lt;!&ndash;Create table for activities&ndash;&gt;-->
-<!--      <thead>-->
-<!--         <tr>-->
-<!--             <th scope="col"></th>-->
-<!--             <th scope="col">Unlikely</th>-->
-<!--             <th scope="col">Not Likely</th>-->
-<!--             <th scope="col">Neutral</th>-->
-<!--             <th scope="col">Likely</th>-->
-<!--             <th scope="col">Very Likely</th>-->
-<!--         </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--          <tr>-->
-<!--            <td></td>-->
-<!--                -->
-<!--          </tr>-->
-<!--      </tbody>-->
-
-<!--   </table>-->
         <b>{{ form.checkslider.errors }}</b>
         <center><big><big><big>{{tip}}</big></big></big></center>
         <br>
@@ -185,9 +164,6 @@ zoomed {
 </center>
 </div>
 
-<!--<center>-->
-<!--    {% formfields %}-->
-<!--</center>-->
         <br>
 
     <center>{% next_button %}</center>
@@ -198,25 +174,6 @@ zoomed {
   </div>
 </div>
 
-
-<!--<center>-->
-<!--<div class="card text-center" style="width: 18rem;">-->
-<!--  <div class="card-body">-->
-<!--    <h7 class="card-title"><b>Help</b></h7>-->
-<!--    <p class="card-text">Contact <i>Cora Orway</i> at 617-606-3452 if having any issues.</p>-->
-<!--    <a href="tel:617-373-5236" class="btn btn-primary">Call Cora</a>-->
-<!--  </div>-->
-<!--</div>-->
-<!--</center>-->
-
-<!--<div class="footer">-->
-<!--    <div class="container">-->
-<!--        <big><big><big><big>-->
-<!--        <p>Contact Cora Orway at 123-456-7890 if having any issues.</p>-->
-<!--        </big></big></big></big>-->
-
-<!--    </div>-->
-<!--</div>-->
 
 {% endblock %}
 </zoomed>
