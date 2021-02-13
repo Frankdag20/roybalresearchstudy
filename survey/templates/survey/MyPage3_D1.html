@@ -138,25 +138,33 @@ zoomed {
 <center>
     <div class="input-group" class="flex-child 1">
         <center>
-    <div class="input-group-prepend">
-        <span class="input-group-text">Unlikely</span>
-    </div>
+            <small>
+                <small>
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Unlikely</span>
+                    </div>
+                </small>
+            </small>
         </center>
-<center>
-    <div class="slidecontainer" class="flex-child 1">
         <center>
-    <input type="range" name="conf_D1" min="1" max="100" step="1" id="'inputId">
-            </center>
-        <center>
-    <input type="hidden" name="checkslider" value="" id="id_checkslider"/>
-
-    </div>
-
-        <center>
-    <div class="input-group-append" class="flex-child 1">
-        <span class="input-group-text">Very Likely</span>
-    </div>
-            </center>
+            <div class="slidecontainer" class="flex-child 1">
+                <center>
+                    <input type="range" name="conf_D1" min="1" max="100" step="1" id="'inputId">
+                </center>
+                <center>
+                    <input type="hidden" name="checkslider" value="" id="id_checkslider" />
+                </center>
+            </div>
+        </center>
+        <small>
+            <small>
+                <center>
+                    <div class="input-group-append" class="flex-child 1">
+                        <span class="input-group-text">Very Likely</span>
+                    </div>
+            </small>
+        </small>
+        </center>
     </div>
     <center>
 {{ form.conf_D1.errors }}
