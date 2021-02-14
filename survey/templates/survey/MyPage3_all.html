@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+<html>
+{% block content %}
+
+<style>
+    ul {
+  list-style-type: none;
+}
+zoomed {
+    zoom: 1.2;
+    -moz-transform: scale(1.2);
+    -moz-transform-origin: 0 0;
+}
+    .otree-timer {
+    display: none;
+}
+</style>
+<br>
+<br>
+<br>
+<zoomed>
+<div class="card">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+<!--      <big><big><big><big>-->
+
+        <big><big>{{disp_health_message}}</big></big>
+        <br>
+        <br>
+
+    {% formfields %}
+        <br>
+    <center>{% next_button %}</center>
+
+<!--    </big></big></big></big>-->
+      <footer class="blockquote-footer">Question 3/4</footer>
+    </blockquote>
+  </div>
+</div>
+
+{% endblock %}
+</zoomed>
+
+</html>

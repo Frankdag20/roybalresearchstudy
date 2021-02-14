@@ -83,6 +83,8 @@ class Player(BasePlayer):
 
     daysurv = models.IntegerField(initial=1)
 
+    day_track = models.IntegerField(initial=0)
+
 
     track = models.IntegerField()
 
@@ -103,7 +105,6 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect)
 
     conf_D1 = models.IntegerField(
-        #choices=[["1", "Confident it's new"], ["2", "Unconfident it's new"], ["3", "Unconfident I've seen it before"], ["4", "Confident I've seen it before"]],
 
         label='Please choose your confidence level below.')
      

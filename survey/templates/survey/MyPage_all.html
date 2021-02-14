@@ -1,0 +1,50 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+<html>
+{% block content %}
+
+<style>
+ul {
+  list-style-type: none;
+}
+.otree-timer {
+    display: none;
+}
+zoomed {
+    zoom: 1.2;
+    -moz-transform: scale(1.2);
+    -moz-transform-origin: 0 0;
+}
+
+</style>
+
+
+<br>
+<br>
+<br>
+<zoomed>
+    <div class="card">
+        <div class="card-header">
+
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <!--      <big><big><big><big>-->
+                Please spend 30 seconds visualizing a time in as much detail as possible when <b> {{end_of_q}}. </b>
+                <br>
+                <br>
+                {% formfields %}
+                <br>
+
+                <center>{% next_button %}</center>
+
+                <!--    </big></big></big></big>-->
+                <footer class="blockquote-footer">Question 1/4</footer>
+            </blockquote>
+        </div>
+    </div>
+
+    {% endblock %}
+</zoomed>
+
+</html>
