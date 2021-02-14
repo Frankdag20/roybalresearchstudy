@@ -80,11 +80,6 @@ mood_array = ['mood_D1', 'mood_D2', 'mood_D3', 'mood_D4', 'mood_D5', 'mood_D6', 
 help_array = ['help_D1', 'help_D2', 'help_D3', 'help_D4', 'help_D5', 'help_D6', 'help_D7', 'help_D8', 'help_D9', 'help_D10', 'help_D11', 'help_D12', 'help_D13', 'help_D14', 'help_D15', 'help_D16', 'help_D17', 'help_D18', 'help_D19', 'help_D20', 'help_D21', 
               'help_D22', 'help_D23', 'help_D24', 'help_D25', 'help_D26', 'help_D27', 'help_D28', 'help_D29', 'help_D30', 'help_D31', 'help_D32', 'help_D33', 'help_D34', 'help_D35', 'help_D36', 'help_D37', 'help_D38', 'help_D39', 'help_D40', 'help_D41', 'help_D42']
 
-self_help_array = [self.player.help_D1, self.player.help_D2, self.player.help_D3, self.player.help_D4, self.player.help_D5, self.player.help_D6, self.player.help_D7, self.player.help_D8, self.player.help_D9, self.player.help_D10, self.player.help_D11, self.player.help_D12, self.player.help_D13,
-                   self.player.help_D14, self.player.help_D15, self.player.help_D16, self.player.help_D17, self.player.help_D18, self.player.help_D19, self.player.help_D20, self.player.help_D21, self.player.help_D22, self.player.help_D23, self.player.help_D24, self.player.help_D25,self.player.help_D26,
-                   self.player.help_D27, self.player.help_D28, self.player.help_D29, self.player.help_D30, self.player.help_D31, self.player.help_D32, self.player.help_D33, self.player.help_D34, self.player.help_D35,
-                   self.player.help_D36, self.player.help_D37, self.player.help_D38, self.player.help_D39, self.player.help_D40, self.player.help_D41, self.player.help_D42]
-
 tip_array = ['Walk to music with a beat to improve your walking speed and rhythm.',
 'Breathe in rhythm to your walking.',
 'Walk free: don’t take too much with you when you walk, and keep your hands free.',
@@ -401,6 +396,12 @@ class MyPage5_all(Page):
 
 class Wait_all(Page):
     form_model = 'player'
+
+    self_help_array = [self.player.help_D1, self.player.help_D2, self.player.help_D3, self.player.help_D4, self.player.help_D5, self.player.help_D6, self.player.help_D7, self.player.help_D8, self.player.help_D9, self.player.help_D10, self.player.help_D11, self.player.help_D12, self.player.help_D13,
+                   self.player.help_D14, self.player.help_D15, self.player.help_D16, self.player.help_D17, self.player.help_D18, self.player.help_D19, self.player.help_D20, self.player.help_D21, self.player.help_D22, self.player.help_D23, self.player.help_D24, self.player.help_D25,self.player.help_D26,
+                   self.player.help_D27, self.player.help_D28, self.player.help_D29, self.player.help_D30, self.player.help_D31, self.player.help_D32, self.player.help_D33, self.player.help_D34, self.player.help_D35,
+                   self.player.help_D36, self.player.help_D37, self.player.help_D38, self.player.help_D39, self.player.help_D40, self.player.help_D41, self.player.help_D42]
+
 
     def vars_for_template(self):
         assist = self_help_array[self.player.day_track]
