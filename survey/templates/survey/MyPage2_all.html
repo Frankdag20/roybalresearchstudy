@@ -5,7 +5,7 @@
        {% block scripts %}
 
 <script>
-    document.body.innerHTML = document.body.innerHTML.replace('REPLACEFORHTML', conf_day_name);
+    document.body.innerHTML = document.body.innerHTML.replace('conf_day_name', conf_day_name);
 
 
     String.prototype.replaceAt = function (index, replacement) {
@@ -161,6 +161,7 @@
                 </div>
                 <center>
 
+                    {{ form.conf_day_name.errors }}
                 </center>
                 </center>
         </div>
