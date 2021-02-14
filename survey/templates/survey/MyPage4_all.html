@@ -1,0 +1,91 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+<html>
+{% block content %}
+
+<style>
+ul {
+  list-style-type: none;
+}
+.otree-timer {
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+	table td:nth-child(5) {display: block; clear:both}
+	table th:nth-child(5) {display: block; clear:both}
+    table td:nth-child(6) {display: block; clear:both}
+    table th:nth-child(6) {display: block; clear:both}
+    table td:nth-child(7) {display: block; clear:both}
+    table th:nth-child(7) {display: block; clear:both}
+}
+
+zoomed {
+    zoom: 0.9;
+    -moz-transform: scale(1.0);
+    -moz-transform-origin: 0 0;
+}
+</style>
+<br>
+<br>
+<br>
+<zoomed>
+<div class="card">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+
+        <center>  How do you rate your mood for today?   </center>
+        <br>
+        <br>
+        <center>
+    <table class="table table-light" width="100%" style="display: inline;">
+      <!--Create table for activities-->
+      <thead>
+      <center>
+         <tr>
+<center>
+
+    <th scope="col"><center><img src = "https://i.imgur.com/nuIvUA8.jpg" alt = "😟" height = "40" width = "40" /></center></th>
+    <th scope="col"><center><img src = "https://i.imgur.com/IhMuFcX.jpg" alt = "🙁" height = "40" width = "40" /></center></th>
+    <th scope="col"><center><img src = "https://i.imgur.com/q3K9nUE.jpg" alt = "😐" height = "40" width = "40" /></center></th>
+    <th scope="col"><center><img src = "https://i.imgur.com/4oCQt7f.jpg" alt = "🙂" height = "40" width = "40" /></center></th>
+    <th scope="col"><center><img src = "https://i.imgur.com/BnTOev9.jpg" alt = "😀" height = "40" width = "40" /></center></th>
+
+
+</center>
+         </tr>
+      </center>
+      </thead>
+      <tbody>
+      <center>
+          <tr>
+
+              {% for choice in form.mood_day %}
+              <td><center>{{  choice  }}</center></td>
+              {% endfor %}
+          </tr>
+
+      </center>
+      </tbody>
+
+    </table>
+
+</center>
+<br>
+
+    <center>{% next_button %}</center>
+
+<!--    </big></big></big></big>-->
+      <footer class="blockquote-footer">Question 4/4</footer>
+    </blockquote>
+  </div>
+</div>
+
+
+{% endblock %}
+</zoomed>
+
+</html>

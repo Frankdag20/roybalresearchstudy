@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+<html>
+{% block content %}
+
+<style>
+  ul {
+  list-style-type: none;
+}
+  .otree-timer {
+    display: none;
+}
+zoomed {
+    zoom: 1.2;
+    -moz-transform: scale(1.2);
+    -moz-transform-origin: 0 0;
+}
+</style>
+<br>
+<br>
+<br>
+<zoomed>
+<div class="card">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+<!--      <big><big><big><big>-->
+
+<center> {% formfields %}</center>
+      <br>
+      <br>
+
+    <center>{% next_button %}</center>
+<br>
+<!--    </big></big></big></big>-->
+
+    </blockquote>
+  </div>
+</div>
+
+
+{% endblock %}
+</zoomed>
+
+</html>
