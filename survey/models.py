@@ -83,7 +83,7 @@ class Player(BasePlayer):
 
     daysurv = models.IntegerField(initial=1)
 
-    day_track = models.IntegerField(initial=1)
+    day_track = models.IntegerField(initial=0)
 
 
     track = models.IntegerField()
