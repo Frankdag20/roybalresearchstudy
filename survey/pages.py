@@ -278,14 +278,14 @@ class MyPage_all(Page):
 
     def get_form_fields(self):
 
-        return affirm_array[self.player.day_track]
+        return affirm_array[self.player.day_track],
 
     def vars_for_template(self):
 
         affirm_value = self.player.affirmVal
         insert_word_affirm = affirm_end[self.player.day_track].replace('<REPLACE>', affirm_value)
         return dict(
-            end_of_q = insert_word_affirm
+            end_of_q = insert_word_affirm,
         )
 
     def get_timeout_seconds(self):
@@ -304,13 +304,13 @@ class MyPage2_all(Page):
 
     def get_form_fields(self):
 
-        return [conf_array[self.player.day_track], 'checkslider']
+        return [conf_array[self.player.day_track], 'checkslider'],
 
 
     def vars_for_template(self):
         return dict(
             tip = tip_array[self.player.day_track],
-            conf_day_name = conf_array[self.player.day_track]
+            conf_day_name = conf_array[self.player.day_track],
         )
 
     def get_timeout_seconds(self):
@@ -338,12 +338,12 @@ class MyPage3_all(Page):
             disp = health_neg_end[self.player.day_track]
 
         return dict(
-            disp_health_message=disp
+            disp_health_message=disp,
         )
 
     def get_form_fields(self):
 
-        return mem_array[self.player.day_track]
+        return mem_array[self.player.day_track],
 
 
     def before_next_page(self):
@@ -364,7 +364,7 @@ class MyPage4_all(Page):
     form_model = 'player'
     def get_form_fields(self):
 
-        return mood_array[self.player.day_track]
+        return mood_array[self.player.day_track],
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -382,7 +382,7 @@ class MyPage5_all(Page):
 
     def get_form_fields(self):
 
-        return help_array[self.player.day_track]
+        return help_array[self.player.day_track],
 
     def get_timeout_seconds(self):
         x = datetime.now()
