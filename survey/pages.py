@@ -285,8 +285,7 @@ class MyPage_all(Page):
         affirm_value = self.player.affirmVal
         insert_word_affirm = affirm_end[self.player.day_track].replace('<REPLACE>', affirm_value)
         return dict(
-            end_of_q = affirm_end[self.player.day_track],
-            disp_affirm_value = affirm_value
+            end_of_q = insert_word_affirm
         )
 
     def get_timeout_seconds(self):
