@@ -283,7 +283,7 @@ class MyPage_all(Page):
     def vars_for_template(self):
 
         affirm_value = self.player.affirmVal
-        insert_word_affirm = affirm_end[self.player.day_track].replace('<REPLACE>', affirm_value)
+        insert_word_affirm = affirm_end[self.player.day_track-1].replace('<REPLACE>', affirm_value)
         return dict(
             end_of_q = insert_word_affirm,
         )
