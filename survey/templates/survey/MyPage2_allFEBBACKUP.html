@@ -10,13 +10,25 @@
         document.body.innerHTML = document.body.innerHTML.replace('day_track', conf_day_name);
     }
    
+    var selector = $('[data-slider] input[type="range"]');
+      selector.change(function() {
+        $('#id_checkslider').val(selector.val());
+      });
 
     String.prototype.replaceAt = function (index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
     }
+    var selector = $('[data-slider] input[type="range"]');
+    selector.change(function () {
+        $('#id_checkslider').val(selector.val());
+    });
 
+    $('input[name=conf_day_name]').on('input', function () {
+        $('#id_checkslider').val(1);
+    });
 
-  
+    console.log(conf_day_name);
+    document.querySelector('[name=<REPLACE>]'.replaceAt('<REPLACE>', conf_day_name)).value = document.getElementById("inputId").value;
 
 </script>
 
@@ -114,7 +126,7 @@
         <div class="card-body">
             <blockquote class="blockquote mb-0">
 
-
+                <b>{{ form.checkslider.errors }}</b>
                 <center><big><big><big>{{tip}}</big></big></big></center>
                 <br>
                 <br>
@@ -128,18 +140,21 @@
                             <center>
                                 <small>
                                     <small>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text">Unlikely</span>
-                                            </div>
-
-                                            <input type="range" name="{{conf_day_name}}" min="1" max="100" step="1" class="form-range">
-
-                                            <div class="input-group-append">
-                                                <span class="input-group-text">Very Likely</span>
-                                            </div>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Unlikely</span>
                                         </div>
-                                        
+                                    </small>
+                                </small>
+                            </center>
+                            <center>
+                                <div class="slidecontainer" class="flex-child 1">
+                                    <center>
+
+                                        <input type="range" name="{{conf_day_name}}" min="1" max="100" step="1" id="'inputId" class="form-range">
+                                    </center>
+                                    <center>
+                                        <input type="hidden" name="checkslider" value="" id="id_checkslider" />
+                                    </center>
                                 </div>
                             </center>
                             <small>
@@ -154,7 +169,7 @@
                 </div>
                 <center>
 
-
+                    {{ form.day_track.errors }}
                 </center>
                 </center>
         </div>
