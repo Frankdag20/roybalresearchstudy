@@ -306,6 +306,11 @@ class MyPage2_all(Page):
 
         return conf_array[self.player.day_track-1], 'checkslider',
 
+    def js_vars(self):
+        return dict(
+            conf_day_name = conf_array[self.player.day_track-1],
+        )
+
     def checkslider_error_message(self, value):
             if not value:
                 return 'Please make your decision using slider.'
