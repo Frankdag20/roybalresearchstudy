@@ -303,7 +303,9 @@ class MyPage_all(Page):
 class MyPage2_all(Page):
     form_model = 'player'
 
-    form_fields = [conf_array[self.player.day_track], 'checkslider']
+    def get_form_fields(self):
+
+        return [conf_array[self.player.day_track], 'checkslider']
 
 
     def vars_for_template(self):
