@@ -5,6 +5,7 @@
        {% block scripts %}
 
 <script>
+    let x = String(js_vars.conf_day_name);
     window.onload = function () {
         document.body.innerHTML = document.body.innerHTML.replace('conf_day_name', conf_day_name);
         document.body.innerHTML = document.body.innerHTML.replace('day_track', conf_day_name);
