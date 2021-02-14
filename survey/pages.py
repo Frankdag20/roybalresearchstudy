@@ -278,7 +278,7 @@ class MyPage_all(Page):
 
     def get_form_fields(self):
 
-        return affirm_array[self.player.day_track+1],
+        return affirm_array[self.player.day_track-1],
 
     def vars_for_template(self):
 
@@ -304,13 +304,13 @@ class MyPage2_all(Page):
 
     def get_form_fields(self):
 
-        return conf_array[self.player.day_track+1], 'checkslider',
+        return conf_array[self.player.day_track-1], 'checkslider',
 
 
     def vars_for_template(self):
         return dict(
-            tip = tip_array[self.player.day_track+1],
-            conf_day_name = conf_array[self.player.day_track+1],
+            tip = tip_array[self.player.day_track-1],
+            conf_day_name = conf_array[self.player.day_track-1],
         )
 
     def get_timeout_seconds(self):
@@ -333,9 +333,9 @@ class MyPage3_all(Page):
         self.player.seen_or_not = 1
 
         if health_message == False:
-            disp = health_pos_end[self.player.day_track+1]
+            disp = health_pos_end[self.player.day_track-1]
         if health_message == True:
-            disp = health_neg_end[self.player.day_track+1]
+            disp = health_neg_end[self.player.day_track-1]
 
         return dict(
             disp_health_message=disp,
@@ -343,7 +343,7 @@ class MyPage3_all(Page):
 
     def get_form_fields(self):
 
-        return mem_array[self.player.day_track+1],
+        return mem_array[self.player.day_track-1],
 
 
     def before_next_page(self):
@@ -364,7 +364,7 @@ class MyPage4_all(Page):
     form_model = 'player'
     def get_form_fields(self):
 
-        return mood_array[self.player.day_track+1],
+        return mood_array[self.player.day_track-1],
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -382,7 +382,7 @@ class MyPage5_all(Page):
 
     def get_form_fields(self):
 
-        return help_array[self.player.day_track+1],
+        return help_array[self.player.day_track-1],
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -407,7 +407,7 @@ class Wait_all(Page):
                    self.player.help_D36, self.player.help_D37, self.player.help_D38, self.player.help_D39, self.player.help_D40, self.player.help_D41, self.player.help_D42]
 
 
-        assist = self_help_array[self.player.day_track+1]
+        assist = self_help_array[self.player.day_track-1]
         if assist == True:
             send_email_help(self.player.id_in_group)
 
