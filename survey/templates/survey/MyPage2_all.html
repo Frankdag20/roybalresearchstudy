@@ -5,7 +5,7 @@
        {% block scripts %}
 
 <script>
-    document.body.innerHTML = document.body.innerHTML.replace('REPLACEFORHTML', $('conf_day_name'));
+    document.body.innerHTML = document.body.innerHTML.replace('REPLACEFORHTML', conf_day_name);
 
 
     String.prototype.replaceAt = function (index, replacement) {
@@ -16,12 +16,12 @@
         $('#id_checkslider').val(selector.val());
     });
 
-    $('input[name=<REPLACE>]'.replaceAt('<REPLACE>', $('conf_day_name'))).on('input', function () {
+    $('input[name=<REPLACE>]'.replaceAt('<REPLACE>', conf_day_name)).on('input', function () {
         $('#id_checkslider').val(1);
     });
 
 
-    document.querySelector('[name=<REPLACE>]'.replaceAt('<REPLACE>', $('conf_day_name'))).value = document.getElementById("inputId").value;
+    document.querySelector('[name=<REPLACE>]'.replaceAt('<REPLACE>', conf_day_name)).value = document.getElementById("inputId").value;
 
 </script>
 
@@ -161,7 +161,7 @@
                 </div>
                 <center>
 
-               
+                    {{ form.REPLACEFORHTML.errors }}
                 </center>
                 </center>
         </div>
