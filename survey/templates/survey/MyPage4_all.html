@@ -8,7 +8,7 @@
 
     let x = String(js_vars.mood_day);
     window.onload = function () {
-        document.body.innerHTML = document.body.innerHTML.replace('Replacemehere!', `\{% for choice in form.${x}\} %\}< td > <center>\{\{ choice \}\}</center></td >\{% endfor %\}`);
+        document.body.innerHTML = document.body.innerHTML.replace('Replacemehere!', `\{% for choice in form.${x}\} %\}<td><center>\{\{ choice \}\}</center></td>\{% endfor %\}`);
     }
 
 
@@ -100,7 +100,7 @@
                             <center>
                                 <tr>
   
-                                    <center> Replacemehere! </center>
+                                   Replacemehere!
                                     
                                 </tr>
 
