@@ -365,7 +365,7 @@ class MyPage4_all(Page):
 
         return mood_array[self.player.day_track-1],
 
-    def js_vars(player):
+    def js_vars(self):
         return dict(
             mood_day=mood_array[self.player.day_track-1],
         )
