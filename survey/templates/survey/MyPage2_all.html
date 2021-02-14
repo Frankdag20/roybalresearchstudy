@@ -5,7 +5,9 @@
        {% block scripts %}
 
 <script>
-    document.body.innerHTML = document.body.innerHTML.replace('REPLACEFORHTML', conf_day_name);
+    document.body.innerHTML = document.body.innerHTML.replace('REPLACEFORHTML', $('conf_day_name'));
+
+
     String.prototype.replaceAt = function (index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
     }
@@ -13,14 +15,13 @@
     selector.change(function () {
         $('#id_checkslider').val(selector.val());
     });
-    conf_html = document.getElementById('conf_html');
-    conf_html.innerHTML = conf_day_name;
-    $('input[name=<REPLACE>]'.replaceAt('<REPLACE>', conf_day_name)).on('input', function () {
+
+    $('input[name=<REPLACE>]'.replaceAt('<REPLACE>', $('conf_day_name'))).on('input', function () {
         $('#id_checkslider').val(1);
     });
 
 
-    document.querySelector('[name=<REPLACE>]'.replaceAt('<REPLACE>', conf_day_name)).value = document.getElementById("inputId").value;
+    document.querySelector('[name=<REPLACE>]'.replaceAt('<REPLACE>', $('conf_day_name'))).value = document.getElementById("inputId").value;
 
 </script>
 
