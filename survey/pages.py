@@ -348,10 +348,6 @@ class MyPage3_all(Page):
 
         return mem_array[self.player.day_track-1],
 
-
-    def before_next_page(self):
-        self.player.check_correct()
-
     def get_timeout_seconds(self):
         x = datetime.now()
         y = x.strftime("%H")

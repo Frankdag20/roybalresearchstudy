@@ -126,10 +126,9 @@ class Player(BasePlayer):
         label="Please spend 30 seconds visualizing that time in as much detail as possible, then press this button.",
         widget=widgets.RadioSelect)
 
-    conf_D2 = models.StringField(
-        choices=[["1", '1'], ["2", '2'], ["3", '3'], ["4", '4'], ["5", '5'], ["6", '6']],
-        label='How confident are you in carrying out the previous health tip on a scale from 1 to 6?',
-        widget=widgets.RadioSelectHorizontal)
+    conf_D2 = models.IntegerField(
+
+        label='Please choose your confidence level below.')
 
     mood_D2 = models.StringField(
         choices=[["1", 'Very Bad'], ["2", 'Bad'], ["3", 'So-so'], ["4", 'Good'],
