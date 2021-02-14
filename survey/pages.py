@@ -304,7 +304,7 @@ class MyPage2_all(Page):
 
     def get_form_fields(self):
 
-        return conf_array[self.player.day_track-1], 'checkslider',
+        return conf_array[self.player.day_track-1],
 
     def checkslider_error_message(self, value):
             if not value:
