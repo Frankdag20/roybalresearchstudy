@@ -8,7 +8,7 @@
 
     let x = String(js_vars.mood_day);
     window.onload = function () {
-        document.body.innerHTML = document.body.innerHTML.replace('Replacemehere!', `\{% for choice in form.${x}\}%\}<td><center>\{\{ choice \}\}</center></td>\{% endfor%\}`);
+        document.body.innerHTML = document.body.innerHTML.replace('mood_temp', x);
     }
 
 
@@ -67,6 +67,15 @@
 <br>
 <br>
 <zoomed>
+    <script>
+
+        let x = String(js_vars.mood_day);
+        window.onload = function () {
+            document.body.innerHTML = document.body.innerHTML.replace('mood_temp', x);
+        }
+
+
+    </script>
     <div class="card">
         <div class="card-header">
 
@@ -99,9 +108,11 @@
                         <tbody>
                             <center>
                                 <tr>
-  
-                                   Replacemehere!
-                                    
+
+                                    {% for choice in form.mood_temp %}
+                                    <td><center>{{  choice  }}</center></td>
+                                    {% endfor %}
+
                                 </tr>
 
                             </center>

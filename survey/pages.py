@@ -304,7 +304,7 @@ class MyPage2_all(Page):
 
     def get_form_fields(self):
 
-        return conf_array[self.player.day_track-1], 'checkslider',
+        return conf_array[self.player.day_track-1]
 
     def js_vars(self):
         return dict(
@@ -368,7 +368,7 @@ class MyPage4_all(Page):
     form_model = 'player'
     def get_form_fields(self):
 
-        return mood_array[self.player.day_track-1],
+        return mood_array[self.player.day_track-1], 'mood_temp',
 
     def js_vars(self):
         return dict(

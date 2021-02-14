@@ -78,6 +78,7 @@ class Player(BasePlayer):
 
     day_track = models.IntegerField(initial=1)
 
+    mood_temp = models.StringField(blank=True)
 
     track = models.IntegerField()
 
