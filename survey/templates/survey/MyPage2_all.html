@@ -10,10 +10,6 @@
         document.body.innerHTML = document.body.innerHTML.replace('day_track', conf_day_name);
     }
    
-    var selector = $('[data-slider] input[type="range"]');
-    selector.change(function () {
-        $('#id_checkslider').val(selector.val());
-    });
 
     String.prototype.replaceAt = function (index, replacement) {
         return this.substr(0, index) + replacement + this.substr(index + replacement.length);
@@ -161,7 +157,7 @@
                 </div>
                 <center>
 
-                    {{ form.day_track.errors }}
+
                 </center>
                 </center>
         </div>
