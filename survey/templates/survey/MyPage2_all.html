@@ -7,8 +7,7 @@
 <script>
     let x = String(js_vars.conf_day_name);
     window.onload = function () {
-        document.body.innerHTML = document.body.innerHTML.replace('conf_day_name', conf_day_name);
-        document.body.innerHTML = document.body.innerHTML.replace('day_track', conf_day_name);
+        document.body.innerHTML = document.body.innerHTML.replace('conf_day_name', x);
     }
 
     var selector = $('[data-slider] input[type="range"]');
@@ -24,12 +23,12 @@
         $('#id_checkslider').val(selector.val());
     });
 
-    $('input[name=conf_day_name]').on('input', function () {
+    $(`input[name=${x}]`).on('input', function () {
         $('#id_checkslider').val(1);
     });
 
     console.log(conf_day_name);
-    document.querySelector('[name=<REPLACE>]'.replaceAt('<REPLACE>', conf_day_name)).value = document.getElementById("inputId").value;
+    document.querySelector(`[name=${x}]`).value = document.getElementById("inputId").value;
 
 </script>
 
