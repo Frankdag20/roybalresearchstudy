@@ -1662,7 +1662,7 @@ class Wait_D7(Page):
 
 class MyPage6_D1(Page):
     form_model = 'player'
-    form_fields = [page5[0]]
+    #form_fields = [page5[0]]
 
     # Only show to P2
     #def is_displayed(self):
