@@ -43,13 +43,6 @@ class Player(BasePlayer):
         if not value:
             return 'Please make your decision using the slider.'
 
-    question_id = models.IntegerField()
-    seen = models.IntegerField()
-    question = models.StringField()
-    solution = models.StringField()
-    submitted_answer = models.StringField(widget=widgets.RadioSelect)
-    is_correct = models.StringField()
-
     val_label = models.StringField()
     affirm_question = models.StringField()
 
@@ -83,7 +76,7 @@ class Player(BasePlayer):
 
     daysurv = models.IntegerField(initial=1)
 
-    day_track = models.IntegerField(initial=0)
+    day_track = models.IntegerField(initial=1)
 
 
     track = models.IntegerField()
