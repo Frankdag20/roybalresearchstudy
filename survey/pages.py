@@ -149,9 +149,9 @@ def fix_time(y):
 
 def send_email(participant):
 
-    FROM = "fdagostinoj@gmail.com"
+    FROM = "dashstudy2021@gmail.com"
 
-    TO = ["frankdag20@gmail.com"]  # must be a list
+    TO = ["frankdag20@gmail.com"]   # must be a list
 
     SUBJECT = "Hello!"
     TEXT = f"Hello, This is an automatic email notifying you that Participant {participant} has not yet filled out the survey for today."
@@ -161,9 +161,9 @@ def send_email(participant):
     %s
      """ % (f"DASH: Participant {participant} has not filled out survey.", TEXT)
 
-    # Send the mail
-    username = str("fdagostinoj@gmail.com")
-    password = str("Dagostino1?")
+   # Send the mail
+    username = str("dashstudy2021@gmail.com")
+    password = str("bhFw3mL$mR")
 
     server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
     server.set_debuglevel(1)
