@@ -212,7 +212,7 @@ def send_email_help(participant):
 def check_notif_time(y, self):
 
     # Should be 12 and 14
-    if int(y) > 0 and int(y) < 5:
+    if int(y) > 23 or int(y) < 5:
         import smtplib
         send_email(self.player.id_in_group)
 
@@ -227,7 +227,7 @@ class PreTrial(Page):
         # Datetime is 4 hours ahead of EDT
         # Should be 29
 
-        self.participant.vars['expiry'] = int("23")#int("29")
+        self.participant.vars['expiry'] = int("24")#int("29")
         print(self.participant.vars['expiry'])
 
 class Start(Page):
@@ -252,7 +252,7 @@ class Intro_all(Page):
         check_notif_time(y, self)
 
         # Should be 14 and 16
-        if int(y) > 0 and int(y) < 5:
+        if int(y) > 23 or int(y) < 5:
             check_notif_time(y, self)
             return 0
         else:
@@ -260,7 +260,7 @@ class Intro_all(Page):
 
     def before_next_page(self):
         # Should be 29
-        self.participant.vars['expiry'] = int("29")
+        self.participant.vars['expiry'] = int("24")#int("29")
         
         time_array = [self.player.time_begin_D1, self.player.time_begin_D2, self.player.time_begin_D3, self.player.time_begin_D4, self.player.time_begin_D5, self.player.time_begin_D6, self.player.time_begin_D7, self.player.time_begin_D8, self.player.time_begin_D9, self.player.time_begin_D10, self.player.time_begin_D11, self.player.time_begin_D12, self.player.time_begin_D13,
                    self.player.time_begin_D14, self.player.time_begin_D15, self.player.time_begin_D16, self.player.time_begin_D17, self.player.time_begin_D18, self.player.time_begin_D19, self.player.time_begin_D20, self.player.time_begin_D21, self.player.time_begin_D22, self.player.time_begin_D23, self.player.time_begin_D24, self.player.time_begin_D25,self.player.time_begin_D26,
@@ -275,7 +275,7 @@ class Intro_all(Page):
         y = fix_time(y)
         check_notif_time(y, self)
         # Should be 14 and 16
-        if int(y) > 0 and int(y) < 5:
+        if int(y) > 23 or int(y) < 5:
             import smtplib
             send_email(self.player.id_in_group)
 
@@ -287,7 +287,7 @@ class Intro_all(Page):
         check_notif_time(y, self)
 
         # Should be 14 and 16
-        if int(y) > 0 and int(y) < 5:
+        if int(y) > 23 or int(y) < 5:
             return False
         else:
             return self.get_timeout_seconds() != 0
@@ -1746,6 +1746,51 @@ class Results(Page):
     # Intro_D4, MyPage_D4, MyPage2_D4, MyPage3_D4, MyPage4_D4, MyPage5_D4, Wait_D4,
     # Intro_D5, MyPage_D5, MyPage2_D5, MyPage3_D5, MyPage4_D5, MyPage5_D5, Wait_D5,
     # Intro_D6, MyPage_D6, MyPage2_D6, MyPage3_D6, MyPage4_D6, MyPage5_D6, Wait_D6,
-page_sequence = [PreTrial, Start, Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all]
-                 #Start, Intro_D1, MyPage_D1, MyPage3_D1, MyPage2_D1, MyPage4_D1, MyPage5_D1, Wait_D1
+
+        #Start, Intro_D1, MyPage_D1, MyPage3_D1, MyPage2_D1, MyPage4_D1, MyPage5_D1, Wait_D1
                 # ]
+
+page_sequence = [PreTrial, Start, Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all,
+                 Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all
+                 ]
+             
