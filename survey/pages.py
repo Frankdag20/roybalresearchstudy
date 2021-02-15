@@ -229,7 +229,7 @@ class PreTrial(Page):
         # Datetime is 4 hours ahead of EDT
         # Should be 29
 
-        self.participant.vars['expiry'] = int("29")
+        self.participant.vars['expiry'] = int("23")#int("29")
         print(self.participant.vars['expiry'])
 
 class Start(Page):
@@ -253,7 +253,8 @@ class Intro_all(Page):
         y = fix_time(y)
         check_notif_time(y)
 
-        if int(y) > 14 and int(y) < 16:
+        # Should be 14 and 16
+        if int(y) > 20 and int(y) < 23:
             check_notif_time(y)
             return 0
         else:
@@ -276,7 +277,8 @@ class Intro_all(Page):
 
         y = fix_time(y)
         check_notif_time(y)
-        if int(y) > 14 and int(y) < 16:
+        # Should be 14 and 16
+        if int(y) > 20 and int(y) < 23:
             import smtplib
             send_email(self.player.id_in_group)
 
@@ -287,7 +289,8 @@ class Intro_all(Page):
         y = fix_time(y)
         check_notif_time(y)
 
-        if int(y) > 14 and int(y) < 16:
+        # Should be 14 and 16
+        if int(y) > 20 and int(y) < 23:
             return False
         else:
             return self.get_timeout_seconds() != 0
