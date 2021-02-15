@@ -209,7 +209,7 @@ def send_email_help(participant):
     finally:
         server.quit()
 
-def check_notif_time(y):
+def check_notif_time(y, self):
 
     # Should be 12 and 14
     if int(y) > 0 and int(y) < 5:
@@ -284,7 +284,7 @@ class Intro_all(Page):
         y = x.strftime("%H")
 
         y = fix_time(y)
-        check_notif_time(y)
+        check_notif_time(y, self)
 
         # Should be 14 and 16
         if int(y) > 0 and int(y) < 5:
@@ -312,7 +312,7 @@ class MyPage_all(Page):
         y = x.strftime("%H")
 
         y = fix_time(y)
-        check_notif_time(y)
+        check_notif_time(y, self)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
@@ -344,7 +344,7 @@ class MyPage2_all(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
-        check_notif_time(y)
+        check_notif_time(y, self)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -376,7 +376,7 @@ class MyPage3_all(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
-        check_notif_time(y)
+        check_notif_time(y, self)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -403,7 +403,7 @@ class MyPage4_all(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
-        check_notif_time(y)
+        check_notif_time(y, self)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -422,7 +422,7 @@ class MyPage4_5_all(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
-        check_notif_time(y)
+        check_notif_time(y, self)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -443,7 +443,7 @@ class MyPage5_all(Page):
         x = datetime.now()
         y = x.strftime("%H")
 
-        check_notif_time(y)
+        check_notif_time(y, self)
         y = fix_time(y)
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
@@ -496,7 +496,7 @@ class Intro_D1(Page):
         y = x.strftime("%H")
 
         y = fix_time(y)
-        check_notif_time(y)
+        check_notif_time(y, self)
 
         return (self.participant.vars['expiry'] - int(y)-8) * 3600
 
