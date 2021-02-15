@@ -254,9 +254,9 @@ class Intro_all(Page):
         # Should be 14 and 16
         if int(y) > 23 or int(y) < 5:
             check_notif_time(y, self)
-            return 0
+            #return 0
         else:
-            return (self.participant.vars['expiry'] - int(y)-8) * 3600
+            return (self.participant.vars['expiry'] - int(y)-8) * 10#3600
 
     def before_next_page(self):
         # Should be 29
@@ -313,7 +313,7 @@ class MyPage_all(Page):
 
         y = fix_time(y)
         check_notif_time(y, self)
-        return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 10#3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -346,7 +346,7 @@ class MyPage2_all(Page):
 
         check_notif_time(y, self)
         y = fix_time(y)
-        return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 10#3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -378,7 +378,7 @@ class MyPage3_all(Page):
 
         check_notif_time(y, self)
         y = fix_time(y)
-        return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 10#3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -405,7 +405,7 @@ class MyPage4_all(Page):
 
         check_notif_time(y, self)
         y = fix_time(y)
-        return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 10#3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -424,7 +424,7 @@ class MyPage4_5_all(Page):
 
         check_notif_time(y, self)
         y = fix_time(y)
-        return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 10#3600
 
     def is_displayed(self):
         if ((self.player.day_track >= 1 and self.player.day_track <= 7) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
@@ -445,7 +445,7 @@ class MyPage5_all(Page):
 
         check_notif_time(y, self)
         y = fix_time(y)
-        return (self.participant.vars['expiry'] - int(y)) * 3600
+        return (self.participant.vars['expiry'] - int(y)) * 10#3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
@@ -471,7 +471,7 @@ class Wait_all(Page):
         self.player.day_track = self.player.day_track + 1
 
         # Datetime is 4 hours ahead of EDT
-        self.participant.vars['expiry'] = int("28")
+        self.participant.vars['expiry'] = int("29")#int("28")
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -480,7 +480,7 @@ class Wait_all(Page):
 
         y = fix_time(y)
 
-        return (self.participant.vars['expiry'] - int(y) + 1) * 3600
+        return (self.participant.vars['expiry'] - int(y) + 2) * 10#3600
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
