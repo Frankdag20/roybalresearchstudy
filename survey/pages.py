@@ -258,8 +258,14 @@ class Intro_all(Page):
     def before_next_page(self):
         self.participant.vars['expiry'] = int("29")
 
-        track_day = self.player.daysurv
-        self.player.time_begin_d1 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+        
+        time_array = [self.player.time_begin_D1, self.player.time_begin_D2, self.player.time_begin_D3, self.player.time_begin_D4, self.player.time_begin_D5, self.player.time_begin_D6, self.player.time_begin_D7, self.player.time_begin_D8, self.player.time_begin_D9, self.player.time_begin_D10, self.player.time_begin_D11, self.player.time_begin_D12, self.player.time_begin_D13,
+                   self.player.time_begin_D14, self.player.time_begin_D15, self.player.time_begin_D16, self.player.time_begin_D17, self.player.time_begin_D18, self.player.time_begin_D19, self.player.time_begin_D20, self.player.time_begin_D21, self.player.time_begin_D22, self.player.time_begin_D23, self.player.time_begin_D24, self.player.time_begin_D25,self.player.time_begin_D26,
+                   self.player.time_begin_D27, self.player.time_begin_D28, self.player.time_begin_D29, self.player.time_begin_D30, self.player.time_begin_D31, self.player.time_begin_D32, self.player.time_begin_D33, self.player.time_begin_D34, self.player.time_begin_D35,
+                   self.player.time_begin_D36, self.player.time_begin_D37, self.player.time_begin_D38, self.player.time_begin_D39, self.player.time_begin_D40, self.player.time_begin_D41, self.player.time_begin_D42]
+
+        time_array[self.player.day_track-1] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         x = datetime.now()
         y = x.strftime("%H")
