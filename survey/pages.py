@@ -304,7 +304,7 @@ class MyPage2_all(Page):
 
     def get_form_fields(self):
 
-        return conf_array[self.player.day_track-1]
+        return conf_array[self.player.day_track-1],
 
     def js_vars(self):
         return dict(
