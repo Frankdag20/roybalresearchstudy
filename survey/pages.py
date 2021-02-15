@@ -253,7 +253,11 @@ class Intro_all(Page):
         y = fix_time(y)
         check_notif_time(y)
 
-        return (self.participant.vars['expiry'] - int(y)-8) * 3600
+        if int(y) > 14 and int(y) < 16:
+            check_notif_time(y)
+            return 0
+        else:
+            return (self.participant.vars['expiry'] - int(y)-8) * 3600
 
     def before_next_page(self):
         self.participant.vars['expiry'] = int("29")
@@ -277,8 +281,16 @@ class Intro_all(Page):
             send_email(self.player.id_in_group)
 
     def is_displayed(self):
+        x = datetime.now()
+        y = x.strftime("%H")
 
-        return self.get_timeout_seconds() != 0
+        y = fix_time(y)
+        check_notif_time(y)
+
+        if int(y) > 14 and int(y) < 16:
+            return False
+        else:
+            return self.get_timeout_seconds() != 0
 
 class MyPage_all(Page):
     form_model = 'player'
