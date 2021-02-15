@@ -123,7 +123,8 @@ tip_array = ['Walk to music with a beat to improve your walking speed and rhythm
 'Marching in place or taking laps around your home can feel silly, but it is healthy. Have fun with it.',
 'If you have access to stairs, try walking up and down them for no reason every once in a while.']
 
-
+accel_array = ['accel_D1', 'accel_D2', 'accel_D3', 'accel_D4', 'accel_D5', 'accel_D6', 'accel_D7', 'accel_D8', 'accel_D9', 'accel_D10', 'accel_D11', 'accel_D12', 'accel_D13', 'accel_D14', 'accel_D15', 'accel_D16', 'accel_D17', 'accel_D18', 'accel_D19', 'accel_D20', 'accel_D21', 
+               'accel_D22', 'accel_D23', 'accel_D24', 'accel_D25', 'accel_D26', 'accel_D27', 'accel_D28', 'accel_D29', 'accel_D30', 'accel_D31', 'accel_D32', 'accel_D33', 'accel_D34', 'accel_D35', 'accel_D36', 'accel_D37', 'accel_D38', 'accel_D39', 'accel_D40', 'accel_D41', 'accel_D42']
 
 def fix_time(y):
     if int(y) == 0:
@@ -391,6 +392,28 @@ class MyPage4_all(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
 
+class MyPage4_5_all(Page):
+    form_model = 'player'
+
+    def get_form_fields(self):
+
+        if ((self.player_day_track-1 >= 1 and self.player_day_track-1 <= 14) or (self.player_day_track-1 >= 15 and self.player_day_track-1 <= 21) or (self.player_day_track-1 >= 36 and self.player_day_track-1 <= 42) ):
+            return mem_array[self.player.day_track-1],
+
+    def get_timeout_seconds(self):
+        x = datetime.now()
+        y = x.strftime("%H")
+
+        check_notif_time(y)
+        y = fix_time(y)
+        return (self.participant.vars['expiry'] - int(y)) * 3600
+
+    def is_displayed(self):
+        if ((self.player_day_track-1 >= 1 and self.player_day_track-1 <= 14) or (self.player_day_track-1 >= 15 and self.player_day_track-1 <= 21) or (self.player_day_track-1 >= 36 and self.player_day_track-1 <= 42) ):
+            return self.get_timeout_seconds() != 0
+        else:
+            return False
+
 class MyPage5_all(Page):
     form_model = 'player'
 
@@ -408,6 +431,11 @@ class MyPage5_all(Page):
 
     def is_displayed(self):
         return self.get_timeout_seconds() != 0
+
+    def before_next_page(self):
+        assist = self.player.help_array[self.player.day_track-1]
+        if assist == True:
+            send_email_help(self.player.id_in_group)
 
 class Wait_all(Page):
     form_model = 'player'
@@ -1706,6 +1734,6 @@ class Results(Page):
     # Intro_D4, MyPage_D4, MyPage2_D4, MyPage3_D4, MyPage4_D4, MyPage5_D4, Wait_D4,
     # Intro_D5, MyPage_D5, MyPage2_D5, MyPage3_D5, MyPage4_D5, MyPage5_D5, Wait_D5,
     # Intro_D6, MyPage_D6, MyPage2_D6, MyPage3_D6, MyPage4_D6, MyPage5_D6, Wait_D6,
-page_sequence = [PreTrial, Start, Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage5_all, Wait_all]
+page_sequence = [PreTrial, Start, Intro_all, MyPage_all, MyPage2_all, MyPage3_all, MyPage4_all, MyPage4_5_all, MyPage5_all, Wait_all]
                  #Start, Intro_D1, MyPage_D1, MyPage3_D1, MyPage2_D1, MyPage4_D1, MyPage5_D1, Wait_D1
                 # ]
