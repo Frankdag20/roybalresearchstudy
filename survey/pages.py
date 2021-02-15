@@ -397,7 +397,7 @@ class MyPage4_5_all(Page):
 
     def get_form_fields(self):
 
-        if ((self.player.day_track-1 >= 1 and self.player.day_track-1 <= 14) or (self.player.day_track-1 >= 15 and self.player.day_track-1 <= 21) or (self.player.day_track-1 >= 36 and self.player.day_track-1 <= 42) ):
+        if ((self.player.day_track >= 1 and self.player.day_track <= 14) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
             return mem_array[self.player.day_track-1],
 
     def get_timeout_seconds(self):
@@ -409,7 +409,7 @@ class MyPage4_5_all(Page):
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
-        if ((self.player.day_track-1 >= 1 and self.player.day_track-1 <= 14) or (self.player.day_track-1 >= 15 and self.player.day_track-1 <= 21) or (self.player.day_track-1 >= 36 and self.player.day_track-1 <= 42) ):
+        if ((self.player.day_track >= 1 and self.player.day_track <= 14) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
             return self.get_timeout_seconds() != 0
         else:
             return False
@@ -433,25 +433,19 @@ class MyPage5_all(Page):
         return self.get_timeout_seconds() != 0
 
     def before_next_page(self):
-        assist = self.player.help_array[self.player.day_track-1]
-        if assist == True:
-            send_email_help(self.player.id_in_group)
-
-class Wait_all(Page):
-    form_model = 'player'
-
-
-    def vars_for_template(self):
 
         self_help_array = [self.player.help_D1, self.player.help_D2, self.player.help_D3, self.player.help_D4, self.player.help_D5, self.player.help_D6, self.player.help_D7, self.player.help_D8, self.player.help_D9, self.player.help_D10, self.player.help_D11, self.player.help_D12, self.player.help_D13,
                    self.player.help_D14, self.player.help_D15, self.player.help_D16, self.player.help_D17, self.player.help_D18, self.player.help_D19, self.player.help_D20, self.player.help_D21, self.player.help_D22, self.player.help_D23, self.player.help_D24, self.player.help_D25,self.player.help_D26,
                    self.player.help_D27, self.player.help_D28, self.player.help_D29, self.player.help_D30, self.player.help_D31, self.player.help_D32, self.player.help_D33, self.player.help_D34, self.player.help_D35,
                    self.player.help_D36, self.player.help_D37, self.player.help_D38, self.player.help_D39, self.player.help_D40, self.player.help_D41, self.player.help_D42]
 
-
         assist = self_help_array[self.player.day_track-1]
+
         if assist == True:
             send_email_help(self.player.id_in_group)
+
+class Wait_all(Page):
+    form_model = 'player'
 
     def before_next_page(self):
         from datetime import datetime
