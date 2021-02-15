@@ -267,8 +267,113 @@ class Intro_all(Page):
                    self.player.time_begin_D27, self.player.time_begin_D28, self.player.time_begin_D29, self.player.time_begin_D30, self.player.time_begin_D31, self.player.time_begin_D32, self.player.time_begin_D33, self.player.time_begin_D34, self.player.time_begin_D35,
                    self.player.time_begin_D36, self.player.time_begin_D37, self.player.time_begin_D38, self.player.time_begin_D39, self.player.time_begin_D40, self.player.time_begin_D41, self.player.time_begin_D42]
 
-        for k in time_array[self.player.day_track-1]:
-            k = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        x = self.player.day_track - 1
+        if x <= 14:
+            if x <= 7:
+                if x <= 4:
+                    if x == 1:
+                        self.player.time_begin_D1 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 2:
+                        self.player.time_begin_D2 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 3:
+                        self.player.time_begin_D3 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D4 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                else:
+                    if x == 5:
+                        self.player.time_begin_D5 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 6:
+                        self.player.time_begin_D6 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D7 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            else:
+                if x <= 11:
+                    if x == 8:
+                        self.player.time_begin_D8 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 9:
+                        self.player.time_begin_D9 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 10:
+                        self.player.time_begin_D10 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D11 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                else:
+                    if x == 12:
+                        self.player.time_begin_D12 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 13:
+                        self.player.time_begin_D13 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D14 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+        elif x <= 28:
+            if x <= 21:
+                if x <= 18:
+                    if x == 16:
+                        self.player.time_begin_D16 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 17:
+                        self.player.time_begin_D17 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 18:
+                        self.player.time_begin_D18 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D19 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                else:
+                    if x == 20:
+                        self.player.time_begin_D20 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D21 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            else:
+                if x <= 25:
+                    if x == 22:
+                        self.player.time_begin_D22 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 23:
+                        self.player.time_begin_D23 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 24:
+                        self.player.time_begin_D24 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D25 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                else:
+                    if x == 26:
+                        self.player.time_begin_D26 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 27:
+                        self.player.time_begin_D27 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D28 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
+        else:
+            if x <= 35:
+                if x <= 32:
+                    if x == 29:
+                        self.player.time_begin_D29 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 30:
+                        self.player.time_begin_D30 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 31:
+                        self.player.time_begin_D31 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D32 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                else:
+                    if x == 33:
+                        self.player.time_begin_D33 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 34:
+                        self.player.time_begin_D34 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D35 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+            else:
+                if x <= 39:
+                    if x == 36:
+                        self.player.time_begin_D36 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 37:
+                        self.player.time_begin_D37 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 38:
+                        self.player.time_begin_D38 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D39 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                else:
+                    if x == 40:
+                        self.player.time_begin_40  = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    elif x == 41:
+                        self.player.time_begin_D41 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+                    else:
+                        self.player.time_begin_D42 = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+
 
         x = datetime.now()
         y = x.strftime("%H")
