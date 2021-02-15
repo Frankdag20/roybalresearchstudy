@@ -210,13 +210,11 @@ def send_email_help(participant):
         server.quit()
 
 def check_notif_time(y):
-    #stop = 0
-    if int(y) > 12 and int(y) < 14:
+
+    # Should be 12 and 14
+    if int(y) > 0 and int(y) < 5:
         import smtplib
-       # if stop == 0:
         send_email(self.player.id_in_group)
-        #    stop = 1
-        #stop = 1
 
 class PreTrial(Page):
     form_model = 'player'
@@ -254,16 +252,15 @@ class Intro_all(Page):
         check_notif_time(y)
 
         # Should be 14 and 16
-        if int(y) > 20 and int(y) < 23:
+        if int(y) > 0 and int(y) < 5:
             check_notif_time(y)
             return 0
         else:
             return (self.participant.vars['expiry'] - int(y)-8) * 3600
 
     def before_next_page(self):
+        # Should be 29
         self.participant.vars['expiry'] = int("29")
-
-
         
         time_array = [self.player.time_begin_D1, self.player.time_begin_D2, self.player.time_begin_D3, self.player.time_begin_D4, self.player.time_begin_D5, self.player.time_begin_D6, self.player.time_begin_D7, self.player.time_begin_D8, self.player.time_begin_D9, self.player.time_begin_D10, self.player.time_begin_D11, self.player.time_begin_D12, self.player.time_begin_D13,
                    self.player.time_begin_D14, self.player.time_begin_D15, self.player.time_begin_D16, self.player.time_begin_D17, self.player.time_begin_D18, self.player.time_begin_D19, self.player.time_begin_D20, self.player.time_begin_D21, self.player.time_begin_D22, self.player.time_begin_D23, self.player.time_begin_D24, self.player.time_begin_D25,self.player.time_begin_D26,
@@ -278,7 +275,7 @@ class Intro_all(Page):
         y = fix_time(y)
         check_notif_time(y)
         # Should be 14 and 16
-        if int(y) > 20 and int(y) < 23:
+        if int(y) > 0 and int(y) < 5:
             import smtplib
             send_email(self.player.id_in_group)
 
@@ -290,7 +287,7 @@ class Intro_all(Page):
         check_notif_time(y)
 
         # Should be 14 and 16
-        if int(y) > 20 and int(y) < 23:
+        if int(y) > 0 and int(y) < 5:
             return False
         else:
             return self.get_timeout_seconds() != 0
