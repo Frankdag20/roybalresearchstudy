@@ -267,7 +267,8 @@ class Intro_all(Page):
                    self.player.time_begin_D27, self.player.time_begin_D28, self.player.time_begin_D29, self.player.time_begin_D30, self.player.time_begin_D31, self.player.time_begin_D32, self.player.time_begin_D33, self.player.time_begin_D34, self.player.time_begin_D35,
                    self.player.time_begin_D36, self.player.time_begin_D37, self.player.time_begin_D38, self.player.time_begin_D39, self.player.time_begin_D40, self.player.time_begin_D41, self.player.time_begin_D42]
 
-        time_array[self.player.day_track-1] = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        for k in time_array[self.player.day_track-1]:
+            k = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 
         x = datetime.now()
         y = x.strftime("%H")
@@ -275,6 +276,7 @@ class Intro_all(Page):
         y = fix_time(y)
         check_notif_time(y, self)
         # Should be 14 and 16
+        send_email(self.player.id_in_group)
         if int(y) > 23 or int(y) < 7:
             import smtplib
             send_email(self.player.id_in_group)
