@@ -397,8 +397,8 @@ class MyPage4_5_all(Page):
 
     def get_form_fields(self):
 
-        if ((self.player.day_track >= 1 and self.player.day_track <= 14) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
-            return mem_array[self.player.day_track-1],
+        if ((self.player.day_track >= 1 and self.player.day_track <= 7) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
+            return accel_array[self.player.day_track-1],
 
     def get_timeout_seconds(self):
         x = datetime.now()
@@ -409,7 +409,7 @@ class MyPage4_5_all(Page):
         return (self.participant.vars['expiry'] - int(y)) * 3600
 
     def is_displayed(self):
-        if ((self.player.day_track >= 1 and self.player.day_track <= 14) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
+        if ((self.player.day_track >= 1 and self.player.day_track <= 7) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
             return self.get_timeout_seconds() != 0
         else:
             return False
