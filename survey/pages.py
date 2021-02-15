@@ -253,7 +253,7 @@ class Intro_all(Page):
 
         # Should be 14 and 16
         if int(y) > 0 and int(y) < 5:
-            check_notif_time(y)
+            check_notif_time(y, self)
             return 0
         else:
             return (self.participant.vars['expiry'] - int(y)-8) * 3600
@@ -273,7 +273,7 @@ class Intro_all(Page):
         y = x.strftime("%H")
 
         y = fix_time(y)
-        check_notif_time(y)
+        check_notif_time(y, self)
         # Should be 14 and 16
         if int(y) > 0 and int(y) < 5:
             import smtplib
