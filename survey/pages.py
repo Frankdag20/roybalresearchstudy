@@ -522,7 +522,7 @@ class MyPage4_5_all(Page):
 
     def get_form_fields(self):
 
-        if ((self.player.day_track >= 1 and self.player.day_track <= 7) or (self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
+        if ((self.player.day_track >= 15 and self.player.day_track <= 21) or (self.player.day_track >= 36 and self.player.day_track <= 42) ):
             return accel_array[self.player.day_track-1],
 
     def get_timeout_seconds(self):
