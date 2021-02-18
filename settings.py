@@ -5,7 +5,7 @@ SESSION_CONFIGS = [
 
     dict(
         name='survey',
-        num_demo_participants=100,
+        num_demo_participants=140,
         app_sequence=['survey'],
     ),
 ]
@@ -32,17 +32,17 @@ USE_POINTS = True
 ROOMS = [
     dict(
         name='roybal',
-        display_name='Research Study',
+        display_name='DASH Research Study',
         participant_label_file='participantList.txt',
         use_secure_urls=True
     )
 ]
 
-ADMIN_USERNAME = 'admin'
+ADMIN_USERNAME = 'dash'
 # for security, best to set admin password in an environment variable
 
-ADMIN_PASSWORD = '123'
-#ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+#ADMIN_PASSWORD = '123'
+ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 
 
 DEMO_PAGE_INTRO_HTML = """

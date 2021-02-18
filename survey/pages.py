@@ -151,7 +151,7 @@ def send_email(participant):
 
     FROM = "dashstudy2021@gmail.com"
 
-    TO = ["frankdag20@gmail.com"]   # must be a list
+    TO = ["frankdag20@gmail.com", "c.ordway@northeastern.edu", "coraeordway@gmail.com", "ai.me@northeastern.edu"]   # must be a list
 
     SUBJECT = "Hello!"
     TEXT = f"Hello, This is an automatic email notifying you that Participant {participant} has not yet filled out the survey for today."
@@ -163,7 +163,7 @@ def send_email(participant):
 
    # Send the mail
     username = str("dashstudy2021@gmail.com")
-    password = str("bhFw3mL$mR")
+    password = environ.get('OTREE_EMAIL_PASSWORD')
 
     server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
     server.set_debuglevel(1)
@@ -182,7 +182,7 @@ def send_email_help(participant):
 
     FROM = "dashstudy2021@gmail.com"
 
-    TO = ["frankdag20@gmail.com"]  # must be a list
+    TO = ["frankdag20@gmail.com", "c.ordway@northeastern.edu", "coraeordway@gmail.com", "ai.me@northeastern.edu"]  # must be a list
 
     SUBJECT = "Hello!"
     TEXT = f"Hello, Participant {participant} has requested that someone reach out to them for assistance."
@@ -194,7 +194,7 @@ def send_email_help(participant):
 
     # Send the mail
     username = str("dashstudy2021@gmail.com")
-    password = str("bhFw3mL$mR")
+    password = environ.get('OTREE_EMAIL_PASSWORD')
 
     server = smtplib.SMTP("smtp.gmail.com", 587, timeout=30)
     server.set_debuglevel(1)
@@ -380,7 +380,7 @@ class Intro_all(Page):
         y = fix_time(y)
         check_notif_time(y, self)
         # Should be 14 and 16
-        send_email(self.player.id_in_group)
+        
         if int(y) > 19 and int(y) < 23:
             import smtplib
             send_email(self.player.id_in_group)

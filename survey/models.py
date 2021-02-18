@@ -8,7 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
-
+from os import environ
 import survey.sendEmail
 import csv
 from datetime import datetime
@@ -88,8 +88,8 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal)
 
     affirmVal = models.StringField(
-        label='Please choose what value this participant deems most important to them.',
-        widget=widgets.RadioSelectHorizontal, choices=[['family and friends', 'family and friends'], ['humor', 'humor'], ['spontaneity', 'spontaneity'], ['money', 'money'], ['religion', 'religion'], ['health', 'health'],  ['politics', 'politics'], ['independence', 'independence'], ['creativity', 'creativity']])
+        label='Please choose the value that has been assigned to this participant.',
+        widget=widgets.RadioSelectHorizontal, choices=[['family and friends', 'family and friends'], ['humor', 'humor'], ['spontaneity', 'spontaneity'], ['money', 'money'], ['religion', 'religion'], ['politics', 'politics'], ['independence', 'independence'], ['creativity', 'creativity']])
 
     ####################################################################33
 
