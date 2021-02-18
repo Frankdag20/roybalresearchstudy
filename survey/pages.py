@@ -9,6 +9,7 @@ import time
 import calendar
 import smtplib
 from email.mime.text import MIMEText
+from os import environ
 from email.mime.multipart import MIMEMultipart
 
 affirm_array = ['affirm_D1', 'affirm_D2', 'affirm_D3', 'affirm_D4', 'affirm_D5', 'affirm_D6', 'affirm_D7', 'affirm_D8', 'affirm_D9', 'affirm_D10', 'affirm_D11', 'affirm_D12', 'affirm_D13', 'affirm_D14', 'affirm_D15', 'affirm_D16', 'affirm_D17', 'affirm_D18', 'affirm_D19', 'affirm_D20', 'affirm_D21',
