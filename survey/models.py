@@ -14,6 +14,9 @@ import csv
 from datetime import datetime
 import time
 import calendar
+from centrepointwrapper.connect import CentrePoint
+
+cpV3 = CentrePoint()
 
 author = 'Frank DAgostino'
 
